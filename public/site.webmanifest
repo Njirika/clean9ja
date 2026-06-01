@@ -1,0 +1,12 @@
+{
+  "name": "CleanNaija — Professional Cleaning Services",
+  "short_name": "CleanNaija",
+  "description": "Professional cleaning services across all 36 states and the FCT. Spotless. Guaranteed. Nationwide.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1B5E20",
+  "icons": [
+    { "src": "/images/logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

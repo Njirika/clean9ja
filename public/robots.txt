@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Private / non-indexable areas
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /auth
+Disallow: /cleaner-portal
+
+Sitemap: https://cleannaija.com/sitemap.xml
