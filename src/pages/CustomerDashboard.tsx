@@ -155,7 +155,7 @@ export function CustomerDashboard() {
       {/* Mobile header */}
       <header className="sticky top-0 z-40 bg-primary text-white py-4 px-6 flex justify-between items-center shadow-lg lg:hidden">
         <Link to="/" className="flex items-center">
-          <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-6 w-auto object-contain" />
+          <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-6 w-auto object-contain" />
         </Link>
         <div className="flex items-center space-x-3 bg-[#144718] px-3 py-1.5 rounded-full border border-white/10">
           <div className="w-2 h-2 rounded-full bg-accent-gold animate-pulse"></div>
@@ -188,7 +188,7 @@ export function CustomerDashboard() {
           {/* Sidebar */}
           <aside className="lg:col-span-1 space-y-3 hidden lg:block">
             <Link to="/" className="flex items-center mb-6 px-2">
-              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 w-auto object-contain" />
+              <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-10 w-auto object-contain" />
             </Link>
 
             {menuItems.map((item) => {

@@ -1,6 +1,6 @@
-# CleanNaija | Backend Product Requirements Document (PRD)
+# Clean9ja | Backend Product Requirements Document (PRD)
 
-Welcome to the CleanNaija Backend Requirements Document. This document serves as the single source of truth for the backend team to build a fully functional, secure, and performant REST API that supports the CleanNaija professional cleaning platform.
+Welcome to the Clean9ja Backend Requirements Document. This document serves as the single source of truth for the backend team to build a fully functional, secure, and performant REST API that supports the Clean9ja professional cleaning platform.
 
 All mock data, state mechanisms, and pages from the React frontend have been converted into production-ready backend specifications.
 
@@ -8,15 +8,15 @@ All mock data, state mechanisms, and pages from the React frontend have been con
 
 ## 1. Project Overview & Business Model
 
-**CleanNaija** is Nigeria's premier centralized professional cleaning service provider. The platform connects customers directly to CleanNaija's elite, vetted cleaning teams.
+**Clean9ja** is Nigeria's premier centralized professional cleaning service provider. The platform connects customers directly to Clean9ja's elite, vetted cleaning teams.
 
 ### ⚠️ Critical Concept Alignment:
 > [!IMPORTANT]
 > **This is NOT a Customer/Cleaner Marketplace.**
-> - Customers do not browse, bid on, or hire independent cleaners. They request quotes and schedule cleanings directly with **CleanNaija** as a company.
-> - CleanNaija is the service provider itself, managing pricing, logistics, security guarantees, and execution.
+> - Customers do not browse, bid on, or hire independent cleaners. They request quotes and schedule cleanings directly with **Clean9ja** as a company.
+> - Clean9ja is the service provider itself, managing pricing, logistics, security guarantees, and execution.
 > - **We hire our own cleaners**: Cleaners are employees or contracted partners who go through background screening (including NIN verification) and training.
-> - **Centralized Dispatch**: Hired staff cleaners are directly assigned to bookings by CleanNaija administrators. Hired staff log in to the system solely to view their assigned missions, navigate to locations, and upload before/after photos as proof of quality.
+> - **Centralized Dispatch**: Hired staff cleaners are directly assigned to bookings by Clean9ja administrators. Hired staff log in to the system solely to view their assigned missions, navigate to locations, and upload before/after photos as proof of quality.
 > - **Job Recruitment Funnel**: Local cleaners looking for stable employment can find open roles and apply directly to join our squad.
 
 ---
@@ -282,7 +282,7 @@ CREATE TABLE blog_posts (
     slug VARCHAR(255) UNIQUE NOT NULL,
     excerpt TEXT NOT NULL,
     content TEXT NOT NULL,
-    author VARCHAR(100) NOT NULL DEFAULT 'CleanNaija Experts',
+    author VARCHAR(100) NOT NULL DEFAULT 'Clean9ja Experts',
     image_url TEXT NOT NULL,
     category VARCHAR(100) NOT NULL,
     is_published BOOLEAN NOT NULL DEFAULT TRUE,
@@ -500,8 +500,8 @@ graph TD
 ```
 
 ### Script Scopes:
-- **Hiring Alert**: *"CleanNaija: Welcome Kabiru! Your NIN has been verified. Log in to the Staff Portal with Staff ID: CN-10493."*
-- **Dispatch Alert**: *"CleanNaija Dispatch: Specialist Emeka has been assigned to your booking CLN-2026-58291 scheduled for Monday at 10 AM. Spotless guaranteed."*
+- **Hiring Alert**: *"Clean9ja: Welcome Kabiru! Your NIN has been verified. Log in to the Staff Portal with Staff ID: CN-10493."*
+- **Dispatch Alert**: *"Clean9ja Dispatch: Specialist Emeka has been assigned to your booking CLN-2026-58291 scheduled for Monday at 10 AM. Spotless guaranteed."*
 
 ---
 
@@ -527,4 +527,4 @@ graph TD
 
 ---
 
-*Compiled with care by the CleanNaija Systems Engineering Team.*
+*Compiled with care by the Clean9ja Systems Engineering Team.*

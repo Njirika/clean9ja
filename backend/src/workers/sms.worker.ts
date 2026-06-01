@@ -10,11 +10,11 @@ export const smsWorker = new Worker('smsQueue', async (job: Job) => {
   console.log(`Processing SMS job ${job.id}:`, job.data);
   
   if (job.name === 'bookingReminder') {
-    await smsService.sendSms(job.data.phone, `Reminder: Your CleanNaija cleaner will arrive on ${job.data.date}.`);
+    await smsService.sendSms(job.data.phone, `Reminder: Your Clean9ja cleaner will arrive on ${job.data.date}.`);
   } else if (job.name === 'cleanerAssigned') {
     await smsService.sendSms(job.data.phone, `A cleaner has been assigned to your booking (${job.data.bookingRef}).`);
   } else if (job.name === 'dispatchNotification') {
-    await smsService.sendSms(job.data.phone, `CleanNaija: ${job.data.message}`);
+    await smsService.sendSms(job.data.phone, `Clean9ja: ${job.data.message}`);
   }
 }, { connection: connection as any });
 

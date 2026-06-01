@@ -24,7 +24,7 @@ export function Safety() {
     <div className="min-h-screen bg-white font-sans">
       <Seo
         title="Safety & Trust"
-        description="How CleanNaija keeps you safe: NIN-verified pros, real-time GPS tracking, in-app panic button, full asset insurance, before/after photo proof and 24/7 support."
+        description="How Clean9ja keeps you safe: NIN-verified pros, real-time GPS tracking, in-app panic button, full asset insurance, before/after photo proof and 24/7 support."
         path="/safety"
       />
       <div className="bg-primary py-24 text-white text-center">
@@ -66,7 +66,7 @@ export function Safety() {
                 <tr>
                   <th className="p-6 text-[10px] font-black uppercase tracking-widest">Identified Risk</th>
                   <th className="p-6 text-[10px] font-black uppercase tracking-widest">Impact</th>
-                  <th className="p-6 text-[10px] font-black uppercase tracking-widest">CleanNaija Mitigation Strategy</th>
+                  <th className="p-6 text-[10px] font-black uppercase tracking-widest">Clean9ja Mitigation Strategy</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">

@@ -49,7 +49,7 @@ async function main() {
   console.log('Services seeded.');
 
   // Create or force update admin user to prevent 401 login errors
-  const adminEmail = 'admin@cleannaija.com';
+  const adminEmail = 'admin@clean9ja.com';
   const adminPasswordHash = await bcrypt.hash('password123', 12);
 
   await prisma.user.upsert({
@@ -70,7 +70,7 @@ async function main() {
     },
   });
 
-  console.log('Admin user seeded & validated (admin@cleannaija.com / password123)');
+  console.log('Admin user seeded & validated (admin@clean9ja.com / password123)');
   console.log('Database seeding completed.');
 }
 

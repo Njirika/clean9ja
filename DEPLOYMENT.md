@@ -1,6 +1,6 @@
-# CleanNaija Deployment Guide (Vercel)
+# Clean9ja Deployment Guide (Vercel)
 
-CleanNaija deploys as **two Vercel projects** from this one repository:
+Clean9ja deploys as **two Vercel projects** from this one repository:
 
 | Project  | Root directory | What it serves                          |
 | -------- | -------------- | --------------------------------------- |
@@ -76,7 +76,7 @@ REDIS_URL=rediss://default:...@...upstash.io:6379
 # Optional — email & SMS
 RESEND_API_KEY=...
 TERMII_API_KEY=...
-TERMII_SENDER_ID=CleanNaija
+TERMII_SENDER_ID=Clean9ja
 
 # Set automatically when you create a Vercel Blob store (needed for image uploads)
 BLOB_READ_WRITE_TOKEN=...
@@ -104,7 +104,7 @@ npm run db:seed        # seed default services + blog content
 
 Supabase rolled out a major security update (**May 30, 2026** for new projects; **October 30, 2026** for existing projects) that restricts the default exposure of tables in the `public` schema to client-side APIs (PostgREST, GraphQL, or `supabase-js` direct client calls).
 
-* **How this affects CleanNaija**: **Prisma ORM is 100% unaffected**! Because the Express backend communicates directly via direct PostgreSQL TCP connections (`DATABASE_URL` via port `5432`/`6543`) as the superuser/database administrator, your server-side APIs do not use the Supabase Data API and will function continuously without issues.
+* **How this affects Clean9ja**: **Prisma ORM is 100% unaffected**! Because the Express backend communicates directly via direct PostgreSQL TCP connections (`DATABASE_URL` via port `5432`/`6543`) as the superuser/database administrator, your server-side APIs do not use the Supabase Data API and will function continuously without issues.
 * **Preparedness for Future integrations**: If you or your developers ever decide to query these tables directly from the frontend using `@supabase/supabase-js`, they will return empty responses unless explicit permissions are granted. 
 
 To ensure complete compatibility and make your database future-proof, execute this quick SQL snippet in your **Supabase SQL Editor**:

@@ -32,17 +32,17 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     image: "/images/service-home.jpg",
     features: ["Exterior Wall Scrubbing", "Mold Removal", "Window Detail", "Gutter Polish"],
     price: "From ₦45,000",
-    whyBest: "CleanNaija uses advanced technology that reaches into pores. We use surface-safe detergents that protect paint while stripping carbon and mold.",
+    whyBest: "Clean9ja uses advanced technology that reaches into pores. We use surface-safe detergents that protect paint while stripping carbon and mold.",
     diyVsClean: {
       diy: "Garden hose takes hours and only removes surface dust.",
       cleanNaija: "Specialized equipment removes deep stains safely and fast.",
       why: "DIY often leads to zebra striping or accidental paint damage."
     },
     testimonials: [
-      { content: "I thought I needed to repaint my entire house which was quoted for over ₦1.2m. CleanNaija's Face-lift service made the original paint look like it was applied yesterday. The mold on the fence and the carbon stains from the generator are completely gone. Saved me a fortune!", author: "Mrs. Olamide Balogun", role: "Homeowner, Ikoyi" },
+      { content: "I thought I needed to repaint my entire house which was quoted for over ₦1.2m. Clean9ja's Face-lift service made the original paint look like it was applied yesterday. The mold on the fence and the carbon stains from the generator are completely gone. Saved me a fortune!", author: "Mrs. Olamide Balogun", role: "Homeowner, Ikoyi" },
       { content: "The level of detail during the face-lift was outstanding. They didn't just blast water; they manually scrubbed the stubborn spots and even detailed the window tracks. My house is now the brightest on the street. Truly a professional outfit.", author: "Engr. Tunde", role: "Resident, Lekki" },
       { content: "Excellent coordination. They arrived with their own water supply and a heavy-duty machine that I haven't seen with local contractors. The safety harness they wore while cleaning the upper floors gave me peace of mind. Highly recommended.", author: "Alhaja Sikirat", role: "Property Owner, Surulere" },
-      { content: "CleanNaija transformed my commercial building. We had deep grime from years of Lagos traffic pollution. One weekend session and the building looks brand new. Our tenants are impressed!", author: "Mr. Kunle", role: "Facility Mgr, Ikeja" }
+      { content: "Clean9ja transformed my commercial building. We had deep grime from years of Lagos traffic pollution. One weekend session and the building looks brand new. Our tenants are impressed!", author: "Mr. Kunle", role: "Facility Mgr, Ikeja" }
     ]
   },
   "interlock-driveway-shine": {
@@ -58,10 +58,10 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "Manual scrubbing spreads oil stains instead of removing them."
     },
     testimonials: [
-      { content: "The oil leaks from my old SUV were making my interlocks look terrible. I tried different detergents but nothing worked. CleanNaija used a specialized degreaser that lifted the oil completely. My compound looks pristine now.", author: "Mr. Chukwuma Obi", role: "Estate Resident, Lekki" },
+      { content: "The oil leaks from my old SUV were making my interlocks look terrible. I tried different detergents but nothing worked. Clean9ja used a specialized degreaser that lifted the oil completely. My compound looks pristine now.", author: "Mr. Chukwuma Obi", role: "Estate Resident, Lekki" },
       { content: "I never thought my stones could look this white again. The moss between the stones was out of control, but they blasted everything out and even re-sanded the joints. It looks like a luxury hotel entrance.", author: "Mrs. Nneka", role: "Homeowner, VGC" },
       { content: "They removed weeds that kept coming back no matter how much we pulled them. The treatment they applied after washing has kept the driveway clean for 6 months and counting. Best cleaning investment so far.", author: "Capt. Ibrahim", role: "Resident, Abuja" },
-      { content: "Fast, efficient, and they cleaned up the mess they made during the process. Usually, when people wash interlocks, the whole street gets muddy, but CleanNaija managed the runoff perfectly.", author: "Ms. Funmi", role: "Property Manager, Lagos" }
+      { content: "Fast, efficient, and they cleaned up the mess they made during the process. Usually, when people wash interlocks, the whole street gets muddy, but Clean9ja managed the runoff perfectly.", author: "Ms. Funmi", role: "Property Manager, Lagos" }
     ]
   },
   "roof-parapet-washing": {
@@ -80,7 +80,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       { content: "The roof went from a dirty black to its original vibrant red in just a few hours. I sat downstairs and watched them work with professional safety rigs. No drama, just results. My neighbors are already asking for their number.", author: "Alhaji Musa", role: "Property Manager, Abuja" },
       { content: "No more leaking parapets! During the cleaning, they identified some cracks that we fixed early. The water now flows perfectly through the channels they cleared. A very thorough preventive maintenance service.", author: "Arch. Jude", role: "Consultant, Ikeja" },
       { content: "The safety standards they followed were impressive. I was worried about workers falling, but they used harnesses and proper ladders. They respected my property and didn't break a single tile. Exceptional.", author: "Mrs. Adeyemi", role: "Homeowner, Ikoyi" },
-      { content: "CleanNaija roof wash saved our school building. The mold was making the place look abandoned. Now it looks fresh and welcoming for the students. Worth every kobo of the cost.", author: "Mr. Benson", role: "School Admin, PH" }
+      { content: "Clean9ja roof wash saved our school building. The mold was making the place look abandoned. Now it looks fresh and welcoming for the students. Worth every kobo of the cost.", author: "Mr. Benson", role: "School Admin, PH" }
     ]
   },
   "low-pressure-soft-wash": {
@@ -97,7 +97,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     },
     testimonials: [
       { content: "I was worried about the pressure on my wooden pergola, but their soft wash technique was perfect. No splinters, no peeling paint, just deep cleanliness. The wood looks rich and treated. Great tech!", author: "Engr. David", role: "Villa Owner, Victoria Island" },
-      { content: "Perfect for my expensive painted exterior. I've had issues before with pressure washers stripping the paint, but CleanNaija's chemical application was gentle yet removed all the stains. Very satisfied.", author: "Ms. Joy", role: "Artist, Yaba" },
+      { content: "Perfect for my expensive painted exterior. I've had issues before with pressure washers stripping the paint, but Clean9ja's chemical application was gentle yet removed all the stains. Very satisfied.", author: "Ms. Joy", role: "Artist, Yaba" },
       { content: "The eco-friendly chemicals they used didn't harm my garden plants at all. I was skeptical at first, but the results speak for themselves. The walls are sparkling white and my flowers are fine.", author: "Mrs. Okafor", role: "Garden Enthusiast, Enugu" },
       { content: "Finally found a service that understands different surface needs. They used high pressure for the concrete but soft wash for the siding and windows. This is the expertise we need in Nigeria.", author: "Chief Williams", role: "Business Owner, Lagos" }
     ]
@@ -115,8 +115,8 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "Speed and scale are critical for large properties."
     },
     testimonials: [
-      { content: "The residents were amazed at the transformation of our estate common areas. CleanNaija came with a massive team and heavy equipment. They finished the whole place in two days. Truly professional grade.", author: "Chief Emeka", role: "Magodo Estate Chair" },
-      { content: "Our facility maintenance used to take weeks and was never this clean. CleanNaija's annual wash is now a fixed item in our budget. It keeps the property value high and the residents happy. Top notch!", author: "Mr. Segun", role: "Facility Head, Lekki" },
+      { content: "The residents were amazed at the transformation of our estate common areas. Clean9ja came with a massive team and heavy equipment. They finished the whole place in two days. Truly professional grade.", author: "Chief Emeka", role: "Magodo Estate Chair" },
+      { content: "Our facility maintenance used to take weeks and was never this clean. Clean9ja's annual wash is now a fixed item in our budget. It keeps the property value high and the residents happy. Top notch!", author: "Mr. Segun", role: "Facility Head, Lekki" },
       { content: "Value for money. They even cleaned the security posts and the complex drainage system. The entire environment feels premium and healthy again. A very reliable corporate partner.", author: "Mrs. Bello", role: "Resident, Abuja" },
       { content: "The coordination with our internal security was seamless. They worked through the night to ensure the entrance was ready for morning traffic. High level of discipline in their staff.", author: "Alhaji Gidado", role: "Estate Manager, Kano" }
     ]
@@ -134,7 +134,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "Incorrect chemicals can permanently discolor natural stone."
     },
     testimonials: [
-      { content: "Our stone wall was covered in years of Lagos dust and green algae. CleanNaija's stone treatment restored the original bright color I thought was gone forever. It's like a brand new fence.", author: "Tunde Williams", role: "Surulere" },
+      { content: "Our stone wall was covered in years of Lagos dust and green algae. Clean9ja's stone treatment restored the original bright color I thought was gone forever. It's like a brand new fence.", author: "Tunde Williams", role: "Surulere" },
       { content: "They removed the black streaks from our perimeter walls easily. The staff were very respectful of my privacy and worked very quietly. The finish is very even, no striping at all. Excellent work.", author: "Ms. Ada", role: "Homeowner, Ajah" },
       { content: "The gate polishing they did as part of the service is a great touch. Most people just wash, but they ensured the metalwork was shining too. It makes a huge difference to the overall look.", author: "Mr. Ifeanyi", role: "Resident, PH" },
       { content: "Quick and very neat. They protected my lawn while washing the stone path. No chemicals spilled on my plants, just pure cleanliness on the stones. Very impressive and careful team.", author: "Mrs. Kazeem", role: "Homeowner, Ibadan" }
@@ -154,7 +154,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     },
     testimonials: [
       { content: "Finally I can sit on my balcony without getting dusty clothes. The 'dust-repellent' layer they mentioned actually works. Even after a minor harmattan dust, a simple wipe and it was clean again.", author: "Simi Ade", role: "Yaba" },
-      { content: "The tiles in my veranda are glowing. They used a specialized scrubber that got into the grout lines. It's now my favorite place to have my morning coffee. CleanNaija is really different.", author: "Mr. Abayomi", role: "Resident, Ikeja" },
+      { content: "The tiles in my veranda are glowing. They used a specialized scrubber that got into the grout lines. It's now my favorite place to have my morning coffee. Clean9ja is really different.", author: "Mr. Abayomi", role: "Resident, Ikeja" },
       { content: "They even cleaned the outdoor furniture and the ceiling fans on the porch. I didn't have to ask, they just saw it needed doing and did it. Exceptional attention to detail for the price.", author: "Ms. Zara", role: "Designer, Lagos" },
       { content: "Reliable and fast. I booked them for a Friday evening prep, and they were done before my guests arrived. The veranda looked spectacular under the evening lights. Highly recommend.", author: "Mr. Daniel", role: "Homeowner, Lekki" }
     ]
@@ -250,7 +250,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     testimonials: [
       { content: "The only service in Lagos that is consistently on time and thorough. My floors have never been this clean without me having to shout or supervise. They just know what to do and they do it well.", author: "Dr. Amaka", role: "Lekki" },
       { content: "The staff are so respectful and professional. I trust them completely in my home even when I'm at work. The house always smells amazing when I return. Best cleaning outfit in Lagos.", author: "Mr. Gabriel", role: "Resident, Yaba" },
-      { content: "My kitchen counters have never been this clean. They even polished the stainless steel appliances. It's the small touches that make CleanNaija different from the random people I used to hire.", author: "Ms. Ife", role: "Homeowner, Magodo" },
+      { content: "My kitchen counters have never been this clean. They even polished the stainless steel appliances. It's the small touches that make Clean9ja different from the random people I used to hire.", author: "Ms. Ife", role: "Homeowner, Magodo" },
       { content: "Reliable weekly cleaning. I don't have to monitor them at all. They bring their own vacuum and specialized mops. It's a proper high-tech cleaning service for a modern home.", author: "Mrs. Peters", role: "Exec, Lagos" }
     ]
   },
@@ -267,7 +267,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "Deep cleaning requires chemicals not found in supermarkets."
     },
     testimonials: [
-      { content: "CleanNaija restored my mess of a rental to pristine condition in 8 hours. The previous tenants left grease on the kitchen walls and mold in the shower. I thought I'd have to renovate, but they saved it!", author: "Mr. Festus", role: "Landlord, Gbagada" },
+      { content: "Clean9ja restored my mess of a rental to pristine condition in 8 hours. The previous tenants left grease on the kitchen walls and mold in the shower. I thought I'd have to renovate, but they saved it!", author: "Mr. Festus", role: "Landlord, Gbagada" },
       { content: "The team was like a specialized army. They arrived with steam machines and scrubbers. Every corner of my house is now clinical. I feel so much safer and happier in my space now. Incredible result.", author: "Ms. Kemi", role: "Entrepreneur, Ikeja" },
       { content: "Everything smells and looks brand new. They even cleaned the window screens and the AC vents. Amazing value for money when you consider the amount of work they did in one day.", author: "Mr. Chinedu", role: "Homeowner, PH" },
       { content: "Highly thorough. They even cleaned behind the fridge and under the beds. My allergies have completely disappeared since they did the deep restoration. This is more than just cleaning; it's health care.", author: "Mrs. Amina", role: "Resident, Abuja" }
@@ -287,7 +287,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     },
     testimonials: [
       { content: "No more cockroaches! The team was very professional and explained the safety precautions before they started. The smell was gone in two hours and the results have lasted for months. Best in the business.", author: "Bisi A.", role: "Ikeja" },
-      { content: "Finally a service that actually kills the mosquitoes. We used to struggle every night, but since CleanNaija treated the compound and the drains, we've had peaceful sleep. It's worth every kobo.", author: "Mr. Okoro", role: "Resident, Lekki" },
+      { content: "Finally a service that actually kills the mosquitoes. We used to struggle every night, but since Clean9ja treated the compound and the drains, we've had peaceful sleep. It's worth every kobo.", author: "Mr. Okoro", role: "Resident, Lekki" },
       { content: "Safe for my pets. That was my biggest concern, but they used a pet-friendly formula that worked perfectly. I didn't see any residue and my dogs were fine. Very professional and careful service.", author: "Ms. Linda", role: "Homeowner, VI" },
       { content: "Effective and fast. Highly recommended pest control. They found a massive termite nest under our porch that we never would have seen. They saved our wooden structures from total destruction.", author: "Alhaji Usman", role: "Resident, Kano" }
     ]
@@ -307,7 +307,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     testimonials: [
       { content: "On-site service is convenient and our fleet always looks clean. They come to our yard every Sunday night, and on Monday morning, all 20 vans are ready to represent our brand with pride. Exceptional service.", author: "Logistics Manager", role: "Top E-commerce Brand" },
       { content: "Great management of our 50+ staff buses. Very efficient team that doesn't waste water. The 'eco-shine' soap they use makes the buses look new without damaging the branding stickers. A reliable partner.", author: "Operations Head", role: "Corporate Firm" },
-      { content: "Consistent quality across all our locations in Nigeria. Whether in Lagos or Port Harcourt, the CleanNaija standard is the same. Their reporting system with photos is great for our records.", author: "Supply Chain Lead", role: "FMCG Company" },
+      { content: "Consistent quality across all our locations in Nigeria. Whether in Lagos or Port Harcourt, the Clean9ja standard is the same. Their reporting system with photos is great for our records.", author: "Supply Chain Lead", role: "FMCG Company" },
       { content: "Affordable and reliable fleet maintenance partner. We saved a lot on staff overtime costs because we no longer have to manage the cleaning internally. They just get the job done without supervision.", author: "CEO", role: "Delivery Startup" }
     ]
   },
@@ -326,7 +326,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     testimonials: [
       { content: "Staff noticed immediately. The office feels fresh and the restrooms are finally clinical-standard. The team is very discreet and doesn't disturb our work. This is exactly what we were looking for.", author: "Operations Lead", role: "Fintech Hub" },
       { content: "Their night shift team is a game changer for us. We arrive at a perfect office every morning. The attention to IT equipment cleaning is particularly impressive. They really know how to handle electronics.", author: "Admin Manager", role: "Law Firm, VI" },
-      { content: "Professional, vetted, and very reliable staff. We've tried many agencies, but CleanNaija's supervision is what makes the difference. There's always a manager checking the quality of work. Highly recommended.", author: "HR Director", role: "Tech Company, Lagos" },
+      { content: "Professional, vetted, and very reliable staff. We've tried many agencies, but Clean9ja's supervision is what makes the difference. There's always a manager checking the quality of work. Highly recommended.", author: "HR Director", role: "Tech Company, Lagos" },
       { content: "Best office cleaning service we've used in years. They helped reduce the dust and the 'stale air' smell we used to have. The carpet restoration they did last month was also spectacular. Five stars!", author: "Chief Ops", role: "Bank Branch" }
     ]
   },
@@ -343,10 +343,10 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "Industrial degreasers safely remove commercial grease."
     },
     testimonials: [
-      { content: "Passed our latest health inspection with flying colors. The deep clean of the grease traps and the hood was exceptional. No more oily smells in the dining area. CleanNaija is our secret health weapon.", author: "Executive Chef", role: "Bistro in VI" },
+      { content: "Passed our latest health inspection with flying colors. The deep clean of the grease traps and the hood was exceptional. No more oily smells in the dining area. Clean9ja is our secret health weapon.", author: "Executive Chef", role: "Bistro in VI" },
       { content: "The kitchen is sparkling before our morning prep starts. They work through the night with high-pressure steamers that remove grime from under the heavy stoves. Our staff are much happier working in a clean space.", author: "Manager", role: "Fast Food Chain" },
       { content: "Great attention to hood cleaning and grease removal. They even provided a report on the condition of our extraction fans. Very helpful for our maintenance planning. A truly professional food-industry service.", author: "Owner", role: "Gourmet Kitchen" },
-      { content: "Reliable sanitization that keeps our customers safe. We've had zero pest issues since we started the CleanNaija integrated cleaning and fumigation plan. They understand the food business perfectly.", author: "Director", role: "Restaurant Group" }
+      { content: "Reliable sanitization that keeps our customers safe. We've had zero pest issues since we started the Clean9ja integrated cleaning and fumigation plan. They understand the food business perfectly.", author: "Director", role: "Restaurant Group" }
     ]
   },
   "shop-front-signage-shine": {
@@ -363,8 +363,8 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     },
     testimonials: [
       { content: "Store looks so much more inviting. The signage clean was particularly impressive—they removed years of bird droppings and dust that we couldn't reach. Our brand identity is finally clear again.", author: "Store Manager", role: "Luxury Retailer" },
-      { content: "We noticed more customers stopping by after the clean. The glass is so clear that people think it's open space! It makes our window displays look 10x better. CleanNaija really knows their glass work.", author: "Brand Manager", role: "Boutique, VI" },
-      { content: "Streak-free glass every time. We used to struggle with workers leaving soap marks, but CleanNaija's de-ionized water system is a game changer. The entrance looks world-class now. Excellent work.", author: "Sales Lead", role: "Showroom, Lagos" },
+      { content: "We noticed more customers stopping by after the clean. The glass is so clear that people think it's open space! It makes our window displays look 10x better. Clean9ja really knows their glass work.", author: "Brand Manager", role: "Boutique, VI" },
+      { content: "Streak-free glass every time. We used to struggle with workers leaving soap marks, but Clean9ja's de-ionized water system is a game changer. The entrance looks world-class now. Excellent work.", author: "Sales Lead", role: "Showroom, Lagos" },
       { content: "Highly recommend for anyone in high-end retail. They are quick, efficient, and they don't block the pavement for too long. A very considerate and professional team that respects our business hours.", author: "Ms. Cynthia", role: "Business Owner" }
     ]
   },
@@ -383,7 +383,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     testimonials: [
       { content: "Marble is glowing again! Our lobby has never looked better. Visitors often comment on how clean and bright the place feels. It really elevates our brand from the moment you step in. Brilliant service.", author: "Admin Manager", role: "Corporate HQ" },
       { content: "Impressive attention to art pieces and high-end furniture. They don't just 'wipe' everything; they use the right polish for wood, leather, and metal. The lobby looks like it was just professionally staged.", author: "Facilities Lead", role: "Oil & Gas Firm" },
-      { content: "The lobby reflects our professional standards perfectly now. The glass entrance and the marble floors are flawless. It gives our clients confidence in our attention to detail as a firm. Great job, CleanNaija!", author: "MD", role: "Investment Bank" },
+      { content: "The lobby reflects our professional standards perfectly now. The glass entrance and the marble floors are flawless. It gives our clients confidence in our attention to detail as a firm. Great job, Clean9ja!", author: "MD", role: "Investment Bank" },
       { content: "Quick and discreet service during off-hours. They managed to restore the shine to our high-traffic zones without any downtime for our receptionists. A very smooth and professional operation.", author: "Concierge", role: "Luxury Plaza" }
     ]
   },
@@ -400,7 +400,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "Consistency is key to luxury property maintenance."
     },
     testimonials: [
-      { content: "Property value improved since CleanNaija took over the maintenance. The stairwells and the parking lots are always clean. Their supervisor is very proactive and fixes issues before residents even notice them.", author: "Developer", role: "Lekki Phase 1" },
+      { content: "Property value improved since Clean9ja took over the maintenance. The stairwells and the parking lots are always clean. Their supervisor is very proactive and fixes issues before residents even notice them.", author: "Developer", role: "Lekki Phase 1" },
       { content: "Finally, a company that actually mops the stairwells properly. No more dust in the corners or smelly elevators. The residents feel they are getting true value for their service charge now. Thank you!", author: "Resident", role: "Luxury Apartment" },
       { content: "Professional management that residents actually trust. Their staff are always in uniform and carry proper ID. It makes the estate feel more secure and organized. A very high-end cleaning management service.", author: "Estate Chairman", role: "VGC" },
       { content: "Efficient waste handling and common area mopping. They managed to clear the backlog of dirt in the drainage system that was causing issues during the rain. The whole block feels fresh and maintained.", author: "Facility Mgr", role: "Abuja Heights" }
@@ -420,9 +420,9 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     },
     testimonials: [
       { content: "Gym feels cleaner and safer to use. The equipment isn't sticky anymore and the changing rooms smell like a spa. Our community members have noticed the difference and are using the facilities more often.", author: "Resident Association", role: "Premium Estate" },
-      { content: "The pool deck is finally algae-free and safe for kids. We used to have slips all the time, but CleanNaija's treatment removed the slime without damaging the stones. It looks and feels much safer now.", author: "Mother", role: "Estate Resident" },
+      { content: "The pool deck is finally algae-free and safe for kids. We used to have slips all the time, but Clean9ja's treatment removed the slime without damaging the stones. It looks and feels much safer now.", author: "Mother", role: "Estate Resident" },
       { content: "Clubhouse is ready for events anytime. They do a deep restore after every party, ensuring the next resident gets a perfect space. Their reliability makes our event planning so much easier. Five stars!", author: "Manager", role: "Social Club" },
-      { content: "Deep sanitization of changing rooms was our top priority and CleanNaija delivered. No more mildew smells or damp corners. They really know how to handle high-moisture environments. Great service.", author: "Gym Owner", role: "Lagos Hub" }
+      { content: "Deep sanitization of changing rooms was our top priority and Clean9ja delivered. No more mildew smells or damp corners. They really know how to handle high-moisture environments. Great service.", author: "Gym Owner", role: "Lagos Hub" }
     ]
   },
   "elderly-home-sanitization": {
@@ -439,7 +439,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     },
     testimonials: [
       { content: "The care and attention given to our facility was outstanding. They used non-toxic products that didn't affect our residents' breathing. The air feels cleaner and the whole home is much brighter. Truly professional.", author: "Facility Director", role: "Lagos Senior Home" },
-      { content: "Staff are so gentle and thorough in sensitive areas. They followed our infection control protocols perfectly. We've seen a decrease in flu cases since we started the deep sanitization schedule with CleanNaija.", author: "Nurse", role: "Care Facility" },
+      { content: "Staff are so gentle and thorough in sensitive areas. They followed our infection control protocols perfectly. We've seen a decrease in flu cases since we started the deep sanitization schedule with Clean9ja.", author: "Nurse", role: "Care Facility" },
       { content: "The air quality improved noticeably after the clean. No more 'old building' smell. My father says he sleeps better now. It's heartening to see a company that truly cares about the health of the elderly.", author: "Relative", role: "Resident's Family" },
       { content: "Best clinical-grade service for non-hospital facilities. They understand cross-contamination better than any other agency we've worked with. The supervision was constant and very helpful. Top class!", author: "Director", role: "Abuja Care" }
     ]
@@ -457,8 +457,8 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "Restoration keeps assets looking new for longer."
     },
     testimonials: [
-      { content: "Deep cleaning was top-notch. Guests noticed. The carpets in our lobby look like they were just installed. CleanNaija handled the work during our quietest hours with zero disruption. A perfect hotel partner.", author: "General Manager", role: "Resort in Calabar" },
-      { content: "Carpet restoration saved us from total replacement. We were about to spend millions on new flooring, but CleanNaija's extraction system brought the color back. Incredible ROI for our boutique hotel.", author: "Hotel Owner", role: "Boutique Hotel" },
+      { content: "Deep cleaning was top-notch. Guests noticed. The carpets in our lobby look like they were just installed. Clean9ja handled the work during our quietest hours with zero disruption. A perfect hotel partner.", author: "General Manager", role: "Resort in Calabar" },
+      { content: "Carpet restoration saved us from total replacement. We were about to spend millions on new flooring, but Clean9ja's extraction system brought the color back. Incredible ROI for our boutique hotel.", author: "Hotel Owner", role: "Boutique Hotel" },
       { content: "Excellent coordination with our in-house staff. They trained our team on how to maintain the finish they created. Very generous with their knowledge and very professional in their delivery. Five stars.", author: "Housekeeping Head", role: "5-Star Hotel" },
       { content: "Professional results that match our luxury standards. Their deep clean of the poolside area was particularly impressive—no more slippery stones. Our guests can now lounge in total safety and comfort.", author: "MD", role: "Hospitality Group" }
     ]
@@ -476,8 +476,8 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "New investment requires technical cleaning."
     },
     testimonials: [
-      { content: "Owners were blown away. The house was spotless and smelled fresh. Not a single trace of construction dust on the POP or inside the cabinets. CleanNaija is the standard for post-construction handover.", author: "Principal Architect", role: "Design Firm" },
-      { content: "They removed cement stains from our imported tiles that I thought were permanent. The 'maiguard' had tried but almost scratched the surface. CleanNaija's chemical treatment was magic. Truly saved the project.", author: "Project Mgr", role: "Real Estate" },
+      { content: "Owners were blown away. The house was spotless and smelled fresh. Not a single trace of construction dust on the POP or inside the cabinets. Clean9ja is the standard for post-construction handover.", author: "Principal Architect", role: "Design Firm" },
+      { content: "They removed cement stains from our imported tiles that I thought were permanent. The 'maiguard' had tried but almost scratched the surface. Clean9ja's chemical treatment was magic. Truly saved the project.", author: "Project Mgr", role: "Real Estate" },
       { content: "Move-in ready in record time. I handed them the keys to a dusty site and 24 hours later, the owner was moving in with their white sofa. No issues, no complaints. A very reliable completion partner.", author: "Owner", role: "Luxury Villa" },
       { content: "Detail cleaning at its best. They even vacuumed the inside of the light fixtures and cleaned the window tracks. The level of care is what sets them apart from regular laborers. Highly recommended for Lekki builds.", author: "Contractor", role: "Ibeju-Lekki" }
     ]
@@ -514,7 +514,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
       why: "Preserving surface integrity is critical for play."
     },
     testimonials: [
-      { content: "No more slipping! Court feels brand new and the color is vibrant again. The grip on the tennis court is much improved, according to our members. CleanNaija's process is really effective. Best in Ikoyi.", author: "Club Secretary", role: "Ikoyi Club" },
+      { content: "No more slipping! Court feels brand new and the color is vibrant again. The grip on the tennis court is much improved, according to our members. Clean9ja's process is really effective. Best in Ikoyi.", author: "Club Secretary", role: "Ikoyi Club" },
       { content: "The grip on the basketball court is much improved. They removed the deep-seated dust that was making the surface hazardous. It looks like it was just resurfaced. Great value for our private academy.", author: "Coach", role: "Sports Academy" },
       { content: "Removed years of moss in one session. Amazing. I was worried about the acrylic paint peeling, but they used the right pressure and the right chemicals. The court is sparkling and safe for my grandkids.", author: "Ms. Chichi", role: "Private Owner" },
       { content: "Professional resurfacing prep work. We hired them to clean before we repainted, and the surface was so clean that the paint bonded perfectly. Their equipment is clearly specialized for sports surfaces.", author: "Contractor", role: "Tennis Center" }
@@ -534,7 +534,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     },
     testimonials: [
       { content: "Mall looked clean even during the December rush. Highly recommended management service. Their staff are visible and helpful, and any spills are cleaned up in seconds. Truly world-class mall hygiene.", author: "Mall Manager", role: "Jabi Lake Mall" },
-      { content: "Food court sanitization is consistent and thorough. We've seen a lot of happy customers commenting on how clean the tables are. CleanNaija's supervisor is always on site checking the standards. Great job.", author: "Vendor", role: "Food Plaza" },
+      { content: "Food court sanitization is consistent and thorough. We've seen a lot of happy customers commenting on how clean the tables are. Clean9ja's supervisor is always on site checking the standards. Great job.", author: "Vendor", role: "Food Plaza" },
       { content: "Quick response to spills in high traffic areas. Their team uses walkie-talkies to coordinate, which is very impressive. It ensures a 5-star experience for our shoppers throughout the day. Very professional.", author: "Customer", role: "Mall Visitor" },
       { content: "Best mall cleaning partner in Nigeria. They manage the waste, the restrooms, and the common areas with total transparency. Their monthly reports are detailed and very useful for our management board.", author: "Asset Manager", role: "Real Estate Fund" }
     ]
@@ -573,7 +573,7 @@ const ALL_SERVICES: Record<string, ServiceData> = {
     testimonials: [
       { content: "Head office was the most photographed building on the street in VI. The branding was perfect and the lighting design was world-class. It really boosted our brand presence during the festive season. Great job!", author: "Marketing Director", role: "Commercial Bank" },
       { content: "Stunning Eid decor that residents absolutely loved. The setup was safe, neat, and very creative. They really understood our brand colors and integrated them perfectly into the lights. Truly professional.", author: "Mall Mgr", role: "Plaza Hub" },
-      { content: "Safe and quick setup for our end-of-year event. I was worried about the timeline, but CleanNaija's engineering team worked fast. The result was a magical atmosphere that our staff will never forget.", author: "HR Mgr", role: "Corporate Firm" },
+      { content: "Safe and quick setup for our end-of-year event. I was worried about the timeline, but Clean9ja's engineering team worked fast. The result was a magical atmosphere that our staff will never forget.", author: "HR Mgr", role: "Corporate Firm" },
       { content: "Professional lighting that boosted our brand presence and foot traffic. We saw a noticeable increase in visitors during the holiday. The takedown in January was also very neat and timely. Five stars!", author: "CEO", role: "Retail Group" }
     ]
   }
@@ -586,7 +586,7 @@ export function ServiceDetail() {
   if (!service) {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
-        <Seo title="Service Not Found" description="The cleaning service you're looking for doesn't exist. Browse all CleanNaija services." path={`/services/${slug || ''}`} noindex />
+        <Seo title="Service Not Found" description="The cleaning service you're looking for doesn't exist. Browse all Clean9ja services." path={`/services/${slug || ''}`} noindex />
         <h1 className="text-4xl font-black text-primary mb-4 uppercase tracking-tighter">SERVICE NOT FOUND</h1>
         <p className="text-gray-500 mb-8 font-bold uppercase tracking-widest text-xs">The service you're looking for doesn't exist.</p>
         <Link to="/"><Button className="bg-primary text-white px-10 py-4 rounded-none uppercase font-black tracking-widest">Back to Home</Button></Link>
@@ -600,7 +600,7 @@ export function ServiceDetail() {
     <div className="min-h-screen bg-white font-sans">
       <Seo
         title={`${service.title} in Nigeria`}
-        description={`${service.description} ${service.price}. Book a NIN-verified, insured CleanNaija team with a 100% satisfaction guarantee.`}
+        description={`${service.description} ${service.price}. Book a NIN-verified, insured Clean9ja team with a 100% satisfaction guarantee.`}
         path={`/services/${slug}`}
         image={serviceImage}
         jsonLd={{
@@ -611,7 +611,7 @@ export function ServiceDetail() {
           image: serviceImage,
           serviceType: service.title,
           areaServed: { '@type': 'Country', name: 'Nigeria' },
-          provider: { '@type': 'Organization', name: 'CleanNaija', url: SITE_URL },
+          provider: { '@type': 'Organization', name: 'Clean9ja', url: SITE_URL },
           offers: { '@type': 'Offer', priceCurrency: 'NGN', description: service.price },
         }}
       />
@@ -626,7 +626,7 @@ export function ServiceDetail() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
             <div className="inline-flex items-center bg-accent-gold text-primary px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] mb-8 border border-white/20">
-              🛡️ Official CleanNaija Pro Service
+              🛡️ Official Clean9ja Pro Service
             </div>
             <h1 className="text-6xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter leading-[0.85] mb-8">
               {service.title}
@@ -681,7 +681,7 @@ export function ServiceDetail() {
               {/* DIY Comparison Section */}
               <div className="bg-secondary p-12 rounded-none relative overflow-hidden shadow-inner border-t-8 border-primary">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
-                <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-8 relative z-10">DIY vs. CleanNaija Pro</h3>
+                <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-8 relative z-10">DIY vs. Clean9ja Pro</h3>
                 <div className="space-y-10 relative z-10">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="p-8 bg-white/50 border-l-4 border-gray-300 shadow-sm">
@@ -689,7 +689,7 @@ export function ServiceDetail() {
                        <p className="text-sm text-gray-600 font-medium leading-relaxed italic">"{service.diyVsClean.diy}"</p>
                     </div>
                     <div className="p-8 bg-primary text-white border-l-4 border-accent-gold shadow-2xl">
-                       <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-gold mb-3">CleanNaija Professional</h4>
+                       <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-gold mb-3">Clean9ja Professional</h4>
                        <p className="text-sm text-white/90 font-medium leading-relaxed italic">"{service.diyVsClean.cleanNaija}"</p>
                     </div>
                   </div>
@@ -772,7 +772,7 @@ export function ServiceDetail() {
       {/* CTA Footer */}
       <section className="py-24 bg-white">
          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-5xl font-black text-primary uppercase tracking-tighter mb-8 leading-none">Ready for the <br /> CleanNaija Experience?</h2>
+            <h2 className="text-5xl font-black text-primary uppercase tracking-tighter mb-8 leading-none">Ready for the <br /> Clean9ja Experience?</h2>
             <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px] mb-12">Spotless. Guaranteed. Nationwide.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
                <Link to="/book">

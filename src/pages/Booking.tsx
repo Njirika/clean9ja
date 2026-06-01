@@ -228,7 +228,7 @@ export function Booking() {
     <div className="min-h-screen bg-secondary/30 pb-20">
       <Seo
         title="Book a Cleaning Service Online"
-        description="Book professional cleaning in about 60 seconds. Add your locations, pick services, get an instant quote and schedule a NIN-verified CleanNaija team anywhere in Nigeria."
+        description="Book professional cleaning in about 60 seconds. Add your locations, pick services, get an instant quote and schedule a NIN-verified Clean9ja team anywhere in Nigeria."
         path="/book"
       />
       <div className="bg-white border-b border-gray-100 sticky top-20 z-40">
@@ -560,7 +560,7 @@ export function Booking() {
                     <div className="h-full bg-accent-gold w-2/3 shadow-[0_0_20px_rgba(255,193,7,1)]" />
                   </div>
                   <div className="flex justify-between text-[11px] font-black text-gray-400 uppercase tracking-widest">
-                    <span>CleanNaija Logistics Hub</span>
+                    <span>Clean9ja Logistics Hub</span>
                     <span className="text-primary">ETA: 15 mins</span>
                   </div>
                 </div>

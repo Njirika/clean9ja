@@ -55,7 +55,7 @@ async function runSmsInline(job: SmsJob) {
     case 'bookingReminder':
       return smsService.sendSms(
         job.data.phone,
-        `Reminder: Your CleanNaija cleaner will arrive on ${job.data.date}.`
+        `Reminder: Your Clean9ja cleaner will arrive on ${job.data.date}.`
       );
     case 'cleanerAssigned':
       return smsService.sendSms(
@@ -63,7 +63,7 @@ async function runSmsInline(job: SmsJob) {
         `A cleaner has been assigned to your booking (${job.data.bookingRef}).`
       );
     case 'dispatchNotification':
-      return smsService.sendSms(job.data.phone, `CleanNaija: ${job.data.message}`);
+      return smsService.sendSms(job.data.phone, `Clean9ja: ${job.data.message}`);
   }
 }
 

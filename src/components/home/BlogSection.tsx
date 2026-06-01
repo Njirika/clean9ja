@@ -20,7 +20,7 @@ function mapApiPost(p: ApiBlogPost): BlogPost {
     id: p.id,
     title: p.title,
     excerpt: p.excerpt,
-    author: p.author || 'CleanNaija Experts',
+    author: p.author || 'Clean9ja Experts',
     date: new Date(p.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
     image: p.coverImageUrl || '/images/service-home.jpg',
     category: p.category || 'Insights',
@@ -44,7 +44,7 @@ export function BlogSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
           <div className="inline-flex items-center text-accent-gold font-black text-[10px] uppercase tracking-[0.3em] mb-4">Knowledge is Power</div>
-          <h2 className="text-5xl md:text-6xl font-heading font-black text-primary uppercase tracking-tighter mb-6">CleanNaija Blog</h2>
+          <h2 className="text-5xl md:text-6xl font-heading font-black text-primary uppercase tracking-tighter mb-6">Clean9ja Blog</h2>
           <div className="w-24 h-2 bg-accent-gold mx-auto mb-8"></div>
           <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">Expert advice for the Nigerian environment</p>
         </div>

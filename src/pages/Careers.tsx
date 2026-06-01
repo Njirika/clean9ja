@@ -23,7 +23,7 @@ const JOBS = [
     type: "Remote / Hybrid",
     location: "Nationwide",
     salary: "₦120k - ₦180k / Mo",
-    desc: "Be the voice of CleanNaija. Help our customers have a seamless experience from booking to completion."
+    desc: "Be the voice of Clean9ja. Help our customers have a seamless experience from booking to completion."
   }
 ];
 
@@ -32,7 +32,7 @@ export function Careers() {
     <div className="min-h-screen bg-white pb-20">
       <Seo
         title="Careers & Cleaning Jobs in Nigeria"
-        description="Join the CleanNaija squad. Cleaning and facility roles in Lagos, Abuja and nationwide with training, insurance and the best tools in the industry."
+        description="Join the Clean9ja squad. Cleaning and facility roles in Lagos, Abuja and nationwide with training, insurance and the best tools in the industry."
         path="/careers"
       />
       <div className="bg-secondary py-24 border-b border-gray-100">

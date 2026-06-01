@@ -8,7 +8,7 @@ const prd_faqs = [
   },
   {
     question: "What areas do you cover?",
-    answer: "CleanNaija is nationwide! We currently serve all 36 states and the FCT with dedicated local teams."
+    answer: "Clean9ja is nationwide! We currently serve all 36 states and the FCT with dedicated local teams."
   },
   {
     question: "Are your cleaners background-checked?",

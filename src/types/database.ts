@@ -1,5 +1,5 @@
 /**
- * CleanNaija Core Database Schema Definition
+ * Clean9ja Core Database Schema Definition
  */
 
 export type UserRole = 'customer' | 'cleaner' | 'admin';

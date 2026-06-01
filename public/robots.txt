@@ -7,4 +7,4 @@ Disallow: /dashboard
 Disallow: /auth
 Disallow: /cleaner-portal
 
-Sitemap: https://cleannaija.com/sitemap.xml
+Sitemap: https://clean9ja.com/sitemap.xml

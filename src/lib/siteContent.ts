@@ -1,16 +1,16 @@
 /**
- * Single source of truth for CleanNaija marketing/site content.
+ * Single source of truth for Clean9ja marketing/site content.
  *
  * Shared by the SEO layer (JSON-LD structured data, sitemap) and the in-site
  * chat assistant's knowledge base, so facts about services, pricing, coverage
  * and policies stay consistent everywhere.
  */
 
-export const SITE_URL = 'https://cleannaija.com';
+export const SITE_URL = 'https://clean9ja.com';
 
 export const BUSINESS = {
-  name: 'CleanNaija',
-  legalName: 'CleanNaija Professional Cleaning Services',
+  name: 'Clean9ja',
+  legalName: 'Clean9ja Professional Cleaning Services',
   tagline: 'Spotless. Guaranteed. Nationwide.',
   description:
     "Nigeria's premier platform for professional cleaning services — home, office, post-construction, hospital, roof/exterior and specialty cleaning across all 36 states and the FCT.",
@@ -20,17 +20,17 @@ export const BUSINESS = {
   phoneDisplay: '0800-CLEAN-9JA',
   phoneDial: 'tel:0800-CLEAN-9JA',
   whatsapp: 'https://wa.me/2348000000000',
-  email: 'hello@cleannaija.com',
+  email: 'hello@clean9ja.com',
   currency: 'NGN',
   priceRange: '₦₦',
   languages: ['English', 'Nigerian Pidgin', 'Yoruba', 'Hausa', 'Igbo'],
   hubs: ['Lagos', 'Abuja', 'Port Harcourt'],
   areaServed: 'Nigeria (all 36 states and the FCT)',
   sameAs: [
-    'https://web.facebook.com/cleannaija',
-    'https://www.instagram.com/cleannaija',
-    'https://twitter.com/cleannaija',
-    'https://www.linkedin.com/company/cleannaija',
+    'https://web.facebook.com/clean9ja',
+    'https://www.instagram.com/clean9ja',
+    'https://twitter.com/clean9ja',
+    'https://www.linkedin.com/company/clean9ja',
   ],
   hours: 'Mo-Su 08:00-20:00',
 };
@@ -84,7 +84,7 @@ export const FAQS: FaqItem[] = [
   {
     question: 'What areas do you cover?',
     answer:
-      'CleanNaija is nationwide — we serve all 36 states and the FCT, with dedicated local teams and hubs in Lagos, Abuja and Port Harcourt.',
+      'Clean9ja is nationwide — we serve all 36 states and the FCT, with dedicated local teams and hubs in Lagos, Abuja and Port Harcourt.',
   },
   {
     question: 'Are your cleaners background-checked?',

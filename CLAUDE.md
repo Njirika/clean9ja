@@ -1,4 +1,4 @@
-# CleanNaija — Project Guide
+# Clean9ja — Project Guide
 
 Nigeria-focused professional cleaning services platform. **Frontend**: React 19 +
 Vite + Tailwind 4 SPA (repo root). **Backend**: Express + TypeScript + Prisma +

@@ -17,7 +17,7 @@ export function Onboarding() {
 
   const steps = [
     {
-      title: "Welcome to CleanNaija",
+      title: "Welcome to Clean9ja",
       subtitle: "Let's personalize your spotless experience.",
       icon: <Sparkles className="w-12 h-12 text-accent-gold" />
     },
@@ -119,7 +119,7 @@ export function Onboarding() {
                   />
                   <div className="bg-primary/5 p-6 border-l-4 border-accent-gold text-left">
                     <p className="text-[11px] font-bold text-primary uppercase tracking-tight leading-relaxed">
-                      "CleanNaija provides specialized equipment for {formData.city || 'your area'}. Your location is now mapped to our {formData.state} command center."
+                      "Clean9ja provides specialized equipment for {formData.city || 'your area'}. Your location is now mapped to our {formData.state} command center."
                     </p>
                   </div>
                 </div>

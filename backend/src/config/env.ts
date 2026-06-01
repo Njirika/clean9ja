@@ -38,11 +38,11 @@ export const env = {
   // Vercel Blob token for durable image storage (see upload.service.ts).
   blobToken: process.env.BLOB_READ_WRITE_TOKEN || '',
   resendApiKey: process.env.RESEND_API_KEY || '',
-  resendFrom: process.env.RESEND_FROM || 'CleanNaija <onboarding@resend.dev>',
-  resendReplyTo: process.env.RESEND_REPLY_TO || 'hello@cleannaija.com',
+  resendFrom: process.env.RESEND_FROM || 'Clean9ja <onboarding@resend.dev>',
+  resendReplyTo: process.env.RESEND_REPLY_TO || 'hello@clean9ja.com',
   termii: {
     apiKey: process.env.TERMII_API_KEY || '',
-    senderId: process.env.TERMII_SENDER_ID || 'CleanNaija',
+    senderId: process.env.TERMII_SENDER_ID || 'Clean9ja',
   },
   supabase: {
     url: process.env.SUPABASE_URL || '',

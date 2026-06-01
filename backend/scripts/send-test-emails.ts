@@ -18,7 +18,7 @@ const svc = new EmailService();
   console.log('welcome:', JSON.stringify(welcome));
   const booking = await svc.sendBookingConfirmation(to, 'Stanley', 'CLN-TEST-001', new Date().toDateString());
   console.log('bookingConfirmation:', JSON.stringify(booking));
-  const reset = await svc.sendPasswordReset(to, 'https://cleannaija.com/reset?token=demo-token');
+  const reset = await svc.sendPasswordReset(to, 'https://clean9ja.com/reset?token=demo-token');
   console.log('passwordReset:', JSON.stringify(reset));
   console.log('Done.');
 })().catch((e) => {

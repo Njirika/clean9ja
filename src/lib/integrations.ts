@@ -1,5 +1,5 @@
 /**
- * CleanNaija Third-Party Integrations Utility
+ * Clean9ja Third-Party Integrations Utility
  *
  * Client-side integration config + analytics hooks. Public keys/DSNs come from
  * Vite env vars (`VITE_*`) so they can be set per-environment in Vercel.

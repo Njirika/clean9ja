@@ -7,7 +7,7 @@ export function FAQPage() {
     <div className="min-h-screen bg-white">
       <Seo
         title="FAQ & Help Center"
-        description="Answers to common questions about booking, coverage, pricing, payments, our 100% satisfaction guarantee, NIN-verified cleaners and recurring plans at CleanNaija."
+        description="Answers to common questions about booking, coverage, pricing, payments, our 100% satisfaction guarantee, NIN-verified cleaners and recurring plans at Clean9ja."
         path="/faq"
         jsonLd={{
           '@context': 'https://schema.org',

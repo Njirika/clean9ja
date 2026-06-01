@@ -23,14 +23,14 @@ export function Testimonials() {
             What Our Customers Say
           </h2>
           <p className="text-xl text-gray-500 max-w-2xl mx-auto">
-            Real reviews from Nigerians who trust CleanNaija for their spaces.
+            Real reviews from Nigerians who trust Clean9ja for their spaces.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((t) => {
             const name = [t.customer?.firstName, t.customer?.lastName].filter(Boolean).join(' ') || 'Verified Customer';
-            const role = t.booking?.service?.name ? `${t.booking.service.name} customer` : 'CleanNaija customer';
+            const role = t.booking?.service?.name ? `${t.booking.service.name} customer` : 'Clean9ja customer';
             return (
               <div key={t.id} className="bg-secondary p-8 rounded-2xl relative">
                 <Quote className="absolute top-6 right-8 w-12 h-12 text-primary/10" />

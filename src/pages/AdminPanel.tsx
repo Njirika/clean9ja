@@ -160,7 +160,7 @@ export function AdminPanel() {
       {/* Sticky Mobile Header */}
       <header className="sticky top-0 z-40 bg-primary text-white py-4 px-6 flex justify-between items-center shadow-lg lg:hidden">
         <Link to="/" className="flex items-center">
-          <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-6 w-auto object-contain" />
+          <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-6 w-auto object-contain" />
         </Link>
         <div className="flex items-center space-x-3 bg-[#144718] px-3 py-1.5 rounded-full border border-white/10">
           <div className="w-2 h-2 rounded-full bg-accent-orange animate-pulse"></div>
@@ -175,7 +175,7 @@ export function AdminPanel() {
           <div>
             <div className="flex items-center space-x-2 bg-[#144718] px-3 py-1 rounded-full border border-white/10 w-fit mb-4">
               <ShieldCheck className="w-3 h-3 text-accent-gold" />
-              <span className="text-[9px] font-black uppercase tracking-widest text-accent-gold">CleanNaija Command Center</span>
+              <span className="text-[9px] font-black uppercase tracking-widest text-accent-gold">Clean9ja Command Center</span>
             </div>
             <h1 className="text-4xl font-heading font-black uppercase tracking-tighter">HQ Operations</h1>
             <p className="text-white/60 font-bold uppercase tracking-widest text-[10px] mt-1">Lekki Dispatch Control & Administration</p>
@@ -201,7 +201,7 @@ export function AdminPanel() {
           <aside className="lg:col-span-1 space-y-3 hidden lg:block">
             {/* Logo Link to Home */}
             <Link to="/" className="flex items-center mb-6 px-2">
-              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 w-auto object-contain" />
+              <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-10 w-auto object-contain" />
             </Link>
             {menuItems.map(item => {
               const isActive = activeTab === item.id;
@@ -370,7 +370,7 @@ export function AdminPanel() {
 
                   {loadingServices && !services ? (
                     <div className="text-center py-12">
-                      <p className="text-xs font-black uppercase text-gray-400 tracking-widest animate-pulse">Loading CleanNaija catalog...</p>
+                      <p className="text-xs font-black uppercase text-gray-400 tracking-widest animate-pulse">Loading Clean9ja catalog...</p>
                     </div>
                   ) : services && services.length === 0 ? (
                     <div className="text-center py-12 bg-secondary/10 border border-dashed border-gray-200">

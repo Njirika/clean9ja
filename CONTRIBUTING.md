@@ -1,4 +1,4 @@
-# Contributing to CleanNaija
+# Contributing to Clean9ja
 
 ## 🔁 Commit policy (IMPORTANT)
 

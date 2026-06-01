@@ -49,7 +49,7 @@ export function Auth() {
     <div className="min-h-screen bg-secondary/30 flex items-center justify-center p-4 font-sans">
       <Seo
         title="Login or Sign Up"
-        description="Access your CleanNaija account to book, track and manage your cleaning services."
+        description="Access your Clean9ja account to book, track and manage your cleaning services."
         path="/auth"
         noindex
       />
@@ -61,7 +61,7 @@ export function Auth() {
         <div className="p-10">
           <div className="text-center mb-10">
             <Link to="/" className="inline-flex items-center justify-center mb-6">
-              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-12 md:h-16 w-auto object-contain" />
+              <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-12 md:h-16 w-auto object-contain" />
             </Link>
             <h1 className="text-3xl font-black text-primary uppercase tracking-tighter mb-2">
               {mode === 'login' ? 'Mission Control' : 'Join the Squad'}
@@ -149,7 +149,7 @@ export function Auth() {
 
         <div className="bg-secondary/50 p-6 border-t border-gray-100 text-center">
           <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-relaxed">
-            By continuing, you agree to CleanNaija's <Link to="/terms" className="text-primary hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
+            By continuing, you agree to Clean9ja's <Link to="/terms" className="text-primary hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
           </p>
         </div>
       </motion.div>

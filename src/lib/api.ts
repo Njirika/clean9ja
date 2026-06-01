@@ -1,5 +1,5 @@
 /**
- * CleanNaija API client.
+ * Clean9ja API client.
  *
  * A small typed wrapper around the backend REST API. The base URL comes from
  * the `VITE_API_URL` env var (set per-environment in Vercel / `.env`); it

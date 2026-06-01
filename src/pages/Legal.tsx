@@ -5,7 +5,7 @@ export function Legal({ title }: { title: string }) {
     <div className="min-h-screen bg-white">
       <Seo
         title={title}
-        description={`${title} for CleanNaija — how we deliver our cleaning services, our 100% satisfaction guarantee, security, NIN-verified pros and your responsibilities as a user.`}
+        description={`${title} for Clean9ja — how we deliver our cleaning services, our 100% satisfaction guarantee, security, NIN-verified pros and your responsibilities as a user.`}
         path={title.toLowerCase().includes('privacy') ? '/privacy' : '/terms'}
       />
       <div className="bg-primary py-24 text-white text-center">
@@ -17,7 +17,7 @@ export function Legal({ title }: { title: string }) {
         <div className="prose prose-slate max-w-none space-y-8">
           <section>
             <h2 className="text-2xl font-black text-primary uppercase tracking-tighter mb-4">1. Acceptance of Terms</h2>
-            <p className="text-gray-600 leading-relaxed font-medium">By accessing and using CleanNaija, you agree to be bound by these terms. We Clean Am Proper, but we expect our users to respect our pros and follow our booking guidelines.</p>
+            <p className="text-gray-600 leading-relaxed font-medium">By accessing and using Clean9ja, you agree to be bound by these terms. We Clean Am Proper, but we expect our users to respect our pros and follow our booking guidelines.</p>
           </section>
           <section>
             <h2 className="text-2xl font-black text-primary uppercase tracking-tighter mb-4">2. Satisfaction Guarantee</h2>

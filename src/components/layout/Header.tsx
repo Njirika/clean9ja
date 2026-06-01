@@ -91,7 +91,7 @@ export function Header() {
           {/* Left Side: Logo (Aligned Left) */}
           <div className="w-1/4 flex justify-start">
             <Link to="/" className="flex items-center">
-              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 md:h-12 w-auto object-contain" />
+              <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-10 md:h-12 w-auto object-contain" />
             </Link>
           </div>
 

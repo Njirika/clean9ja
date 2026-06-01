@@ -46,7 +46,7 @@ function upsertLink(rel: string, href: string) {
 
 export function Seo({ title, description, path, image, keywords, noindex, type = 'website', jsonLd }: SeoProps) {
   useEffect(() => {
-    const fullTitle = title.includes('CleanNaija') ? title : `${title} | CleanNaija`;
+    const fullTitle = title.includes('Clean9ja') ? title : `${title} | Clean9ja`;
     const url = `${SITE_URL}${path === '/' ? '' : path}`;
     const img = image || BUSINESS.image;
 
@@ -64,7 +64,7 @@ export function Seo({ title, description, path, image, keywords, noindex, type =
     upsertMeta('property', 'og:type', type);
     upsertMeta('property', 'og:url', url);
     upsertMeta('property', 'og:image', img);
-    upsertMeta('property', 'og:site_name', 'CleanNaija');
+    upsertMeta('property', 'og:site_name', 'Clean9ja');
     upsertMeta('property', 'og:locale', 'en_NG');
 
     // Twitter

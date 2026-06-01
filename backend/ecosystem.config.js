@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'cleannaija-api',
+      name: 'clean9ja-api',
       script: 'npm',
       args: 'start',
       instances: 'max', // Scale across all available CPU cores

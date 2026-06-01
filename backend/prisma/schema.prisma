@@ -349,7 +349,7 @@ model BlogPost {
   slug          String   @unique @db.VarChar(255)
   excerpt       String   @db.VarChar(500)
   content       String
-  author        String   @default("CleanNaija Experts") @db.VarChar(100)
+  author        String   @default("Clean9ja Experts") @db.VarChar(100)
   imageUrl      String   @map("image_url")
   category      String   @db.VarChar(100)
   isPublished   Boolean  @default(true) @map("is_published")

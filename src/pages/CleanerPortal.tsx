@@ -132,13 +132,13 @@ export function CleanerPortal() {
                   Find Stable Cleaning Jobs
                 </h1>
                 <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px]">
-                  Join CleanNaija's Elite Vetted Fleet & Earn High Payouts Weekly
+                  Join Clean9ja's Elite Vetted Fleet & Earn High Payouts Weekly
                 </p>
               </div>
 
               <Card className="p-8 border-y-8 border-accent-gold bg-white shadow-xl space-y-6">
                 <div className="space-y-4">
-                  <h3 className="font-black text-primary uppercase tracking-tighter text-xl border-b border-gray-100 pb-3">Why Work With CleanNaija?</h3>
+                  <h3 className="font-black text-primary uppercase tracking-tighter text-xl border-b border-gray-100 pb-3">Why Work With Clean9ja?</h3>
                   <div className="space-y-4">
                     {[
                       { title: "Stable Weekly Pay", desc: "No bidding or hustle. We find the customers, coordinate the quotes, and pay you steady rates up to ₦150k+/mo." },
@@ -172,7 +172,7 @@ export function CleanerPortal() {
                 <div>
                   <p className="font-black text-accent-gold uppercase text-[10px] tracking-widest mb-1">Company Staff Model</p>
                   <p className="text-[11px] text-white/80 font-bold uppercase tracking-tight leading-relaxed">
-                    CleanNaija is not a peer-to-peer open marketplace. We are the cleaning company ourselves. All jobs are directly assigned to our vetted staff commanders.
+                    Clean9ja is not a peer-to-peer open marketplace. We are the cleaning company ourselves. All jobs are directly assigned to our vetted staff commanders.
                   </p>
                 </div>
               </div>
@@ -274,7 +274,7 @@ export function CleanerPortal() {
                     <div className="p-4 bg-accent-gold/10 border-2 border-accent-gold text-left flex items-start space-x-3">
                       <AlertTriangle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                       <p className="text-[9px] font-bold text-primary uppercase tracking-widest leading-relaxed">
-                        NIN registration is mandatory. CleanNaija runs background security checks on all applicants to maintain our zero-liability security guarantee.
+                        NIN registration is mandatory. Clean9ja runs background security checks on all applicants to maintain our zero-liability security guarantee.
                       </p>
                     </div>
 
@@ -320,7 +320,7 @@ export function CleanerPortal() {
                   <Briefcase className="w-8 h-8" />
                 </div>
                 <h1 className="text-3xl font-black text-primary uppercase tracking-tighter">Staff Portal</h1>
-                <p className="text-gray-500 mt-2 font-bold uppercase tracking-widest text-[10px]">Log in with your CleanNaija Employee Credentials</p>
+                <p className="text-gray-500 mt-2 font-bold uppercase tracking-widest text-[10px]">Log in with your Clean9ja Employee Credentials</p>
               </div>
               <Card className="p-10 rounded-none border-t-8 border-accent-gold bg-white">
                 <div className="space-y-6">
@@ -361,7 +361,7 @@ export function CleanerPortal() {
       {/* Sticky Mobile Header */}
       <header className="sticky top-0 z-40 bg-primary text-white py-4 px-6 flex justify-between items-center shadow-lg lg:hidden">
         <Link to="/" className="flex items-center">
-          <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-6 w-auto object-contain" />
+          <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-6 w-auto object-contain" />
         </Link>
         <div className="flex items-center space-x-3 bg-[#144718] px-3 py-1.5 rounded-full border border-white/10">
           <div className="w-2 h-2 rounded-full bg-primary-bright animate-pulse"></div>
@@ -398,7 +398,7 @@ export function CleanerPortal() {
           <aside className="lg:col-span-1 space-y-3 hidden lg:block">
             {/* Logo Link to Home */}
             <Link to="/" className="flex items-center mb-6 px-2">
-              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 w-auto object-contain" />
+              <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-10 w-auto object-contain" />
             </Link>
             {menuItems.map(item => {
               const isActive = activeCleanerTab === item.id;
@@ -513,7 +513,7 @@ export function CleanerPortal() {
                       <div className="pt-4 border-t border-gray-50">
                         <h4 className="font-black text-primary uppercase text-[9px] tracking-[0.25em] mb-2">Dispatcher Notes</h4>
                         <p className="text-gray-500 text-xs font-bold uppercase tracking-wider leading-relaxed italic">
-                          "CleanNaija Dispatch: Call Mrs. Adebayo at 0801XXX before entry. Deep clean focus on the master bathroom and interlock pavement."
+                          "Clean9ja Dispatch: Call Mrs. Adebayo at 0801XXX before entry. Deep clean focus on the master bathroom and interlock pavement."
                         </p>
                       </div>
                     </Card>
@@ -697,7 +697,7 @@ export function CleanerPortal() {
 
                   <div className="w-full flex justify-between items-center mb-6 z-10">
                     <div className="flex items-center justify-center">
-                      <img src="/logo.png" alt="CleanNaija" className="h-6 w-auto object-contain" />
+                      <img src="/logo.png" alt="Clean9ja" className="h-6 w-auto object-contain" />
                     </div>
                     <span className="bg-accent-gold text-primary font-black uppercase tracking-widest text-[7px] px-2 py-0.5 rounded-full">ACTIVE DUTY</span>
                   </div>
@@ -727,7 +727,7 @@ export function CleanerPortal() {
 
                   <div className="mt-6 flex items-center space-x-2 text-[7.5px] font-black text-white/40 uppercase tracking-widest z-10">
                     <ShieldCheck className="w-3.5 h-3.5 text-accent-gold" />
-                    <span>CleanNaija Verified Personnel</span>
+                    <span>Clean9ja Verified Personnel</span>
                   </div>
                 </div>
 

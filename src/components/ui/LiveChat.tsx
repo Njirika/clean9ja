@@ -77,7 +77,7 @@ export function LiveChat() {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             className="bg-white w-[calc(100vw-2rem)] sm:w-[23rem] h-[min(32rem,calc(100dvh-13rem))] shadow-2xl border border-gray-100 flex flex-col overflow-hidden mb-4 rounded-2xl"
             role="dialog"
-            aria-label="CleanNaija assistant"
+            aria-label="Clean9ja assistant"
           >
             {/* Header */}
             <div className="bg-primary p-5 text-white flex items-center justify-between">
@@ -86,7 +86,7 @@ export function LiveChat() {
                   CN
                 </div>
                 <div>
-                  <h3 className="font-black uppercase tracking-widest text-xs">CleanNaija Assistant</h3>
+                  <h3 className="font-black uppercase tracking-widest text-xs">Clean9ja Assistant</h3>
                   <p className="text-[10px] text-accent-gold font-bold uppercase flex items-center">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1.5 animate-pulse" /> Online • 24/7
                   </p>

@@ -1,5 +1,5 @@
 /**
- * CleanNaija in-site assistant — a self-contained, knowledge-based engine.
+ * Clean9ja in-site assistant — a self-contained, knowledge-based engine.
  *
  * No external API/keys: user messages are normalized, scored against a curated
  * knowledge base (built from the shared `siteContent` source of truth), and the
@@ -77,7 +77,7 @@ const INTENTS: Intent[] = [
     id: 'greeting',
     keywords: ['hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening', 'how far', 'yo'],
     build: () => ({
-      text: `Hello! 👋 Welcome to CleanNaija — ${BUSINESS.tagline} I can help with services, pricing, coverage, booking and more. What do you need?`,
+      text: `Hello! 👋 Welcome to Clean9ja — ${BUSINESS.tagline} I can help with services, pricing, coverage, booking and more. What do you need?`,
       quickReplies: DEFAULT_QUICK_REPLIES,
     }),
   },
@@ -102,7 +102,7 @@ const INTENTS: Intent[] = [
     id: 'coverage',
     keywords: ['area', 'areas', 'cover', 'coverage', 'location', 'where', 'available', 'state', 'states', 'city', 'near me', 'lagos', 'abuja', 'port harcourt', 'kano', 'ibadan'],
     build: () => ({
-      text: `We're nationwide — CleanNaija serves all 36 states and the FCT, with dedicated hubs in ${BUSINESS.hubs.join(', ')}. Tell me your city during booking and we'll match you with a local team.`,
+      text: `We're nationwide — Clean9ja serves all 36 states and the FCT, with dedicated hubs in ${BUSINESS.hubs.join(', ')}. Tell me your city during booking and we'll match you with a local team.`,
       links: [BOOK_LINK],
       quickReplies: ['Book a cleaning', 'See pricing'],
     }),
@@ -199,7 +199,7 @@ const INTENTS: Intent[] = [
   },
   {
     id: 'about',
-    keywords: ['about', 'who are you', 'what is cleannaija', 'what do you do', 'tell me about'],
+    keywords: ['about', 'who are you', 'what is clean9ja', 'what do you do', 'tell me about'],
     build: () => ({
       text: BUSINESS.description,
       links: [{ label: 'About us', to: '/about' }, BOOK_LINK],
@@ -256,7 +256,7 @@ function scoreIntent(msg: string, intent: Intent): number {
 
 export function getWelcomeMessage(): AssistantResponse {
   return {
-    text: `Hi! 👋 I'm the CleanNaija assistant. Ask me about our cleaning services, pricing, coverage, safety or how to book — I'm here 24/7.`,
+    text: `Hi! 👋 I'm the Clean9ja assistant. Ask me about our cleaning services, pricing, coverage, safety or how to book — I'm here 24/7.`,
     quickReplies: DEFAULT_QUICK_REPLIES,
   };
 }

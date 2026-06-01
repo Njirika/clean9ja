@@ -1,12 +1,12 @@
-# CleanNaija Backend Implementation Plan
+# Clean9ja Backend Implementation Plan
 
-This plan outlines the architecture, database design, API modules, security, and devops setup for the **CleanNaija Centralized Professional Cleaning Platform** backend.
+This plan outlines the architecture, database design, API modules, security, and devops setup for the **Clean9ja Centralized Professional Cleaning Platform** backend.
 
 ---
 
 ## 🎯 Goal Description
 
-The objective is to replace mock frontend operations with a production-ready, highly-scalable, and secure Node.js + Express.js backend. CleanNaija is **not a cleaner marketplace** but a centralized cleaning services provider. The backend will handle company pricing calculations, automated booking creations, administrator dispatch/assignments of hired cleaners, employee before/after quality checks, subscription renewals, automated email updates via **SendGrid/Resend**, and SMS updates via **Termii** using a **BullMQ** worker queue powered by **Redis**.
+The objective is to replace mock frontend operations with a production-ready, highly-scalable, and secure Node.js + Express.js backend. Clean9ja is **not a cleaner marketplace** but a centralized cleaning services provider. The backend will handle company pricing calculations, automated booking creations, administrator dispatch/assignments of hired cleaners, employee before/after quality checks, subscription renewals, automated email updates via **SendGrid/Resend**, and SMS updates via **Termii** using a **BullMQ** worker queue powered by **Redis**.
 
 ---
 
@@ -371,7 +371,7 @@ model BlogPost {
   slug          String   @unique @db.VarChar(255)
   excerpt       String   @db.VarChar(500)
   content       String
-  author        String   @default("CleanNaija Experts") @db.VarChar(100)
+  author        String   @default("Clean9ja Experts") @db.VarChar(100)
   imageUrl      String   @map("imageUrl")
   category      String   @db.VarChar(100)
   isPublished   Boolean  @default(true) @map("is_published")

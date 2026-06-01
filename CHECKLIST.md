@@ -1,6 +1,6 @@
-# CleanNaija Backend Implementation Checklist
+# Clean9ja Backend Implementation Checklist
 
-This checklist tracks the progress of the CleanNaija backend development phases, as outlined in the phased development instructions.
+This checklist tracks the progress of the Clean9ja backend development phases, as outlined in the phased development instructions.
 
 ---
 
@@ -103,7 +103,7 @@ This checklist tracks the progress of the CleanNaija backend development phases,
 
 ### 📋 Phase 9: Resend Email Integration and Branded Email Templates
 - [x] Set up Resend API client integration (`email.service.ts`).
-- [x] Create an HTML layout wrapper with the CleanNaija logo.
+- [x] Create an HTML layout wrapper with the Clean9ja logo.
 - [x] Write standard templates (Welcome, Booking Confirmation, Password Reset).
 - [x] Hook up these templates in `email.worker.ts`.
 - [x] Stop and request user approval before moving to Phase 10.

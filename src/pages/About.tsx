@@ -9,15 +9,15 @@ export function About() {
   return (
     <div className="min-h-screen bg-white">
       <Seo
-        title="About CleanNaija & Our Service Areas"
-        description="CleanNaija is Nigeria's #1 digital platform for professional cleaning, serving all 36 states and the FCT with NIN-verified, insured teams and a 100% satisfaction guarantee."
+        title="About Clean9ja & Our Service Areas"
+        description="Clean9ja is Nigeria's #1 digital platform for professional cleaning, serving all 36 states and the FCT with NIN-verified, insured teams and a 100% satisfaction guarantee."
         path="/about"
       />
       {/* Hero */}
       <section className="bg-primary py-32 text-white overflow-hidden relative">
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-6xl md:text-8xl font-heading font-black uppercase tracking-tighter mb-8 leading-none">
-            We Are <br /> <span className="text-accent-gold italic">CleanNaija.</span>
+            We Are <br /> <span className="text-accent-gold italic">Clean9ja.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-xl font-bold uppercase tracking-[0.2em] text-white/70">
             Nigeria's #1 digital platform for professional cleaning services.
@@ -51,7 +51,7 @@ export function About() {
             </div>
             <div className="flex-1">
               <div className="bg-secondary p-4 rounded-none border-r-8 border-b-8 border-accent-gold shadow-2xl overflow-hidden aspect-video">
-                <img src="/images/service-home.jpg" alt="About CleanNaija" className="w-full h-full object-cover" />
+                <img src="/images/service-home.jpg" alt="About Clean9ja" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ export function About() {
             <div className="bg-white p-12 shadow-2xl border-t-8 border-accent-orange relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent-orange/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
               <h3 className="text-3xl font-black text-primary uppercase tracking-tighter mb-6 relative z-10">Join Our <br/><span className="text-accent-orange">Pro Squad</span></h3>
-              <p className="text-gray-500 font-medium mb-10 leading-relaxed relative z-10">Want to become a CleanNaija Pro? We are always looking for dedicated, verified, and high-performing talent.</p>
+              <p className="text-gray-500 font-medium mb-10 leading-relaxed relative z-10">Want to become a Clean9ja Pro? We are always looking for dedicated, verified, and high-performing talent.</p>
               <Link to="/careers" className="relative z-10">
                 <Button className="bg-accent-orange text-white font-black uppercase tracking-widest px-10 py-5 rounded-none shadow-[0_20px_50px_rgba(255,87,34,0.3)] hover:bg-primary transition-all">Recruitment</Button>
               </Link>

@@ -22,14 +22,14 @@ export function Home() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <Seo
-        title="Professional Cleaning Services in Nigeria | CleanNaija"
+        title="Professional Cleaning Services in Nigeria | Clean9ja"
         description="Book trusted home, office, post-construction, hospital and specialty cleaning across all 36 states and the FCT. NIN-verified, insured teams. Instant quotes. Spotless. Guaranteed. Nationwide."
         path="/"
         keywords="cleaning services nigeria, cleaners lagos, office cleaning abuja, fumigation, post construction cleaning, roof cleaning"
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'ItemList',
-          name: 'CleanNaija Cleaning Services',
+          name: 'Clean9ja Cleaning Services',
           itemListElement: SERVICES.map((s, i) => ({
             '@type': 'ListItem',
             position: i + 1,
@@ -62,12 +62,12 @@ export function Home() {
       <Services />
       <HowItWorks />
 
-      {/* Why Choose CleanNaija (Detailed PRD) */}
+      {/* Why Choose Clean9ja (Detailed PRD) */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-black text-primary uppercase tracking-tighter mb-4">
-              Why Choose CleanNaija
+              Why Choose Clean9ja
             </h2>
             <div className="w-24 h-1.5 bg-accent-gold mx-auto"></div>
           </div>

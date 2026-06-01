@@ -19,7 +19,7 @@ export function Blog() {
             id: p.id,
             title: p.title,
             excerpt: p.excerpt,
-            author: p.author || 'CleanNaija Experts',
+            author: p.author || 'Clean9ja Experts',
             date: new Date(p.createdAt).toLocaleDateString('en-US', {
               year: 'numeric',
               month: 'short',
@@ -37,13 +37,13 @@ export function Blog() {
     <div className="min-h-screen bg-secondary/30 pb-32">
       <Seo
         title="Cleaning Tips & Insights Blog"
-        description="Expert cleaning guides for Nigerian homes and businesses — maintenance in humidity, office hygiene, eco-friendly products and more from the CleanNaija team."
+        description="Expert cleaning guides for Nigerian homes and businesses — maintenance in humidity, office hygiene, eco-friendly products and more from the Clean9ja team."
         path="/blog"
       />
       <div className="bg-primary py-24 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent-gold/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-5xl md:text-7xl font-heading font-black uppercase tracking-tighter mb-4 leading-none">CleanNaija Insights</h1>
+          <h1 className="text-5xl md:text-7xl font-heading font-black uppercase tracking-tighter mb-4 leading-none">Clean9ja Insights</h1>
           <p className="text-accent-gold font-bold uppercase tracking-[0.4em] text-xs">Professional Standards • Local Expertise</p>
         </div>
       </div>

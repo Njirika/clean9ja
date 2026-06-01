@@ -41,16 +41,16 @@ export function Pricing() {
     <div className="min-h-screen bg-white font-sans">
       <Seo
         title="Cleaning Service Pricing in Nigeria"
-        description="Transparent CleanNaija pricing: home cleaning from ₦3,000/room, apartments from ₦15,000, offices from ₦500/sqm, fumigation, roof and post-construction. Save up to 30% on recurring plans."
+        description="Transparent Clean9ja pricing: home cleaning from ₦3,000/room, apartments from ₦15,000, offices from ₦500/sqm, fumigation, roof and post-construction. Save up to 30% on recurring plans."
         path="/pricing"
         keywords="cleaning prices nigeria, house cleaning cost lagos, office cleaning rates, fumigation price"
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'Service',
           serviceType: 'Cleaning service',
-          name: 'CleanNaija Cleaning Services',
+          name: 'Clean9ja Cleaning Services',
           areaServed: { '@type': 'Country', name: 'Nigeria' },
-          provider: { '@type': 'Organization', name: 'CleanNaija', url: SITE_URL },
+          provider: { '@type': 'Organization', name: 'Clean9ja', url: SITE_URL },
           offers: {
             '@type': 'AggregateOffer',
             priceCurrency: 'NGN',

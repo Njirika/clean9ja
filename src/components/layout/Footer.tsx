@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-20">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-8">
-              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 md:h-14 w-auto object-contain" />
+              <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-10 md:h-14 w-auto object-contain" />
             </Link>
             <p className="text-white/70 mb-10 max-w-sm leading-relaxed font-medium">
               Nigeria's premier digital platform for professional cleaning services. 
@@ -16,7 +16,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://facebook.com/CleanNaija" 
+                href="https://facebook.com/Clean9ja" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/10 rounded-none flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all duration-300"
@@ -25,7 +25,7 @@ export function Footer() {
                 <Share2 className="w-5 h-5" />
               </a>
               <a 
-                href="https://instagram.com/CleanNaija" 
+                href="https://instagram.com/Clean9ja" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/10 rounded-none flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all duration-300"
@@ -34,7 +34,7 @@ export function Footer() {
                 <Globe className="w-5 h-5" />
               </a>
               <a 
-                href="https://linkedin.com/company/cleannaija" 
+                href="https://linkedin.com/company/clean9ja" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/10 rounded-none flex items-center justify-center hover:bg-accent-gold hover:text-primary transition-all duration-300"
@@ -91,7 +91,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>© 2025 CleanNaija. All rights reserved.</p>
+          <p>© 2025 Clean9ja. All rights reserved.</p>
           <div className="mt-4 md:mt-0">
             RC: 1234567 | Licensed by NAFDAC
           </div>
