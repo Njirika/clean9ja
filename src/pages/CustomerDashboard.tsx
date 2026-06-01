@@ -14,7 +14,7 @@ import {
   LayoutDashboard,
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { api, ApiAddress, ApiBooking, ApiSubscription } from '../lib/api';
 
@@ -26,6 +26,7 @@ const fmtDate = (d?: string) =>
 
 export function CustomerDashboard() {
   const { currentUser, isAuthenticated } = useUser();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<Tab>('overview');
 
   // Live data (null = loading)
@@ -54,11 +55,14 @@ export function CustomerDashboard() {
   }, []);
 
   useEffect(() => {
-    if (!isAuthenticated) return;
+    if (!isAuthenticated) {
+      navigate('/auth', { replace: true });
+      return;
+    }
     loadAddresses();
     api.bookings.mine().then(setBookings).catch(() => setBookings([]));
     api.subscriptions.list().then(setSubscriptions).catch(() => setSubscriptions([]));
-  }, [isAuthenticated, loadAddresses]);
+  }, [isAuthenticated, loadAddresses, navigate]);
 
   useEffect(() => {
     if (currentUser) {

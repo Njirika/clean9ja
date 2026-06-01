@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AdminBlogManager } from '../components/home/BlogSection';
 import { api, AdminStats, ApiBooking } from '../lib/api';
 import { useUser } from '../context/UserContext';
@@ -34,7 +34,8 @@ interface Applicant {
 }
 
 export function AdminPanel() {
-  const { isAuthenticated } = useUser();
+  const { isAuthenticated, currentUser } = useUser();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<Tab>('dispatch');
   const [adminStats, setAdminStats] = useState<AdminStats | null>(null);
   const [bookings, setBookings] = useState<ApiBooking[] | null>(null);
@@ -69,11 +70,18 @@ export function AdminPanel() {
   };
 
   useEffect(() => {
-    if (!isAuthenticated) return;
+    if (!isAuthenticated) {
+      navigate('/auth', { replace: true });
+      return;
+    }
+    if (currentUser && currentUser.role !== 'admin') {
+      navigate('/dashboard', { replace: true });
+      return;
+    }
     api.admin.stats().then(setAdminStats).catch(() => setAdminStats(null));
     api.bookings.mine().then(setBookings).catch(() => setBookings([]));
     loadServices();
-  }, [isAuthenticated]);
+  }, [isAuthenticated, currentUser, navigate]);
 
   const stats = [
     { label: 'Total Bookings', value: adminStats ? adminStats.totalBookings.toLocaleString() : '…', icon: Calendar, color: 'text-primary' },
