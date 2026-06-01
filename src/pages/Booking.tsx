@@ -463,7 +463,7 @@ export function Booking() {
                 </div>
                 <div className="flex pt-10">
                   <Button variant="outline" onClick={prevStep} className="mr-6 px-10 py-6 border-2 rounded-none font-black uppercase text-xs tracking-widest">Back</Button>
-                  <Button onClick={nextStep} className="flex-1 bg-primary rounded-none shadow-2xl py-6 text-xl font-black uppercase tracking-widest">
+                  <Button onClick={nextStep} disabled={!date || !time} className="flex-1 bg-primary rounded-none shadow-2xl py-6 text-xl font-black uppercase tracking-widest disabled:opacity-50">
                     Confirm Mission Specs
                   </Button>
                 </div>
