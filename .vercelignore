@@ -1,7 +1,5 @@
-# The frontend (root) is what Vercel builds for this project.
-# The backend is deployed separately (see DEPLOYMENT.md), so exclude it
-# from the frontend build context to keep deploys fast and clean.
-backend
+# Exclude temporary and node build artifacts from the build context.
 docker-compose.yml
 node_modules
 dist
+
