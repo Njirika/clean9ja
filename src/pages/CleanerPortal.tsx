@@ -360,7 +360,7 @@ export function CleanerPortal() {
       
       {/* Sticky Mobile Header */}
       <header className="sticky top-0 z-40 bg-primary text-white py-4 px-6 flex justify-between items-center shadow-lg lg:hidden">
-        <Link to="/" className="flex items-center bg-white p-1 rounded">
+        <Link to="/" className="flex items-center">
           <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-6 w-auto object-contain" />
         </Link>
         <div className="flex items-center space-x-3 bg-[#144718] px-3 py-1.5 rounded-full border border-white/10">
@@ -696,7 +696,7 @@ export function CleanerPortal() {
                   <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent-gold/5 rounded-full blur-xl"></div>
 
                   <div className="w-full flex justify-between items-center mb-6 z-10">
-                    <div className="bg-white p-1 rounded-sm flex items-center justify-center">
+                    <div className="flex items-center justify-center">
                       <img src="/logo.png" alt="CleanNaija" className="h-6 w-auto object-contain" />
                     </div>
                     <span className="bg-accent-gold text-primary font-black uppercase tracking-widest text-[7px] px-2 py-0.5 rounded-full">ACTIVE DUTY</span>

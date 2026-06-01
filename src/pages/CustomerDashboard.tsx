@@ -154,7 +154,7 @@ export function CustomerDashboard() {
     <div className="min-h-screen bg-secondary/30 pb-24 lg:pb-12 font-sans flex flex-col">
       {/* Mobile header */}
       <header className="sticky top-0 z-40 bg-primary text-white py-4 px-6 flex justify-between items-center shadow-lg lg:hidden">
-        <Link to="/" className="flex items-center bg-white p-1 rounded">
+        <Link to="/" className="flex items-center">
           <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-6 w-auto object-contain" />
         </Link>
         <div className="flex items-center space-x-3 bg-[#144718] px-3 py-1.5 rounded-full border border-white/10">

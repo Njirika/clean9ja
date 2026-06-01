@@ -7,8 +7,8 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-20">
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-8 bg-white p-3 rounded-xl shadow-lg">
-              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 md:h-12 w-auto object-contain" />
+            <Link to="/" className="inline-block mb-8">
+              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 md:h-14 w-auto object-contain" />
             </Link>
             <p className="text-white/70 mb-10 max-w-sm leading-relaxed font-medium">
               Nigeria's premier digital platform for professional cleaning services. 
