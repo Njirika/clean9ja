@@ -42,11 +42,16 @@ app.use(
   cors({
     origin: function (origin, callback) {
       const allowedOrigins = env.frontendUrl.split(',').map(url => url.trim());
-      // Allow requests with no origin (like mobile apps, curl) or if it matches our list
-      if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+      const alwaysAllowed = [
+        'https://clean9ja.com',
+        'https://www.clean9ja.com',
+        'http://localhost:5173'
+      ];
+      // Allow requests with no origin (like mobile apps, curl) or if it matches our lists
+      if (!origin || allowedOrigins.includes(origin) || alwaysAllowed.includes(origin) || allowedOrigins.includes('*')) {
         callback(null, true);
       } else {
-        callback(new Error('Not allowed by CORS'));
+        callback(new Error('Not allowed by CORS: ' + origin));
       }
     },
     credentials: true,
