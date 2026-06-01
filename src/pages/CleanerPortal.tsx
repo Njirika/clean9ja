@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Card } from '../components/ui/Card';
+import { API_URL } from '../lib/api';
 import { 
   Briefcase, 
   MapPin, 
@@ -71,10 +72,39 @@ export function CleanerPortal() {
     }
   ];
 
-  const handleApplySubmit = (e: React.FormEvent) => {
+  const [applying, setApplying] = useState(false);
+  const [applyError, setApplyError] = useState<string | null>(null);
+
+  const handleApplySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setApplied(true);
-    console.log('[Recruitment] Submitted Cleaner Application:', applicationData);
+    setApplying(true);
+    setApplyError(null);
+    try {
+      const res = await fetch(`${API_URL}/api/auth/register`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: applicationData.fullName.split(' ')[0] || applicationData.fullName,
+          lastName: applicationData.fullName.split(' ').slice(1).join(' ') || '',
+          email: applicationData.email,
+          phone: applicationData.phone,
+          password: Math.random().toString(36).slice(2) + 'Aa1!', // temp password
+          role: 'cleaner',
+        }),
+      });
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}));
+        // If already registered, still show success to avoid user confusion
+        if (res.status !== 409) {
+          throw new Error(json?.message || 'Application failed. Please try again.');
+        }
+      }
+      setApplied(true);
+    } catch (err: any) {
+      setApplyError(err?.message || 'Could not submit application. Please try again.');
+    } finally {
+      setApplying(false);
+    }
   };
 
   const handleSaveBankInfo = (e: React.FormEvent) => {
@@ -248,9 +278,14 @@ export function CleanerPortal() {
                       </p>
                     </div>
 
-                    <div className="flex space-x-4">
-                      <Button type="button" variant="outline" onClick={() => setStep('LANDING')} className="px-6 py-5 border-2 rounded-none font-black uppercase text-xs tracking-widest">Back</Button>
-                      <Button type="submit" className="flex-grow bg-primary py-5 text-sm rounded-none uppercase font-black tracking-widest">Submit Application</Button>
+                    <div className="flex flex-col space-y-3">
+                      {applyError && (
+                        <div className="p-3 bg-red-50 border-l-4 border-red-500 text-[10px] font-black text-red-600 uppercase tracking-wider">{applyError}</div>
+                      )}
+                      <div className="flex space-x-4">
+                        <Button type="button" variant="outline" onClick={() => setStep('LANDING')} className="px-6 py-5 border-2 rounded-none font-black uppercase text-xs tracking-widest">Back</Button>
+                        <Button type="submit" disabled={applying} className="flex-grow bg-primary py-5 text-sm rounded-none uppercase font-black tracking-widest disabled:opacity-60">{applying ? 'Submitting…' : 'Submit Application'}</Button>
+                      </div>
                     </div>
                   </form>
                 </Card>

@@ -3,6 +3,7 @@ import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { Clock, User, ArrowRight, Trash2, LayoutDashboard } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { api, ApiBlogPost, tokenStore, API_URL } from '../../lib/api';
 
 export interface BlogPost {
   id: string;
@@ -14,48 +15,28 @@ export interface BlogPost {
   category: string;
 }
 
-export const INITIAL_BLOGS: BlogPost[] = [
-  {
-    id: '1',
-    title: "Maintaining Interlock Stones in Nigerian Humidity",
-    excerpt: "Lagos weather can be tough on stone driveways. Learn how to prevent deep-rooted mold and weeds...",
-    author: "CleanNaija Experts",
-    date: "May 10, 2026",
-    image: "/images/service-roof.jpg",
-    category: "Maintenance"
-  },
-  {
-    id: '2',
-    title: "5 Hygiene Secrets for Corporate Offices in Abuja",
-    excerpt: "Maintaining a clinical standard in high-traffic offices requires more than just sweeping...",
-    author: "Adunni Clean",
-    date: "May 12, 2026",
-    image: "/images/service-office.jpg",
-    category: "Corporate"
-  },
-  {
-    id: '3',
-    title: "Eco-Friendly Cleaning Products for Nigerian Homes",
-    excerpt: "Discover safe, effective, and locally available cleaning agents that won't harm your children or pets...",
-    author: "CleanNaija Experts",
-    date: "May 15, 2026",
-    image: "/images/service-home.jpg",
-    category: "Health"
-  }
-];
+function mapApiPost(p: ApiBlogPost): BlogPost {
+  return {
+    id: p.id,
+    title: p.title,
+    excerpt: p.excerpt,
+    author: p.author || 'CleanNaija Experts',
+    date: new Date(p.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    image: p.coverImageUrl || '/images/service-home.jpg',
+    category: p.category || 'Insights',
+  };
+}
+
+// Kept for backward compatibility — no longer used locally
+export const INITIAL_BLOGS: BlogPost[] = [];
 
 export function BlogSection() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
 
-  const loadBlogs = () => {
-    const saved = localStorage.getItem('cleannaija_blogs');
-    setBlogs(saved ? JSON.parse(saved) : INITIAL_BLOGS);
-  };
-
   useEffect(() => {
-    loadBlogs();
-    window.addEventListener('storage', loadBlogs);
-    return () => window.removeEventListener('storage', loadBlogs);
+    api.blog.list()
+      .then(posts => setBlogs((posts || []).map(mapApiPost)))
+      .catch(() => setBlogs([]));
   }, []);
 
   return (
@@ -110,40 +91,75 @@ export function BlogSection() {
 
 export function AdminBlogManager() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
+  const [publishing, setPublishing] = useState(false);
+  const [publishError, setPublishError] = useState<string | null>(null);
   const [newPost, setNewPost] = useState({
     title: '',
     excerpt: '',
     category: 'Maintenance',
-    image: '/images/service-home.jpg'
+    image: '/images/service-home.jpg',
   });
 
-  useEffect(() => {
-    const saved = localStorage.getItem('cleannaija_blogs');
-    setBlogs(saved ? JSON.parse(saved) : INITIAL_BLOGS);
-  }, []);
-
-  const saveBlogs = (updated: BlogPost[]) => {
-    setBlogs(updated);
-    localStorage.setItem('cleannaija_blogs', JSON.stringify(updated));
-    window.dispatchEvent(new Event('storage'));
+  const loadBlogs = () => {
+    setLoading(true);
+    api.blog.list()
+      .then(posts => setBlogs((posts || []).map(mapApiPost)))
+      .catch(() => setBlogs([]))
+      .finally(() => setLoading(false));
   };
 
-  const addPost = (e: React.FormEvent) => {
+  useEffect(() => { loadBlogs(); }, []);
+
+  const addPost = async (e: React.FormEvent) => {
     e.preventDefault();
-    const post: BlogPost = {
-      ...newPost,
-      id: Math.random().toString(36).substr(2, 9),
-      author: 'CleanNaija Admin',
-      date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    };
-    saveBlogs([post, ...blogs]);
-    setShowForm(false);
-    setNewPost({ title: '', excerpt: '', category: 'Maintenance', image: '/images/service-home.jpg' });
+    setPublishing(true);
+    setPublishError(null);
+    try {
+      const token = tokenStore.get();
+      const res = await fetch(`${API_URL}/api/blogs`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({
+          title: newPost.title,
+          excerpt: newPost.excerpt,
+          content: newPost.excerpt,
+          category: newPost.category,
+          coverImageUrl: newPost.image,
+          isPublished: true,
+        }),
+        credentials: 'include',
+      });
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}));
+        throw new Error((json as any)?.message || 'Could not publish post.');
+      }
+      setShowForm(false);
+      setNewPost({ title: '', excerpt: '', category: 'Maintenance', image: '/images/service-home.jpg' });
+      loadBlogs();
+    } catch (err: any) {
+      setPublishError(err?.message || 'Failed to publish.');
+    } finally {
+      setPublishing(false);
+    }
   };
 
-  const deletePost = (id: string) => {
-    saveBlogs(blogs.filter(b => b.id !== id));
+  const deletePost = async (id: string) => {
+    setBlogs(prev => prev.filter(b => b.id !== id));
+    try {
+      const token = tokenStore.get();
+      await fetch(`${API_URL}/api/blogs/${id}`, {
+        method: 'DELETE',
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        credentials: 'include',
+      });
+    } catch {
+      loadBlogs();
+    }
   };
 
   return (
@@ -178,16 +194,23 @@ export function AdminBlogManager() {
             <label className="block text-[10px] font-black uppercase text-primary tracking-widest">Excerpt</label>
             <textarea required value={newPost.excerpt} onChange={e => setNewPost({...newPost, excerpt: e.target.value})} className="w-full p-4 border border-gray-100 focus:outline-primary font-bold text-sm h-32" />
           </div>
-          <Button type="submit" className="w-full bg-accent-orange text-white font-black uppercase tracking-[0.2em] py-5 shadow-2xl rounded-none transition-all hover:bg-primary">Publish Article</Button>
+          {publishError && <div className="p-3 bg-red-50 border-l-4 border-red-500 text-[10px] font-black text-red-600 uppercase tracking-wider">{publishError}</div>}
+          <Button type="submit" disabled={publishing} className="w-full bg-accent-orange text-white font-black uppercase tracking-[0.2em] py-5 shadow-2xl rounded-none transition-all hover:bg-primary disabled:opacity-60">
+            {publishing ? 'Publishing…' : 'Publish Article'}
+          </Button>
         </form>
       )}
 
       <div className="space-y-4">
         <h3 className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">Published Articles</h3>
-        {blogs.map(post => (
+        {loading ? (
+          <div className="py-8 text-center text-gray-400 font-black uppercase tracking-widest text-xs">Loading articles…</div>
+        ) : blogs.length === 0 ? (
+          <div className="py-8 text-center text-gray-400 font-black uppercase tracking-widest text-xs">No articles yet. Create your first post above.</div>
+        ) : blogs.map(post => (
           <div key={post.id} className="flex items-center justify-between p-6 border border-gray-100 bg-white hover:bg-secondary/20 transition-colors">
             <div className="flex items-center space-x-6">
-              <img src={post.image} className="w-16 h-16 object-cover" />
+              <img src={post.image} alt={post.title} className="w-16 h-16 object-cover" />
               <div>
                 <h4 className="font-black text-primary uppercase text-sm">{post.title}</h4>
                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{post.date} • {post.category}</p>

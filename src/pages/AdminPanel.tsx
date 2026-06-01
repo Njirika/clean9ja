@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AdminBlogManager } from '../components/home/BlogSection';
+import { api, AdminStats, ApiBooking } from '../lib/api';
+import { useUser } from '../context/UserContext';
 import { 
   LayoutDashboard, 
   Users, 
@@ -18,57 +20,48 @@ import {
 } from 'lucide-react';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
-import { Booking, BookingStatus } from '../types/database';
+import { BookingStatus } from '../types/database';
 
 type Tab = 'dispatch' | 'recruitment' | 'blog' | 'settings';
 
+interface Applicant {
+  id: string;
+  name: string;
+  phone: string;
+  experience: string;
+  location: string;
+  nin: string;
+}
+
 export function AdminPanel() {
+  const { isAuthenticated } = useUser();
   const [activeTab, setActiveTab] = useState<Tab>('dispatch');
+  const [adminStats, setAdminStats] = useState<AdminStats | null>(null);
+  const [bookings, setBookings] = useState<ApiBooking[] | null>(null);
 
-  // Stats
-  const stats = [
-    { label: 'Total Bookings', value: '1,284', icon: Calendar, color: 'text-primary' },
-    { label: 'Hired Cleaners', value: '142', icon: Users, color: 'text-accent-gold' },
-    { label: 'Pending Applicants', value: '18', icon: Briefcase, color: 'text-accent-orange' },
-    { label: 'Revenue (MTD)', value: '₦4.2M', icon: DollarSign, color: 'text-primary-bright' },
-  ];
-
-  // Active bookings with dispatch statuses
-  const [bookings, setBookings] = useState<Partial<Booking & { customer_name: string; service_name: string; location_name: string; assigned_cleaner: string }>[]>([
-    { id: '1', booking_reference: 'CLN-2025-001', customer_name: 'Chidi Okeke', service_name: 'Deep Restoration', location_name: 'Lekki, Lagos', status: 'in_progress', scheduled_date: '2025-05-20', assigned_cleaner: 'Commander Emeka' },
-    { id: '2', booking_reference: 'CLN-2025-002', customer_name: 'Funmi Adebayo', service_name: 'Building Face-lift', location_name: 'Maitama, Abuja', status: 'pending', scheduled_date: '2025-05-21', assigned_cleaner: '' },
-    { id: '3', booking_reference: 'CLN-2025-003', customer_name: 'Musa Ibrahim', service_name: 'Post-Build Clean', location_name: 'GRA, Port Harcourt', status: 'completed', scheduled_date: '2025-05-18', assigned_cleaner: 'Specialist Funmi' },
-  ]);
-
-  // Vetting application pipeline for cleaners applying to find jobs
-  const [applicants, setApplicants] = useState([
-    { id: 'app-1', name: 'Kabiru Yusuf', phone: '08029381922', location: 'Ikeja, Lagos', experience: '1-2 years', nin: '49281039481', status: 'Pending Verification' },
-    { id: 'app-2', name: 'Adunni Balogun', phone: '08139401293', location: 'Gwarimpa, Abuja', experience: '3+ years', nin: '12938102938', status: 'Pending Verification' },
-    { id: 'app-3', name: 'Ngozi Nwachukwu', phone: '09012391039', location: 'GRA, Port Harcourt', experience: 'No experience', nin: '82049103948', status: 'Pending Verification' }
-  ]);
-
-  // Settings Configuration State
+  // Settings state
+  const [settingsSaved, setSettingsSaved] = useState(false);
   const [vettingMode, setVettingMode] = useState('simulated');
   const [smsGateway, setSmsGateway] = useState('termii');
-  const [apiKey, setApiKey] = useState('tm_live_93810a08df9328490a0d');
+  const [apiKey, setApiKey] = useState('');
   const [dispatchBuffer, setDispatchBuffer] = useState('2');
   const [sandboxEnabled, setSandboxEnabled] = useState(true);
-  const [settingsSaved, setSettingsSaved] = useState(false);
 
-  const handleAssignCleaner = (bookingId: string, cleanerName: string) => {
-    setBookings(prev => prev.map(b => b.id === bookingId ? { ...b, assigned_cleaner: cleanerName, status: cleanerName ? 'confirmed' : 'pending' } : b));
-    console.log(`[Dispatcher] Assigned Cleaner ${cleanerName} to booking ID ${bookingId}`);
-  };
+  // Recruitment applicants (fetched from backend in future; local mock for now)
+  const [applicants, setApplicants] = useState<Applicant[]>([]);
 
-  const handleHireApplicant = (applicantId: string) => {
-    setApplicants(prev => prev.filter(app => app.id !== applicantId));
-    console.log(`[Hiring] Hired & Onboarded applicant ID: ${applicantId}. Account generated, and SMS notification dispatched via Termii.`);
-  };
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    api.admin.stats().then(setAdminStats).catch(() => setAdminStats(null));
+    api.bookings.mine().then(setBookings).catch(() => setBookings([]));
+  }, [isAuthenticated]);
 
-  const handleRejectApplicant = (applicantId: string) => {
-    setApplicants(prev => prev.filter(app => app.id !== applicantId));
-    console.log(`[Hiring] Application archived for ID: ${applicantId}`);
-  };
+  const stats = [
+    { label: 'Total Bookings', value: adminStats ? adminStats.totalBookings.toLocaleString() : '…', icon: Calendar, color: 'text-primary' },
+    { label: 'Staff (Cleaners/Admins)', value: adminStats ? adminStats.totalStaff.toLocaleString() : '…', icon: Users, color: 'text-accent-gold' },
+    { label: 'Customers', value: adminStats ? adminStats.totalUsers.toLocaleString() : '…', icon: Briefcase, color: 'text-accent-orange' },
+    { label: 'Earnings (Completed)', value: adminStats ? `₦${Number(adminStats.totalEarnings).toLocaleString()}` : '…', icon: DollarSign, color: 'text-primary-bright' },
+  ];
 
   const getStatusColor = (status: BookingStatus) => {
     switch (status) {
@@ -84,6 +77,14 @@ export function AdminPanel() {
     e.preventDefault();
     setSettingsSaved(true);
     setTimeout(() => setSettingsSaved(false), 3000);
+  };
+
+  const handleHireApplicant = (id: string) => {
+    setApplicants(prev => prev.filter(a => a.id !== id));
+  };
+
+  const handleRejectApplicant = (id: string) => {
+    setApplicants(prev => prev.filter(a => a.id !== id));
   };
 
   const menuItems = [
@@ -231,16 +232,16 @@ export function AdminPanel() {
                             </tr>
                           </thead>
                           <tbody className="divide-y divide-gray-50 bg-white">
-                            {bookings.map(b => (
+                            {(bookings || []).map(b => (
                               <tr key={b.id} className="hover:bg-gray-50 transition-colors">
-                                <td className="px-6 py-5 text-[9px] font-black text-primary tracking-widest">{b.booking_reference}</td>
+                                <td className="px-6 py-5 text-[9px] font-black text-primary tracking-widest">{b.bookingReference}</td>
                                 <td className="px-6 py-5">
-                                  <p className="text-xs font-bold text-gray-600">{b.customer_name}</p>
-                                  <p className="text-[8px] text-gray-400 font-bold uppercase">{b.scheduled_date}</p>
+                                  <p className="text-xs font-bold text-gray-600">{b.cleaner?.user?.firstName || 'Customer'}</p>
+                                  <p className="text-[8px] text-gray-400 font-bold uppercase">{b.scheduledDate ? new Date(b.scheduledDate).toLocaleDateString() : '—'}</p>
                                 </td>
                                 <td className="px-6 py-5">
-                                  <p className="text-[9px] font-black uppercase text-accent-gold leading-tight">{b.service_name}</p>
-                                  <p className="text-[9px] font-bold text-gray-400">{b.location_name}</p>
+                                  <p className="text-[9px] font-black uppercase text-accent-gold leading-tight">{b.service?.name || 'Cleaning'}</p>
+                                  <p className="text-[9px] font-bold text-gray-400">{b.address?.city || '—'}</p>
                                 </td>
                                 <td className="px-6 py-5">
                                   <span className={`px-2.5 py-0.5 text-[8px] font-black uppercase tracking-widest rounded-full ${getStatusColor(b.status as BookingStatus)}`}>
@@ -249,14 +250,13 @@ export function AdminPanel() {
                                 </td>
                                 <td className="px-6 py-5">
                                   <select 
-                                    value={b.assigned_cleaner} 
-                                    onChange={e => handleAssignCleaner(b.id!, e.target.value)}
+                                    defaultValue=""
                                     className="text-[9px] font-black uppercase tracking-widest border border-gray-200 p-1.5 bg-white focus:outline-primary w-full max-w-[140px]"
                                   >
                                     <option value="">Unassigned</option>
-                                    <option value="Commander Emeka">Emeka (Lagos)</option>
-                                    <option value="Specialist Funmi">Funmi (Abuja)</option>
-                                    <option value="Specialist Adunni">Adunni (Lagos)</option>
+                                    <option value="emeka">Emeka (Lagos)</option>
+                                    <option value="funmi">Funmi (Abuja)</option>
+                                    <option value="adunni">Adunni (Lagos)</option>
                                   </select>
                                 </td>
                               </tr>

@@ -78,4 +78,29 @@ export class AuthService {
 
     return user;
   }
+
+  async updateProfile(userId: string, data: any) {
+    const { firstName, lastName, phone, preferredLanguage } = data;
+    return prisma.user.update({
+      where: { id: userId },
+      data: {
+        ...(firstName !== undefined && { firstName }),
+        ...(lastName !== undefined && { lastName }),
+        ...(phone !== undefined && { phone }),
+        ...(preferredLanguage !== undefined && { preferredLanguage }),
+      },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        phone: true,
+        role: true,
+        avatarUrl: true,
+        isVerified: true,
+        preferredLanguage: true,
+        createdAt: true,
+      },
+    });
+  }
 }

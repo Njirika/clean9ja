@@ -140,6 +140,59 @@ export interface QuoteResult {
   estimatedDurationMinutes: number;
 }
 
+export interface ApiAddress {
+  id: string;
+  label: string;
+  streetAddress: string;
+  city: string;
+  state: string;
+  lga?: string;
+  landmark?: string;
+  isDefault: boolean;
+}
+
+export interface ApiBooking {
+  id: string;
+  bookingReference: string;
+  status: string;
+  scheduledDate: string;
+  scheduledTimeSlot?: string;
+  quotedPrice: number;
+  finalPrice?: number;
+  paymentStatus?: string;
+  service?: { name: string; imageUrl?: string };
+  address?: ApiAddress;
+  cleaner?: { user?: { firstName: string; lastName: string } } | null;
+  createdAt: string;
+}
+
+export interface ApiSubscription {
+  id: string;
+  frequency: string;
+  status: string;
+  pricePerVisit: number;
+  nextBookingDate?: string;
+  service?: { name: string };
+  address?: ApiAddress;
+}
+
+export interface ApiReview {
+  id: string;
+  rating: number;
+  comment?: string;
+  createdAt: string;
+  customer?: { firstName: string; lastName?: string; avatarUrl?: string };
+  booking?: { service?: { name: string } };
+}
+
+export interface AdminStats {
+  totalUsers: number;
+  totalStaff: number;
+  totalBookings: number;
+  totalEarnings: number;
+  recentBookings: ApiBooking[];
+}
+
 // ---- Endpoints ----
 
 export const api = {
@@ -155,6 +208,8 @@ export const api = {
       request<AuthResult>('POST', '/auth/login', data, { auth: false }),
     logout: () => request<null>('GET', '/auth/logout', undefined, { auth: false }),
     me: () => request<{ user: ApiUser }>('GET', '/auth/me'),
+    updateProfile: (data: { firstName?: string; lastName?: string; phone?: string }) =>
+      request<{ user: ApiUser }>('PATCH', '/auth/me', data),
   },
   services: {
     list: () => request<ApiService[]>('GET', '/services', undefined, { auth: false }),
@@ -164,9 +219,26 @@ export const api = {
   bookings: {
     quote: (data: { serviceId: string; numberOfRooms?: number; propertySizeSqm?: number }) =>
       request<QuoteResult>('POST', '/bookings/quote', data, { auth: false }),
-    create: (data: Record<string, unknown>) => request('POST', '/bookings', data),
-    mine: () => request('GET', '/bookings'),
-    byId: (id: string) => request('GET', `/bookings/${id}`),
+    create: (data: Record<string, unknown>) => request<ApiBooking>('POST', '/bookings', data),
+    mine: () => request<ApiBooking[]>('GET', '/bookings'),
+    byId: (id: string) => request<ApiBooking>('GET', `/bookings/${id}`),
+  },
+  addresses: {
+    list: () => request<ApiAddress[]>('GET', '/addresses'),
+    create: (data: Partial<ApiAddress>) => request<ApiAddress>('POST', '/addresses', data),
+    update: (id: string, data: Partial<ApiAddress>) => request<ApiAddress>('PUT', `/addresses/${id}`, data),
+    remove: (id: string) => request<null>('DELETE', `/addresses/${id}`),
+  },
+  subscriptions: {
+    list: () => request<ApiSubscription[]>('GET', '/subscriptions'),
+    create: (data: Record<string, unknown>) => request<ApiSubscription>('POST', '/subscriptions', data),
+    setStatus: (id: string, status: string) =>
+      request<ApiSubscription>('PATCH', `/subscriptions/${id}/status`, { status }),
+  },
+  reviews: {
+    publicList: (limit?: number) =>
+      request<ApiReview[]>('GET', `/reviews${limit ? `?limit=${limit}` : ''}`, undefined, { auth: false }),
+    create: (data: Record<string, unknown>) => request('POST', '/reviews', data),
   },
   blog: {
     list: () => request<ApiBlogPost[]>('GET', '/blogs', undefined, { auth: false }),
@@ -176,6 +248,9 @@ export const api = {
   promo: {
     validate: (code: string, orderAmount: number) =>
       request('POST', '/promo-codes/validate', { code, orderAmount }),
+  },
+  admin: {
+    stats: () => request<AdminStats>('GET', '/admin/stats'),
   },
 };
 

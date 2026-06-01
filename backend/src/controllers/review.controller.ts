@@ -13,6 +13,16 @@ export const createReview = async (req: Request, res: Response, next: NextFuncti
   }
 };
 
+export const getPublicReviews = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const limit = req.query.limit ? Number(req.query.limit) : undefined;
+    const reviews = await reviewService.getPublicReviews(limit);
+    res.status(200).json(ApiResponse.success('Public reviews retrieved', reviews));
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const getCleanerReviews = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const reviews = await reviewService.getReviewsForCleaner(req.params.cleanerId as string);

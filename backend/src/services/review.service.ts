@@ -21,6 +21,19 @@ export class ReviewService {
     });
   }
 
+  /** Public approved reviews for site-wide testimonials. */
+  async getPublicReviews(limit = 9) {
+    return prisma.review.findMany({
+      where: { isPublic: true, comment: { not: null } },
+      include: {
+        customer: { select: { firstName: true, lastName: true, avatarUrl: true } },
+        booking: { select: { service: { select: { name: true } } } },
+      },
+      orderBy: { createdAt: 'desc' },
+      take: limit,
+    });
+  }
+
   async getReviewsForCleaner(cleanerId: string) {
     return prisma.review.findMany({
       where: { cleanerId, isPublic: true },

@@ -65,12 +65,17 @@ export function Hero() {
                 <div className="flex text-accent-gold mb-1">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
                 </div>
-                <span className="text-xl font-black text-primary tracking-tighter">4.9/5 RATING</span>
+                <span className="text-[11px] font-black uppercase tracking-widest text-primary">100% Satisfaction Guarantee</span>
               </div>
               <div className="w-px h-12 bg-gray-100 hidden sm:block"></div>
-              <div className="flex flex-col">
-                <span className="text-3xl font-black text-primary tracking-tighter">10,000+</span>
-                <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Happy Customers</span>
+              <div className="flex flex-col items-center lg:items-start">
+                <span className="text-3xl font-black text-primary tracking-tighter">36 + FCT</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">States Covered</span>
+              </div>
+              <div className="w-px h-12 bg-gray-100 hidden sm:block"></div>
+              <div className="flex flex-col items-center lg:items-start">
+                <span className="text-3xl font-black text-primary tracking-tighter">NIN</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Verified Pros</span>
               </div>
             </div>
           </motion.div>

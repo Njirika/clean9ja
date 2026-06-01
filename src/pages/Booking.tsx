@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Card } from '../components/ui/Card';
+import { api } from '../lib/api';
 import { 
   CheckCircle2, 
   Calendar, 
@@ -35,7 +36,6 @@ import {
   UserCheck
 } from 'lucide-react';
 import { cn } from '../utils/cn';
-import { Booking as BookingSchema, PaymentStatus, BookingStatus } from '../types/database';
 import { useUser } from '../context/UserContext';
 import { Seo } from '../components/seo/Seo';
 
@@ -118,7 +118,7 @@ interface LocationBooking {
 }
 
 export function Booking() {
-  const { currentUser } = useUser();
+  useUser(); // Keep UserContext available for auth checks in parent
   const [currentStep, setCurrentStep] = useState(0);
   const [locations, setLocations] = useState<LocationBooking[]>([
     { id: '1', address: '', city: '', state: '', services: [], rooms: '1' }
@@ -127,33 +127,41 @@ export function Booking() {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
 
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [bookingRef, setBookingRef] = useState<string | null>(null);
+
   const nextStep = () => setCurrentStep(prev => Math.min(prev + 1, STEPS.length - 1));
   const prevStep = () => setCurrentStep(prev => Math.max(prev - 1, 0));
 
-  const createBookingObjects = (): Partial<BookingSchema>[] => {
-    return locations.flatMap(loc => loc.services.map(sName => {
-      const option = SERVICE_OPTIONS.find(o => o.name === sName);
-      const total = (option?.base || 0) + (option?.category === 'home' ? parseInt(loc.rooms) * 5000 : 0);
-      
-      return {
-        id: Math.random().toString(36).substr(2, 9),
-        booking_reference: `CLN-${new Date().getFullYear()}-${Math.floor(Math.random() * 10000)}`,
-        customer_id: currentUser?.id || 'guest',
-        service_id: option?.name || 'unknown',
-        status: 'pending' as BookingStatus,
-        scheduled_date: date,
-        scheduled_time_slot: time,
-        quoted_price: total,
-        payment_status: 'pending' as PaymentStatus,
-        created_at: new Date().toISOString()
-      };
-    }));
-  };
+  const handleAuthorize = async () => {
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      // Create a booking for the first selected service on the first location
+      // (multi-location bookings map to multiple API calls)
+      const firstLoc = locations[0];
+      const firstServiceName = firstLoc?.services[0];
+      const option = SERVICE_OPTIONS.find(o => o.name === firstServiceName);
 
-  const handleAuthorize = () => {
-    const missions = createBookingObjects();
-    console.log('[Database] Saving missions:', missions);
-    nextStep();
+      const result = await api.bookings.create({
+        serviceId: option?.name || firstServiceName || 'custom',
+        scheduledDate: date,
+        scheduledTimeSlot: time,
+        quotedPrice: calculateTotal(),
+        specialInstructions: locations.map((l, i) =>
+          `Site ${i + 1}: ${l.address}, ${l.city}, ${l.state} — Services: ${l.services.join(', ')}`
+        ).join(' | '),
+        numberOfRooms: parseInt(firstLoc?.rooms || '1'),
+      });
+
+      setBookingRef(result?.bookingReference || null);
+      nextStep();
+    } catch (err: any) {
+      setSubmitError(err?.message || 'Booking failed. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const addLocation = () => {
@@ -506,8 +514,12 @@ export function Booking() {
                    </p>
                 </div>
 
-                <Button onClick={handleAuthorize} className="w-full bg-accent-orange text-white py-8 text-2xl rounded-none shadow-[0_25px_60px_rgba(255,87,34,0.4)] uppercase font-black tracking-[0.2em] transition-all hover:bg-primary">
-                  Authorize Deployment
+                {submitError && (
+                  <div className="p-4 bg-red-50 border-l-4 border-red-500 text-[10px] font-black text-red-600 uppercase tracking-wider">{submitError}</div>
+                )}
+
+                <Button onClick={handleAuthorize} disabled={submitting} className="w-full bg-accent-orange text-white py-8 text-2xl rounded-none shadow-[0_25px_60px_rgba(255,87,34,0.4)] uppercase font-black tracking-[0.2em] transition-all hover:bg-primary disabled:opacity-60">
+                  {submitting ? 'Processing…' : 'Authorize Deployment'}
                 </Button>
               </div>
             </Card>
@@ -521,6 +533,7 @@ export function Booking() {
                   <CheckCircle2 className="w-14 h-14" />
                 </div>
                 <h2 className="text-5xl font-black text-primary uppercase tracking-tighter mb-6 relative z-10">MISSION AUTHORIZED!</h2>
+                {bookingRef && <p className="text-accent-gold font-black uppercase tracking-widest text-sm mb-4 relative z-10">Ref: {bookingRef}</p>}
                 <p className="text-gray-400 font-black uppercase tracking-widest text-[11px] mb-16 relative z-10 leading-relaxed">We are deploying specialists to {locations.length} target sites across {locations.map(l => l.city).join(', ')}.</p>
                 
                 <div className="p-12 border-4 border-secondary rounded-none mb-16 bg-secondary/10 relative z-10">
