@@ -23,7 +23,7 @@ export function HowItWorks() {
     <section className="py-24 bg-secondary font-sans">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-black text-primary uppercase tracking-tighter mb-4">
+          <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tighter mb-4">
             How It Works
           </h2>
           <div className="w-24 h-1.5 bg-accent-gold mx-auto"></div>
@@ -44,8 +44,8 @@ export function HowItWorks() {
                     <step.icon className="w-10 h-10" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-4">{step.title}</h3>
-                <p className="text-gray-500 font-bold text-sm uppercase leading-relaxed tracking-wider px-4">
+                <h3 className="text-2xl font-black text-primary tracking-tighter mb-4">{step.title}</h3>
+                <p className="text-gray-500 font-bold text-sm leading-relaxed tracking-wider px-4">
                   {step.description}
                 </p>
               </div>

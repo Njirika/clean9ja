@@ -587,9 +587,9 @@ export function ServiceDetail() {
     return (
       <div className="min-h-screen bg-white flex flex-col items-center justify-center p-4">
         <Seo title="Service Not Found" description="The cleaning service you're looking for doesn't exist. Browse all Clean9ja services." path={`/services/${slug || ''}`} noindex />
-        <h1 className="text-4xl font-black text-primary mb-4 uppercase tracking-tighter">SERVICE NOT FOUND</h1>
-        <p className="text-gray-500 mb-8 font-bold uppercase tracking-widest text-xs">The service you're looking for doesn't exist.</p>
-        <Link to="/"><Button className="bg-primary text-white px-10 py-4 rounded-none uppercase font-black tracking-widest">Back to Home</Button></Link>
+        <h1 className="text-4xl font-black text-primary mb-4 tracking-tighter">SERVICE NOT FOUND</h1>
+        <p className="text-gray-500 mb-8 font-bold text-xs">The service you're looking for doesn't exist.</p>
+        <Link to="/"><Button className="bg-primary text-white px-10 py-4 rounded-none font-black ">Back to Home</Button></Link>
       </div>
     );
   }
@@ -625,23 +625,23 @@ export function ServiceDetail() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center bg-accent-gold text-primary px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] mb-8 border border-white/20">
+            <div className="inline-flex items-center bg-accent-gold text-primary px-3 py-1.5 text-[10px] font-black mb-8 border border-white/20">
               🛡️ Official Clean9ja Pro Service
             </div>
-            <h1 className="text-6xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter leading-[0.85] mb-8">
+            <h1 className="text-6xl md:text-8xl font-heading font-black text-white tracking-tighter leading-[0.85] mb-8">
               {service.title}
             </h1>
-            <p className="text-xl text-white/80 font-bold uppercase tracking-widest leading-relaxed mb-12 max-w-2xl">
+            <p className="text-xl text-white/80 font-bold leading-relaxed mb-12 max-w-2xl">
               {service.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <Link to="/book" className="w-full sm:w-auto">
-                <Button className="w-full bg-accent-orange text-white font-black uppercase tracking-[0.2em] px-12 py-6 text-lg rounded-none shadow-[0_20px_50px_rgba(255,87,34,0.3)] transition-all transform hover:-translate-y-1">
+                <Button className="w-full bg-accent-orange text-white font-black px-12 py-6 text-lg rounded-none shadow-[0_20px_50px_rgba(255,87,34,0.3)] transition-all transform hover:-translate-y-1">
                   Book This Service
                 </Button>
               </Link>
               <div className="flex flex-col justify-center">
-                <span className="text-[10px] font-black uppercase tracking-widest text-white/50 mb-1">Direct Pro Support</span>
+                <span className="text-[10px] font-black text-white/50 mb-1">Direct Pro Support</span>
                 <a href="tel:0800-CLEAN-9JA" className="text-2xl font-black text-white hover:text-accent-gold transition-colors flex items-center">
                   <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center mr-3"><Clock className="w-4 h-4 text-accent-gold" /></div>
                   0800-CLEAN-9JA
@@ -658,8 +658,8 @@ export function ServiceDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <div className="space-y-16">
               <div>
-                <div className="inline-flex items-center text-accent-gold font-black text-[10px] uppercase tracking-[0.3em] mb-4">The Standard of Excellence</div>
-                <h2 className="text-4xl font-black text-primary uppercase tracking-tighter mb-10">Why We are the #1 Provider</h2>
+                <div className="inline-flex items-center text-accent-gold font-black text-[10px] mb-4">The Standard of Excellence</div>
+                <h2 className="text-4xl font-black text-primary tracking-tighter mb-10">Why We are the #1 Provider</h2>
                 <p className="text-lg text-gray-600 font-medium leading-relaxed mb-10 border-l-4 border-accent-gold pl-6">
                   {service.whyBest}
                 </p>
@@ -670,8 +670,8 @@ export function ServiceDetail() {
                         <CheckCircle2 className="w-5 h-5" />
                       </div>
                       <div>
-                        <span className="font-black text-primary uppercase tracking-widest text-[11px] block mb-1">{feature}</span>
-                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-tight">Guaranteed Standard</span>
+                        <span className="font-black text-primary text-[11px] block mb-1">{feature}</span>
+                        <span className="text-[10px] text-gray-400 font-bold tracking-tight">Guaranteed Standard</span>
                       </div>
                     </div>
                   ))}
@@ -681,19 +681,19 @@ export function ServiceDetail() {
               {/* DIY Comparison Section */}
               <div className="bg-secondary p-12 rounded-none relative overflow-hidden shadow-inner border-t-8 border-primary">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16"></div>
-                <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-8 relative z-10">DIY vs. Clean9ja Pro</h3>
+                <h3 className="text-2xl font-black text-primary tracking-tighter mb-8 relative z-10">DIY vs. Clean9ja Pro</h3>
                 <div className="space-y-10 relative z-10">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="p-8 bg-white/50 border-l-4 border-gray-300 shadow-sm">
-                       <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-3">Homeowner/DIY Attempt</h4>
+                       <h4 className="text-[10px] font-black text-gray-400 mb-3">Homeowner/DIY Attempt</h4>
                        <p className="text-sm text-gray-600 font-medium leading-relaxed italic">"{service.diyVsClean.diy}"</p>
                     </div>
                     <div className="p-8 bg-primary text-white border-l-4 border-accent-gold shadow-2xl">
-                       <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-accent-gold mb-3">Clean9ja Professional</h4>
+                       <h4 className="text-[10px] font-black text-accent-gold mb-3">Clean9ja Professional</h4>
                        <p className="text-sm text-white/90 font-medium leading-relaxed italic">"{service.diyVsClean.cleanNaija}"</p>
                     </div>
                   </div>
-                  <div className="p-10 bg-accent-gold text-primary font-black uppercase tracking-tighter text-center shadow-lg transform -rotate-1">
+                  <div className="p-10 bg-accent-gold text-primary font-black tracking-tighter text-center shadow-lg transform -rotate-1">
                     🎯 THE VERDICT: {service.diyVsClean.why}
                   </div>
                 </div>
@@ -704,12 +704,12 @@ export function ServiceDetail() {
                <div className="bg-primary p-12 text-white shadow-2xl relative overflow-hidden border-b-8 border-accent-gold">
                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
                  <div className="relative z-10">
-                   <h3 className="text-2xl font-black uppercase tracking-tighter mb-2">Service Pricing</h3>
-                   <p className="text-accent-gold font-black uppercase tracking-[0.3em] text-[10px] mb-10">No Hidden Nigerian Fees</p>
+                   <h3 className="text-2xl font-black tracking-tighter mb-2">Service Pricing</h3>
+                   <p className="text-accent-gold font-black text-[10px] mb-10">No Hidden Nigerian Fees</p>
                    <div className="text-7xl font-black tracking-tighter mb-4 font-heading">{service.price}</div>
-                   <p className="text-white/60 font-bold uppercase tracking-widest text-[10px] mb-12 border-t border-white/10 pt-6">We provide fixed-price quotes. The price you see is what you pay—guaranteed.</p>
+                   <p className="text-white/60 font-bold text-[10px] mb-12 border-t border-white/10 pt-6">We provide fixed-price quotes. The price you see is what you pay—guaranteed.</p>
                    <Link to="/book" className="block">
-                     <Button className="w-full bg-accent-orange text-white font-black uppercase tracking-widest py-6 rounded-none shadow-2xl hover:bg-white hover:text-accent-orange transition-all transform hover:scale-[1.02]">
+                     <Button className="w-full bg-accent-orange text-white font-black py-6 rounded-none shadow-2xl hover:bg-white hover:text-accent-orange transition-all transform hover:scale-[1.02]">
                        Start Your Booking
                      </Button>
                    </Link>
@@ -717,17 +717,17 @@ export function ServiceDetail() {
                </div>
 
                <div className="bg-secondary/30 p-10 border border-gray-100">
-                 <h4 className="font-black text-primary uppercase tracking-widest text-[10px] mb-8">Serving Your Area</h4>
+                 <h4 className="font-black text-primary text-[10px] mb-8">Serving Your Area</h4>
                  <div className="grid grid-cols-2 gap-4">
                    {['Lagos', 'Abuja', 'Port Harcourt', 'Kano', 'Ibadan', 'Enugu'].map(city => (
                      <div key={city} className="flex items-center space-x-3 group cursor-pointer">
                        <div className="w-2 h-2 bg-accent-gold rounded-full group-hover:scale-150 transition-transform"></div>
-                       <span className="text-[11px] font-black uppercase text-primary tracking-widest group-hover:text-accent-gold transition-colors">{city}</span>
+                       <span className="text-[11px] font-black text-primary group-hover:text-accent-gold transition-colors">{city}</span>
                      </div>
                    ))}
                  </div>
                  <div className="mt-8 pt-6 border-t border-gray-200">
-                    <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Nationwide Network of 5,000+ Cleaners</p>
+                    <p className="text-[10px] text-gray-400 font-bold ">Nationwide Network of 5,000+ Cleaners</p>
                  </div>
                </div>
             </div>
@@ -742,8 +742,8 @@ export function ServiceDetail() {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-4 text-accent-gold">Customer Veracity</h2>
-            <p className="text-white/50 font-black uppercase tracking-[0.3em] text-[10px]">What Our Clients Say About This Service</p>
+            <h2 className="text-4xl font-black text-white tracking-tighter mb-4 text-accent-gold">Customer Veracity</h2>
+            <p className="text-white/50 font-black text-[10px]">What Our Clients Say About This Service</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {service.testimonials.map((t, i) => (
@@ -759,8 +759,8 @@ export function ServiceDetail() {
                     <img src={`https://i.pravatar.cc/150?u=${slug}-${i}`} alt={t.author} className="w-full h-full object-cover rounded-full" />
                   </div>
                   <div>
-                    <div className="text-white font-black uppercase tracking-widest text-xs mb-0.5">{t.author}</div>
-                    <div className="text-accent-gold font-black uppercase tracking-widest text-[9px] opacity-70">{t.role}</div>
+                    <div className="text-white font-black text-xs mb-0.5">{t.author}</div>
+                    <div className="text-accent-gold font-black text-[9px] opacity-70">{t.role}</div>
                   </div>
                 </div>
               </div>
@@ -772,14 +772,14 @@ export function ServiceDetail() {
       {/* CTA Footer */}
       <section className="py-24 bg-white">
          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-5xl font-black text-primary uppercase tracking-tighter mb-8 leading-none">Ready for the <br /> Clean9ja Experience?</h2>
-            <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px] mb-12">Spotless. Guaranteed. Nationwide.</p>
+            <h2 className="text-5xl font-black text-primary tracking-tighter mb-8 leading-none">Ready for the <br /> Clean9ja Experience?</h2>
+            <p className="text-gray-400 font-bold text-[10px] mb-12">Spotless. Guaranteed. Nationwide.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
                <Link to="/book">
-                 <Button className="bg-primary text-white font-black uppercase tracking-widest px-16 py-6 text-lg rounded-none shadow-2xl hover:bg-accent-orange transition-all">Book This Service Now</Button>
+                 <Button className="bg-primary text-white font-black px-16 py-6 text-lg rounded-none shadow-2xl hover:bg-accent-orange transition-all">Book This Service Now</Button>
                </Link>
                <Link to="/contact">
-                 <Button variant="outline" className="border-4 border-primary text-primary font-black uppercase tracking-widest px-16 py-6 text-lg rounded-none hover:bg-primary hover:text-white transition-all">Contact Sales</Button>
+                 <Button variant="outline" className="border-4 border-primary text-primary font-black px-16 py-6 text-lg rounded-none hover:bg-primary hover:text-white transition-all">Contact Sales</Button>
                </Link>
             </div>
          </div>

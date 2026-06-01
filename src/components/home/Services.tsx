@@ -57,11 +57,11 @@ export function Services() {
     <section className="py-24 bg-white font-sans">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-black text-primary uppercase tracking-tighter mb-4">
+          <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tighter mb-4">
             Professional Service Categories
           </h2>
           <div className="w-24 h-1.5 bg-accent-gold mx-auto mb-8"></div>
-          <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">Your Space, Our Pride.</p>
+          <p className="text-gray-500 font-bold text-xs">Your Space, Our Pride.</p>
         </div>
 
         {/* Featured Services Grid */}
@@ -82,13 +82,13 @@ export function Services() {
                   <div className="bg-accent-gold p-3.5 rounded-xl text-primary shadow-2xl">
                     <service.icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tighter leading-tight">
+                  <h3 className="text-2xl font-black text-white tracking-tighter leading-tight">
                     {service.title}
                   </h3>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-accent-gold font-black uppercase tracking-widest text-lg">{service.price}</span>
-                  <Link to={`/services/${service.slug}`} className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-accent-gold hover:text-primary transition-all">
+                  <span className="text-accent-gold font-black text-lg">{service.price}</span>
+                  <Link to={`/services/${service.slug}`} className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-4 py-2 text-[10px] font-black hover:bg-accent-gold hover:text-primary transition-all">
                     Explore Service <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </div>
@@ -100,8 +100,8 @@ export function Services() {
         {/* Icons Grid Section */}
         <div className="bg-secondary rounded-[40px] p-10 md:p-16 border border-gray-100 shadow-inner">
           <div className="text-center mb-12">
-            <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-2">Specialized Cleaning Solutions</h3>
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-400">Whatever you need, we've got you covered</p>
+            <h3 className="text-2xl font-black text-primary tracking-tighter mb-2">Specialized Cleaning Solutions</h3>
+            <p className="text-[10px] font-black text-gray-400">Whatever you need, we've got you covered</p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-12 gap-x-6">
             {subServices.map((service, index) => (
@@ -109,7 +109,7 @@ export function Services() {
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary shadow-sm group-hover:bg-primary group-hover:text-white group-hover:-translate-y-2 transition-all duration-300 mb-4 border border-gray-50">
                   <service.icon className="w-7 h-7" />
                 </div>
-                <h4 className="text-[11px] font-black uppercase tracking-wider text-secondary-dark leading-tight max-w-[120px]">
+                <h4 className="text-[11px] font-black tracking-wider text-secondary-dark leading-tight max-w-[120px]">
                   {service.title}
                 </h4>
               </Link>

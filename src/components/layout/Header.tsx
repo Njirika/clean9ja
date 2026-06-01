@@ -4,42 +4,35 @@ import { Button } from '../ui/Button';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../context/UserContext';
 import { cn } from '../../utils/cn';
+import { SERVICES, type ServiceInfo } from '../../lib/siteContent';
 
-const RESIDENTIAL_SERVICES = [
-  { title: "Full Building Face-lift", slug: "full-building-face-lift" },
-  { title: "Interlock & Driveway Shine", slug: "interlock-driveway-shine" },
-  { title: "Roof & Parapet Washing", slug: "roof-parapet-washing" },
-  { title: "Low-Pressure Soft Wash", slug: "low-pressure-soft-wash" },
-  { title: "Annual Estate Power Wash", slug: "annual-estate-power-wash" },
-  { title: "Fence & Stonework Washing", slug: "fence-stonework-washing" },
-  { title: "Veranda & Deck Care", slug: "veranda-deck-care" },
-  { title: "Gutter De-clogging", slug: "gutter-de-clogging" },
-  { title: "Drainage & Gutter Wash", slug: "drainage-gutter-wash" },
-  { title: "Home Maintenance Review", slug: "home-maintenance-review" },
-  { title: "Standard Home Shine", slug: "standard-home-shine" },
-  { title: "Deep Restoration Clean", slug: "deep-restoration-clean" },
-  { title: "Laundry & Dry Cleaning", slug: "deep-restoration-clean" },
-  { title: "Professional Fumigation", slug: "professional-fumigation" },
-  { title: "Festive Decor Installation", slug: "festive-decor-installation" }
+// A short, curated set of the most-requested services keeps the menu simple.
+// Titles/slugs are pulled from siteContent so the menu, service pages and SEO
+// always describe the same catalogue.
+const POPULAR_RESIDENTIAL = [
+  'standard-home-shine',
+  'deep-restoration-clean',
+  'full-building-face-lift',
+  'roof-parapet-washing',
+  'professional-fumigation',
+  'interlock-driveway-shine',
+];
+const POPULAR_COMMERCIAL = [
+  'office-workspace-hygiene',
+  'post-build-cleanup',
+  'restaurant-eatery-cleaning',
+  'hotel-resort-maintenance',
+  'estate-block-maintenance',
+  'elderly-home-sanitization',
 ];
 
-const COMMERCIAL_SERVICES = [
-  { title: "Corporate Fleet Maintenance", slug: "corporate-fleet-maintenance" },
-  { title: "Office & Workspace Hygiene", slug: "office-workspace-hygiene" },
-  { title: "Restaurant & Eatery Cleaning", slug: "restaurant-eatery-cleaning" },
-  { title: "Shop Front & Signage Shine", slug: "shop-front-signage-shine" },
-  { title: "Reception & Lobby Detail", slug: "reception-lobby-detail" },
-  { title: "Estate & Block Maintenance", slug: "estate-block-maintenance" },
-  { title: "Community Area Care", slug: "community-area-care" },
-  { title: "Elderly Home Sanitization", slug: "elderly-home-sanitization" },
-  { title: "Hotel & Resort Maintenance", slug: "hotel-resort-maintenance" },
-  { title: "Post-Build Cleanup", slug: "post-build-cleanup" },
-  { title: "Arena & Sports Complex Care", slug: "arena-sports-complex-care" },
-  { title: "Sports Court Restoration", slug: "sports-court-restoration" },
-  { title: "Plaza & Mall Management", slug: "plaza-mall-management" },
-  { title: "Public Building Cleaning", slug: "public-building-cleaning" },
-  { title: "Corporate Festive Decor", slug: "corporate-festive-decor" }
-];
+const bySlugs = (slugs: string[]): ServiceInfo[] =>
+  slugs
+    .map((slug) => SERVICES.find((s) => s.slug === slug))
+    .filter((s): s is ServiceInfo => Boolean(s));
+
+const residentialPopular = bySlugs(POPULAR_RESIDENTIAL);
+const commercialPopular = bySlugs(POPULAR_COMMERCIAL);
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,12 +46,12 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-primary text-white shadow-md font-sans">
       {/* Top bar for phone & localization */}
       <div className="bg-[#144718] py-2">
-        <div className="container mx-auto px-4 flex justify-between items-center text-[9px] font-black tracking-widest uppercase">
+        <div className="container mx-auto px-4 flex justify-between items-center text-[11px] font-semibold tracking-wide">
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2 border-r border-white/10 pr-6 mr-2">
               {languages.map(l => (
-                <button 
-                  key={l} 
+                <button
+                  key={l}
                   onClick={() => setLang(l)}
                   className={cn("hover:text-accent-gold transition-colors", lang === l ? "text-accent-gold" : "text-white/40")}
                 >
@@ -87,7 +80,7 @@ export function Header() {
 
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 w-full">
-          
+
           {/* Left Side: Logo (Aligned Left) */}
           <div className="w-1/4 flex justify-start">
             <Link to="/" className="flex items-center">
@@ -97,164 +90,66 @@ export function Header() {
 
           {/* Middle Side: Navigation Menu (Centered) */}
           <nav className="hidden lg:flex items-center justify-center space-x-1 w-2/4">
-            <div 
+            <div
               className="relative group px-3 py-7 cursor-pointer"
               onMouseEnter={() => setActiveDropdown('residential')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <div className="flex items-center font-black text-[10px] uppercase tracking-[0.15em] group-hover:text-accent-gold transition-colors">
-                Residential <ChevronDown className="ml-1 w-3 h-3" />
+              <div className="flex items-center font-semibold text-sm group-hover:text-accent-gold transition-colors">
+                Home services <ChevronDown className="ml-1 w-3 h-3" />
               </div>
               {activeDropdown === 'residential' && (
-                <div className="absolute top-full left-1/2 -translate-x-[40%] w-[850px] bg-white text-secondary-dark shadow-2xl border-t-4 border-accent-gold p-8 animate-in fade-in slide-in-from-top-2 duration-200 cursor-default">
-                  <div className="grid grid-cols-12 gap-8">
-                    
-                    {/* Left: Exterior & Restoration */}
-                    <div className="col-span-4 space-y-4">
-                      <h4 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] border-b border-gray-100 pb-2 flex items-center">
-                        <span className="w-1.5 h-1.5 bg-accent-gold rounded-full mr-2"></span> Exterior & Restoration
-                      </h4>
-                      <div className="flex flex-col space-y-2">
-                        {RESIDENTIAL_SERVICES.slice(0, 8).map((service) => (
-                          <Link 
-                            key={service.slug} 
-                            to={`/services/${service.slug}`}
-                            className="text-[10px] font-black uppercase tracking-wider text-gray-500 hover:text-accent-orange hover:translate-x-1 transition-all"
-                          >
-                            {service.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Middle: Interior Care & Specialty */}
-                    <div className="col-span-4 space-y-4">
-                      <h4 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] border-b border-gray-100 pb-2 flex items-center">
-                        <span className="w-1.5 h-1.5 bg-primary-bright rounded-full mr-2"></span> Interior & Specialty
-                      </h4>
-                      <div className="flex flex-col space-y-2">
-                        {RESIDENTIAL_SERVICES.slice(8).map((service) => (
-                          <Link 
-                            key={service.slug} 
-                            to={`/services/${service.slug}`}
-                            className="text-[10px] font-black uppercase tracking-wider text-gray-500 hover:text-accent-orange hover:translate-x-1 transition-all"
-                          >
-                            {service.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Right: Premium Spot Card */}
-                    <div className="col-span-4 bg-primary text-white p-6 border-b-8 border-accent-gold flex flex-col justify-between shadow-inner relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-12 -mt-12 blur-xl"></div>
-                      <div className="relative z-10">
-                        <span className="bg-accent-gold text-primary text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full mb-3 inline-block">Elite Standard</span>
-                        <h4 className="text-sm font-black uppercase tracking-tighter mb-2">Spotless Home Guarantee</h4>
-                        <p className="text-[9px] text-white/70 font-bold uppercase tracking-wide leading-relaxed mb-4">
-                          All field teams are background checked via NIMC with verified NIN credentials. Insured & clinical grade.
-                        </p>
-                      </div>
-                      <Link to="/book" className="relative z-10">
-                        <Button className="w-full bg-accent-orange text-white py-3 font-black text-[9px] uppercase tracking-widest rounded-none shadow-md hover:bg-white hover:text-accent-orange transition-all">
-                          Book Home Shine
-                        </Button>
-                      </Link>
-                    </div>
-
-                  </div>
-                </div>
+                <DropdownPanel
+                  heading="Popular home services"
+                  services={residentialPopular}
+                  viewAllLabel="View all home services"
+                  promoTag="Elite standard"
+                  promoTitle="Spotless Home Guarantee"
+                  promoText="Every team is background-checked with verified NIN credentials, insured and clinical-grade."
+                  promoCta="Book a home clean"
+                />
               )}
             </div>
 
-            <div 
+            <div
               className="relative group px-3 py-7 cursor-pointer"
               onMouseEnter={() => setActiveDropdown('commercial')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <div className="flex items-center font-black text-[10px] uppercase tracking-[0.15em] group-hover:text-accent-gold transition-colors">
-                Commercial <ChevronDown className="ml-1 w-3 h-3" />
+              <div className="flex items-center font-semibold text-sm group-hover:text-accent-gold transition-colors">
+                Business services <ChevronDown className="ml-1 w-3 h-3" />
               </div>
               {activeDropdown === 'commercial' && (
-                <div className="absolute top-full left-1/2 -translate-x-[50%] w-[850px] bg-white text-secondary-dark shadow-2xl border-t-4 border-accent-gold p-8 animate-in fade-in slide-in-from-top-2 duration-200 cursor-default">
-                  <div className="grid grid-cols-12 gap-8">
-                    
-                    {/* Left: Office & Fleet */}
-                    <div className="col-span-4 space-y-4">
-                      <h4 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] border-b border-gray-100 pb-2 flex items-center">
-                        <span className="w-1.5 h-1.5 bg-accent-gold rounded-full mr-2"></span> Corporate Operations
-                      </h4>
-                      <div className="flex flex-col space-y-2">
-                        {COMMERCIAL_SERVICES.slice(0, 8).map((service) => (
-                          <Link 
-                            key={service.slug} 
-                            to={`/services/${service.slug}`}
-                            className="text-[10px] font-black uppercase tracking-wider text-gray-500 hover:text-accent-orange hover:translate-x-1 transition-all"
-                          >
-                            {service.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Middle: Estate & Building */}
-                    <div className="col-span-4 space-y-4">
-                      <h4 className="text-[10px] font-black text-primary uppercase tracking-[0.2em] border-b border-gray-100 pb-2 flex items-center">
-                        <span className="w-1.5 h-1.5 bg-primary-bright rounded-full mr-2"></span> Facility & Estate
-                      </h4>
-                      <div className="flex flex-col space-y-2">
-                        {COMMERCIAL_SERVICES.slice(8).map((service) => (
-                          <Link 
-                            key={service.slug} 
-                            to={`/services/${service.slug}`}
-                            className="text-[10px] font-black uppercase tracking-wider text-gray-500 hover:text-accent-orange hover:translate-x-1 transition-all"
-                          >
-                            {service.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Right: Premium Spot Card */}
-                    <div className="col-span-4 bg-primary text-white p-6 border-b-8 border-accent-gold flex flex-col justify-between shadow-inner relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-12 -mt-12 blur-xl"></div>
-                      <div className="relative z-10">
-                        <span className="bg-accent-gold text-primary text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full mb-3 inline-block">Enterprise</span>
-                        <h4 className="text-sm font-black uppercase tracking-tighter mb-2">Facility Management</h4>
-                        <p className="text-[9px] text-white/70 font-bold uppercase tracking-wide leading-relaxed mb-4">
-                          From retail malls to hospital wards, we provide medical-grade disinfection protocols. Save up to 30% on monthly contracts.
-                        </p>
-                      </div>
-                      <Link to="/book" className="relative z-10">
-                        <Button className="w-full bg-accent-orange text-white py-3 font-black text-[9px] uppercase tracking-widest rounded-none shadow-md hover:bg-white hover:text-accent-orange transition-all">
-                          Request Sales Quote
-                        </Button>
-                      </Link>
-                    </div>
-
-                  </div>
-                </div>
+                <DropdownPanel
+                  heading="Popular business services"
+                  services={commercialPopular}
+                  viewAllLabel="View all business services"
+                  promoTag="Enterprise"
+                  promoTitle="Facility management"
+                  promoText="From malls to hospital wards, with medical-grade disinfection. Save up to 30% on monthly contracts."
+                  promoCta="Request a quote"
+                />
               )}
             </div>
 
-            <Link to="/about" className="px-3 py-7 font-black text-[10px] uppercase tracking-[0.15em] hover:text-accent-gold transition-colors">Service Areas</Link>
-            <Link to="/pricing" className="px-3 py-7 font-black text-[10px] uppercase tracking-[0.15em] hover:text-accent-gold transition-colors">Pricing</Link>
-            
-            <div 
+            <Link to="/pricing" className="px-3 py-7 font-semibold text-sm hover:text-accent-gold transition-colors">Pricing</Link>
+
+            <div
               className="relative group px-3 py-7 cursor-pointer"
               onMouseEnter={() => setActiveDropdown('about')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <div className="flex items-center font-black text-[10px] uppercase tracking-[0.15em] group-hover:text-accent-gold transition-colors">
+              <div className="flex items-center font-semibold text-sm group-hover:text-accent-gold transition-colors">
                 About <ChevronDown className="ml-1 w-3 h-3" />
               </div>
               {activeDropdown === 'about' && (
-                <div className="absolute top-full left-0 w-48 bg-white text-secondary-dark shadow-2xl border-t-4 border-accent-gold animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 w-52 bg-white text-secondary-dark shadow-2xl border-t-4 border-accent-gold animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="py-2">
-                    <Link to="/about" className="block px-6 py-3 text-[10px] font-black uppercase tracking-wider hover:bg-secondary transition-colors">About Us</Link>
-                    <Link to="/cleaner" className="block px-6 py-3 text-[10px] font-black uppercase tracking-wider hover:bg-secondary transition-colors">Find Cleaning Jobs</Link>
-                    <Link to="/blog" className="block px-6 py-3 text-[10px] font-black uppercase tracking-wider hover:bg-secondary transition-colors">Blog</Link>
-                    <Link to="/faq" className="block px-6 py-3 text-[10px] font-black uppercase tracking-wider hover:bg-secondary transition-colors">FAQ</Link>
+                    <Link to="/about" className="block px-6 py-3 text-sm font-medium hover:bg-secondary hover:text-accent-orange transition-colors">About us</Link>
+                    <Link to="/about" className="block px-6 py-3 text-sm font-medium hover:bg-secondary hover:text-accent-orange transition-colors">Service areas</Link>
+                    <Link to="/cleaner" className="block px-6 py-3 text-sm font-medium hover:bg-secondary hover:text-accent-orange transition-colors">Find cleaning jobs</Link>
+                    <Link to="/blog" className="block px-6 py-3 text-sm font-medium hover:bg-secondary hover:text-accent-orange transition-colors">Blog</Link>
+                    <Link to="/faq" className="block px-6 py-3 text-sm font-medium hover:bg-secondary hover:text-accent-orange transition-colors">FAQ</Link>
                   </div>
                 </div>
               )}
@@ -264,12 +159,12 @@ export function Header() {
           {/* Right Side: Account Actions & Button (Aligned Right) */}
           <div className="hidden lg:flex items-center justify-end space-x-6 w-1/4">
             {!isAuthenticated ? (
-              <Link to="/auth" className="text-[10px] font-black uppercase tracking-widest text-white/80 hover:text-accent-gold transition-colors">
+              <Link to="/auth" className="text-sm font-semibold text-white/80 hover:text-accent-gold transition-colors">
                 Login
               </Link>
             ) : (
-              <Link 
-                to={currentUser?.role === 'admin' ? '/admin' : currentUser?.role === 'cleaner' ? '/cleaner' : '/dashboard'} 
+              <Link
+                to={currentUser?.role === 'admin' ? '/admin' : currentUser?.role === 'cleaner' ? '/cleaner' : '/dashboard'}
                 className="text-white/80 hover:text-accent-gold transition-all hover:scale-115 flex items-center justify-center shrink-0"
                 title="Go to Dashboard"
               >
@@ -277,8 +172,8 @@ export function Header() {
               </Link>
             )}
             <Link to="/book">
-              <Button className="bg-accent-orange text-white font-black text-[10px] uppercase tracking-[0.2em] px-8 py-4 rounded-none shadow-xl hover:bg-white hover:text-accent-orange transition-all duration-300">
-                Request Quote
+              <Button className="bg-accent-orange text-white font-bold text-sm px-8 py-4 rounded-lg shadow-xl hover:bg-white hover:text-accent-orange transition-all duration-300">
+                Book now
               </Button>
             </Link>
           </div>
@@ -293,39 +188,94 @@ export function Header() {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="lg:hidden fixed inset-0 top-[112px] z-50 bg-primary overflow-y-auto py-8 px-6 space-y-6 shadow-xl animate-in slide-in-from-right-full duration-300">
-          <div className="space-y-4">
-            <h3 className="font-black text-accent-gold text-xs uppercase tracking-[0.2em] border-b border-white/10 pb-2">Home Services</h3>
-            {RESIDENTIAL_SERVICES.slice(0, 8).map(s => (
-              <Link key={s.slug} to={`/services/${s.slug}`} className="block py-1 text-sm font-bold text-white/90 hover:text-accent-gold" onClick={() => setIsOpen(false)}>{s.title}</Link>
+          <div className="space-y-3">
+            <h3 className="font-bold text-accent-gold text-sm border-b border-white/10 pb-2">Home services</h3>
+            {residentialPopular.map(s => (
+              <Link key={s.slug} to={`/services/${s.slug}`} className="block py-1 text-sm font-medium text-white/90 hover:text-accent-gold" onClick={() => setIsOpen(false)}>{s.title}</Link>
             ))}
+            <Link to="/pricing" className="block py-1 text-sm font-semibold text-accent-gold" onClick={() => setIsOpen(false)}>View all home services →</Link>
           </div>
-          <div className="space-y-4">
-            <h3 className="font-black text-accent-gold text-xs uppercase tracking-[0.2em] border-b border-white/10 pb-2">Business Services</h3>
-            {COMMERCIAL_SERVICES.slice(0, 8).map(s => (
-              <Link key={s.slug} to={`/services/${s.slug}`} className="block py-1 text-sm font-bold text-white/90 hover:text-accent-gold" onClick={() => setIsOpen(false)}>{s.title}</Link>
+          <div className="space-y-3">
+            <h3 className="font-bold text-accent-gold text-sm border-b border-white/10 pb-2">Business services</h3>
+            {commercialPopular.map(s => (
+              <Link key={s.slug} to={`/services/${s.slug}`} className="block py-1 text-sm font-medium text-white/90 hover:text-accent-gold" onClick={() => setIsOpen(false)}>{s.title}</Link>
             ))}
+            <Link to="/pricing" className="block py-1 text-sm font-semibold text-accent-gold" onClick={() => setIsOpen(false)}>View all business services →</Link>
           </div>
           <div className="pt-8 space-y-4">
-            <Link 
-              to={!isAuthenticated ? '/auth' : currentUser?.role === 'admin' ? '/admin' : currentUser?.role === 'cleaner' ? '/cleaner' : '/dashboard'} 
+            <Link
+              to={!isAuthenticated ? '/auth' : currentUser?.role === 'admin' ? '/admin' : currentUser?.role === 'cleaner' ? '/cleaner' : '/dashboard'}
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center space-x-2 text-white font-black uppercase text-xs"
+              className="flex items-center justify-center space-x-2 text-white font-semibold text-sm"
             >
               <UserCircle className="w-5 h-5 text-accent-gold" />
-              <span>{!isAuthenticated ? 'Login / Join' : 'My Account'}</span>
+              <span>{!isAuthenticated ? 'Login / Join' : 'My account'}</span>
             </Link>
             <Link to="/book" onClick={() => setIsOpen(false)}>
-              <Button className="w-full bg-accent-orange text-white font-black uppercase tracking-widest py-5 rounded-none shadow-2xl">Book Now</Button>
+              <Button className="w-full bg-accent-orange text-white font-bold py-5 rounded-lg shadow-2xl">Book now</Button>
             </Link>
             <Link to="/cleaner" onClick={() => setIsOpen(false)}>
-              <Button variant="outline" className="w-full border-white text-white font-black uppercase tracking-widest py-5 rounded-none">Cleaner Portal & Jobs</Button>
-            </Link>
-            <Link to="/admin" onClick={() => setIsOpen(false)}>
-              <Button variant="ghost" className="w-full text-white/40 font-black uppercase tracking-widest py-5 rounded-none">Admin Panel</Button>
+              <Button variant="outline" className="w-full border-white text-white font-bold py-5 rounded-lg">Find cleaning jobs</Button>
             </Link>
           </div>
         </div>
       )}
     </header>
+  );
+}
+
+interface DropdownPanelProps {
+  heading: string;
+  services: ServiceInfo[];
+  viewAllLabel: string;
+  promoTag: string;
+  promoTitle: string;
+  promoText: string;
+  promoCta: string;
+}
+
+function DropdownPanel({ heading, services, viewAllLabel, promoTag, promoTitle, promoText, promoCta }: DropdownPanelProps) {
+  return (
+    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[560px] bg-white text-secondary-dark shadow-2xl border-t-4 border-accent-gold p-8 animate-in fade-in slide-in-from-top-2 duration-200 cursor-default">
+      <div className="grid grid-cols-2 gap-8">
+        {/* Left: curated service list */}
+        <div className="space-y-3">
+          <h4 className="text-xs font-bold text-primary border-b border-gray-100 pb-2 flex items-center">
+            <span className="w-1.5 h-1.5 bg-accent-gold rounded-full mr-2"></span> {heading}
+          </h4>
+          <div className="flex flex-col space-y-2">
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                to={`/services/${service.slug}`}
+                className="text-sm font-medium text-gray-600 hover:text-accent-orange hover:translate-x-1 transition-all"
+              >
+                {service.title}
+              </Link>
+            ))}
+            <Link to="/pricing" className="text-sm font-bold text-primary hover:text-accent-orange transition-colors pt-2">
+              {viewAllLabel} →
+            </Link>
+          </div>
+        </div>
+
+        {/* Right: Premium Spot Card */}
+        <div className="bg-primary text-white p-6 border-b-8 border-accent-gold flex flex-col justify-between shadow-inner relative overflow-hidden rounded-lg">
+          <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-12 -mt-12 blur-xl"></div>
+          <div className="relative z-10">
+            <span className="bg-accent-gold text-primary text-[10px] font-bold px-2 py-0.5 rounded-full mb-3 inline-block">{promoTag}</span>
+            <h4 className="text-base font-bold tracking-tight mb-2">{promoTitle}</h4>
+            <p className="text-xs text-white/70 font-medium leading-relaxed mb-4">
+              {promoText}
+            </p>
+          </div>
+          <Link to="/book" className="relative z-10">
+            <Button className="w-full bg-accent-orange text-white py-3 font-bold text-xs rounded-lg shadow-md hover:bg-white hover:text-accent-orange transition-all">
+              {promoCta}
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }

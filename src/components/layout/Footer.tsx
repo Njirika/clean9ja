@@ -55,8 +55,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-black uppercase tracking-tighter mb-6 text-white">Services</h4>
-            <ul className="space-y-4 text-[10px] font-black uppercase tracking-[0.2em] text-white/50">
+            <h4 className="text-lg font-black tracking-tighter mb-6 text-white">Services</h4>
+            <ul className="space-y-4 text-[10px] font-black text-white/50">
               <li><Link to="/services/full-building-face-lift" className="hover:text-accent-gold transition-colors block">Full Building Face-lift</Link></li>
               <li><Link to="/services/office-workspace-hygiene" className="hover:text-accent-gold transition-colors block">Office & Workspace Hygiene</Link></li>
               <li><Link to="/services/post-build-cleanup" className="hover:text-accent-gold transition-colors block">Post-Build Cleanup</Link></li>
@@ -66,8 +66,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-black uppercase tracking-tighter mb-6 text-white">Company</h4>
-            <ul className="space-y-4 text-[10px] font-black uppercase tracking-[0.2em] text-white/50">
+            <h4 className="text-lg font-black tracking-tighter mb-6 text-white">Company</h4>
+            <ul className="space-y-4 text-[10px] font-black text-white/50">
               <li><Link to="/about" className="hover:text-accent-gold transition-colors block">About Us</Link></li>
               <li><Link to="/safety" className="hover:text-accent-gold transition-colors block">Trust & Safety</Link></li>
               <li><Link to="/careers" className="hover:text-accent-gold transition-colors block">Recruitment</Link></li>
@@ -79,8 +79,8 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-black uppercase tracking-tighter mb-6 text-white">Support</h4>
-            <ul className="space-y-4 text-[10px] font-black uppercase tracking-[0.2em] text-white/50">
+            <h4 className="text-lg font-black tracking-tighter mb-6 text-white">Support</h4>
+            <ul className="space-y-4 text-[10px] font-black text-white/50">
               <li><Link to="/help" className="hover:text-accent-gold transition-colors block">Help Center</Link></li>
               <li><Link to="/pricing" className="hover:text-accent-gold transition-colors block">Price List</Link></li>
               <li><Link to="/faq" className="hover:text-accent-gold transition-colors block">FAQ</Link></li>

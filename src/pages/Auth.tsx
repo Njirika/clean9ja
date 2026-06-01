@@ -63,10 +63,10 @@ export function Auth() {
             <Link to="/" className="inline-flex items-center justify-center mb-6">
               <img src="/logo.png" alt="Clean9ja - Spotless Every Surface" className="h-12 md:h-16 w-auto object-contain" />
             </Link>
-            <h1 className="text-3xl font-black text-primary uppercase tracking-tighter mb-2">
+            <h1 className="text-3xl font-black text-primary tracking-tighter mb-2">
               {mode === 'login' ? 'Mission Control' : 'Join the Squad'}
             </h1>
-            <p className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">
+            <p className="text-gray-400 font-bold text-[10px]">
               {mode === 'login' ? 'Sign in to manage your spaces' : 'Create an account for a spotless life'}
             </p>
           </div>
@@ -74,27 +74,27 @@ export function Auth() {
           <div className="flex border-b-2 border-gray-100 mb-8">
             <button 
               onClick={() => setMode('login')}
-              className={`flex-1 py-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all ${mode === 'login' ? 'text-primary border-b-4 border-primary' : 'text-gray-300 hover:text-gray-500'}`}
+              className={`flex-1 py-4 text-[10px] font-black transition-all ${mode === 'login' ? 'text-primary border-b-4 border-primary' : 'text-gray-300 hover:text-gray-500'}`}
             >
               Login
             </button>
             <button 
               onClick={() => setMode('register')}
-              className={`flex-1 py-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all ${mode === 'register' ? 'text-primary border-b-4 border-primary' : 'text-gray-300 hover:text-gray-500'}`}
+              className={`flex-1 py-4 text-[10px] font-black transition-all ${mode === 'register' ? 'text-primary border-b-4 border-primary' : 'text-gray-300 hover:text-gray-500'}`}
             >
               Register
             </button>
           </div>
 
           <div className="space-y-6">
-            <Button variant="outline" className="w-full py-4 border-2 flex items-center justify-center space-x-3 rounded-none font-black uppercase text-[10px] tracking-widest hover:bg-secondary">
+            <Button variant="outline" className="w-full py-4 border-2 flex items-center justify-center space-x-3 rounded-none font-black text-[10px] hover:bg-secondary">
               <Google className="w-4 h-4 text-primary" />
               <span>Continue with Google</span>
             </Button>
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-100"></div></div>
-              <div className="relative flex justify-center text-[10px] font-black uppercase tracking-widest bg-white px-4 text-gray-300">Or use {method}</div>
+              <div className="relative flex justify-center text-[10px] font-black bg-white px-4 text-gray-300">Or use {method}</div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -122,10 +122,10 @@ export function Auth() {
               )}
 
               {error && (
-                <p className="text-xs font-bold uppercase tracking-widest text-red-500 text-center">{error}</p>
+                <p className="text-xs font-bold text-red-500 text-center">{error}</p>
               )}
 
-              <Button type="submit" disabled={submitting} className="w-full bg-primary text-white py-6 rounded-none font-black uppercase tracking-[0.2em] shadow-xl hover:bg-accent-orange transition-all disabled:opacity-50">
+              <Button type="submit" disabled={submitting} className="w-full bg-primary text-white py-6 rounded-none font-black shadow-xl hover:bg-accent-orange transition-all disabled:opacity-50">
                 {submitting ? 'Please wait…' : mode === 'login' ? 'Authorize Login' : 'Complete Registration'}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -134,12 +134,12 @@ export function Auth() {
             <div className="text-center space-y-4">
               <button 
                 onClick={() => setModeMethod(method === 'email' ? 'phone' : 'email')}
-                className="text-[10px] font-black text-accent-gold uppercase tracking-widest hover:underline"
+                className="text-[10px] font-black text-accent-gold hover:underline"
               >
                 Use {method === 'email' ? 'Phone Number' : 'Email Address'} instead
               </button>
               {mode === 'login' && (
-                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                <p className="text-[10px] text-gray-400 font-bold ">
                   Forgot Password? <a href="#" className="text-primary hover:underline">Request Reset</a>
                 </p>
               )}
@@ -148,7 +148,7 @@ export function Auth() {
         </div>
 
         <div className="bg-secondary/50 p-6 border-t border-gray-100 text-center">
-          <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-relaxed">
+          <p className="text-[10px] text-gray-400 font-bold leading-relaxed">
             By continuing, you agree to Clean9ja's <Link to="/terms" className="text-primary hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
           </p>
         </div>

@@ -30,6 +30,62 @@ export const PaymentGateways = {
   },
 };
 
+/**
+ * Open the Paystack inline checkout for the "pay now" flow.
+ *
+ * This uses the public key only — it opens Paystack's hosted popup, which is
+ * safe to run in the browser. On success Paystack returns a `reference`.
+ *
+ * IMPORTANT: a card charge is only trustworthy once the backend verifies the
+ * reference with Paystack's secret key (and ideally a webhook). That endpoint
+ * does not exist yet, so callers should treat the returned reference as
+ * "payment initiated" and reconcile server-side before fulfilling.
+ *
+ * Resolves with the reference on success, or `null` if Paystack is not
+ * configured / unavailable (so the caller can fall back gracefully).
+ */
+export async function payWithPaystack(opts: {
+  email: string;
+  /** Amount in Naira; converted to kobo for Paystack. */
+  amountNaira: number;
+  reference?: string;
+}): Promise<string | null> {
+  const key = PaymentGateways.paystack.publicKey;
+  if (!key) return null;
+
+  const loaded = await loadScript('https://js.paystack.co/v1/inline.js');
+  const PaystackPop = (window as any).PaystackPop;
+  if (!loaded || !PaystackPop) return null;
+
+  return new Promise<string | null>((resolve) => {
+    const handler = PaystackPop.setup({
+      key,
+      email: opts.email,
+      amount: Math.round(opts.amountNaira * 100),
+      currency: 'NGN',
+      ref: opts.reference || `cn_${Date.now()}`,
+      callback: (response: { reference: string }) => resolve(response.reference),
+      onClose: () => resolve(null),
+    });
+    handler.openIframe();
+  });
+}
+
+const scriptPromises: Record<string, Promise<boolean>> = {};
+function loadScript(src: string): Promise<boolean> {
+  if (src in scriptPromises) return scriptPromises[src];
+  scriptPromises[src] = new Promise<boolean>((resolve) => {
+    if (document.querySelector(`script[src="${src}"]`)) return resolve(true);
+    const s = document.createElement('script');
+    s.src = src;
+    s.async = true;
+    s.onload = () => resolve(true);
+    s.onerror = () => resolve(false);
+    document.body.appendChild(s);
+  });
+  return scriptPromises[src];
+}
+
 // --- 2. ANALYTICS & MONITORING ---
 
 const SENTRY_DSN = import.meta.env.VITE_SENTRY_DSN || '';

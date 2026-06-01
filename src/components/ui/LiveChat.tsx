@@ -86,8 +86,8 @@ export function LiveChat() {
                   CN
                 </div>
                 <div>
-                  <h3 className="font-black uppercase tracking-widest text-xs">Clean9ja Assistant</h3>
-                  <p className="text-[10px] text-accent-gold font-bold uppercase flex items-center">
+                  <h3 className="font-black text-xs">Clean9ja Assistant</h3>
+                  <p className="text-[10px] text-accent-gold font-bold flex items-center">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1.5 animate-pulse" /> Online • 24/7
                   </p>
                 </div>
@@ -119,7 +119,7 @@ export function LiveChat() {
                           <button
                             key={link.label}
                             onClick={() => handleLink(link)}
-                            className="bg-accent-orange text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-sm hover:bg-primary transition-colors"
+                            className="bg-accent-orange text-white text-[10px] font-black px-3 py-1.5 rounded-sm hover:bg-primary transition-colors"
                           >
                             {link.label}
                           </button>
@@ -134,7 +134,7 @@ export function LiveChat() {
                           <button
                             key={q}
                             onClick={() => send(q)}
-                            className="border border-primary/30 text-primary text-[10px] font-bold uppercase tracking-wide px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition-colors"
+                            className="border border-primary/30 text-primary text-[10px] font-bold tracking-wide px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition-colors"
                           >
                             {q}
                           </button>

@@ -35,7 +35,7 @@ export function FAQ() {
     <section className="py-24 bg-secondary font-sans">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-heading font-black text-primary uppercase tracking-tighter mb-4">
+          <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tighter mb-4">
             FAQ
           </h2>
           <div className="w-20 h-1.5 bg-accent-gold mx-auto"></div>
@@ -48,11 +48,11 @@ export function FAQ() {
                 className="w-full px-8 py-8 text-left flex items-center justify-between focus:outline-none group"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
-                <span className="text-sm font-black text-primary uppercase tracking-widest">{faq.question}</span>
+                <span className="text-sm font-black text-primary ">{faq.question}</span>
                 {openIndex === i ? <ChevronUp className="text-accent-gold" /> : <ChevronDown className="text-gray-300 group-hover:text-primary" />}
               </button>
               {openIndex === i && (
-                <div className="px-8 pb-8 text-gray-500 font-bold uppercase text-[11px] leading-relaxed tracking-widest animate-in fade-in slide-in-from-top-1">
+                <div className="px-8 pb-8 text-gray-500 font-bold text-[11px] leading-relaxed animate-in fade-in slide-in-from-top-1">
                   {faq.answer}
                 </div>
               )}

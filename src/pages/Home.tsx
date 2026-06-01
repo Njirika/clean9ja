@@ -52,7 +52,7 @@ export function Home() {
             ].map((item, i) => (
               <div key={i} className="flex items-center space-x-4 justify-center">
                 <item.icon className="w-6 h-6 text-accent-gold shrink-0" />
-                <span className="text-white font-black uppercase tracking-widest text-[10px] leading-tight">{item.label}</span>
+                <span className="text-white font-black text-[10px] leading-tight">{item.label}</span>
               </div>
             ))}
           </div>
@@ -66,7 +66,7 @@ export function Home() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary uppercase tracking-tighter mb-4">
+            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tighter mb-4">
               Why Choose Clean9ja
             </h2>
             <div className="w-24 h-1.5 bg-accent-gold mx-auto"></div>
@@ -86,7 +86,7 @@ export function Home() {
                 <div className="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center shrink-0 shadow-lg group-hover:bg-accent-gold transition-colors">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                 </div>
-                <span className="font-black text-primary uppercase tracking-widest text-[11px] leading-relaxed">{feature}</span>
+                <span className="font-black text-primary text-[11px] leading-relaxed">{feature}</span>
               </div>
             ))}
           </div>
@@ -97,41 +97,41 @@ export function Home() {
       <section className="py-24 bg-secondary font-sans overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary uppercase tracking-tighter mb-4">
+            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tighter mb-4">
               Service Areas
             </h2>
             <div className="w-24 h-1.5 bg-accent-gold mx-auto mb-4"></div>
-            <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px]">Click on your state to check availability</p>
+            <p className="text-gray-500 font-bold text-[10px]">Click on your state to check availability</p>
           </div>
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="flex-1 bg-white p-8 rounded-none shadow-2xl border-4 border-primary min-h-[500px] w-full flex items-center justify-center relative overflow-hidden group">
                <div className="absolute inset-0 bg-primary opacity-5 group-hover:opacity-10 transition-opacity"></div>
                <div className="relative z-10 text-center">
                  <MapPin className="w-32 h-32 text-accent-gold mx-auto mb-6 animate-bounce" />
-                 <h3 className="text-2xl font-black text-primary uppercase tracking-tighter mb-4">Interactive Nigeria Map</h3>
-                 <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">Serving 36 States + FCT</p>
+                 <h3 className="text-2xl font-black text-primary tracking-tighter mb-4">Interactive Nigeria Map</h3>
+                 <p className="text-gray-400 font-bold text-xs">Serving 36 States + FCT</p>
                </div>
                {/* City badges floating */}
-               <div className="absolute top-10 left-10 bg-primary text-white p-2 text-[10px] font-black uppercase animate-pulse">Lagos</div>
-               <div className="absolute top-20 right-20 bg-primary text-white p-2 text-[10px] font-black uppercase animate-pulse delay-75">Abuja</div>
-               <div className="absolute bottom-10 left-20 bg-primary text-white p-2 text-[10px] font-black uppercase animate-pulse delay-150">PH City</div>
+               <div className="absolute top-10 left-10 bg-primary text-white p-2 text-[10px] font-black animate-pulse">Lagos</div>
+               <div className="absolute top-20 right-20 bg-primary text-white p-2 text-[10px] font-black animate-pulse delay-75">Abuja</div>
+               <div className="absolute bottom-10 left-20 bg-primary text-white p-2 text-[10px] font-black animate-pulse delay-150">PH City</div>
             </div>
             <div className="flex-1 w-full">
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
                 {['Lagos', 'Abuja', 'Port Harcourt', 'Kano', 'Ibadan', 'Enugu', 'Benin City', 'Kaduna', 'Warri', 'Owerri', 'Calabar', '+ 25 more'].map(city => (
                   <div key={city} className="flex items-center space-x-3 group cursor-pointer">
                     <div className="w-2 h-2 bg-accent-gold rounded-full group-hover:scale-150 transition-transform"></div>
-                    <span className="font-black text-primary uppercase tracking-widest text-[11px] group-hover:text-accent-gold transition-colors">{city}</span>
+                    <span className="font-black text-primary text-[11px] group-hover:text-accent-gold transition-colors">{city}</span>
                   </div>
                 ))}
               </div>
               <div className="bg-primary p-8 text-white relative overflow-hidden">
                 <div className="relative z-10">
-                  <h4 className="font-black uppercase tracking-tighter text-xl mb-4">Find cleaner near you</h4>
+                  <h4 className="font-black tracking-tighter text-xl mb-4">Find cleaner near you</h4>
                   <div className="flex bg-white p-1">
-                    <input type="text" placeholder="Enter your area..." className="flex-1 px-4 py-3 text-secondary-dark font-bold text-xs uppercase focus:outline-none" />
+                    <input type="text" placeholder="Enter your area..." className="flex-1 px-4 py-3 text-secondary-dark font-bold text-xs focus:outline-none" />
                     <Link to="/book">
-                      <Button className="bg-accent-gold text-primary font-black uppercase tracking-widest px-6 py-3 rounded-none">Start</Button>
+                      <Button className="bg-accent-gold text-primary font-black px-6 py-3 rounded-none">Start</Button>
                     </Link>
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export function Home() {
       <section className="py-24 bg-white font-sans overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary uppercase tracking-tighter mb-4">
+            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tighter mb-4">
               Proven Results
             </h2>
             <div className="w-24 h-1.5 bg-accent-gold mx-auto"></div>
@@ -162,7 +162,7 @@ export function Home() {
                   <BeforeAfterSlider beforeImage={item.before} afterImage={item.after} />
                 </div>
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-black text-primary uppercase tracking-tighter">{item.title}</h3>
+                  <h3 className="text-lg font-black text-primary tracking-tighter">{item.title}</h3>
                   <ArrowRight className="w-5 h-5 text-accent-gold opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </div>
@@ -177,7 +177,7 @@ export function Home() {
       <section className="py-24 bg-secondary font-sans">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary uppercase tracking-tighter mb-4">
+            <h2 className="text-4xl md:text-5xl font-heading font-black text-primary tracking-tighter mb-4">
               Pricing
             </h2>
             <div className="w-20 h-1.5 bg-accent-gold mx-auto"></div>
@@ -192,20 +192,20 @@ export function Home() {
                 "p-12 flex flex-col items-center text-center transition-all duration-500",
                 plan.popular ? "bg-primary text-white shadow-[0_30px_60px_rgba(0,0,0,0.2)] z-10 scale-105 border-y-8 border-accent-gold" : "bg-white text-secondary-dark border border-gray-100"
               )}>
-                <h3 className={cn("text-xs font-black uppercase tracking-[0.4em] mb-10", plan.popular ? "text-accent-gold" : "text-gray-400")}>{plan.tier}</h3>
-                <p className="text-[10px] font-black uppercase tracking-widest mb-2 opacity-60 font-accent">From</p>
+                <h3 className={cn("text-xs font-black mb-10", plan.popular ? "text-accent-gold" : "text-gray-400")}>{plan.tier}</h3>
+                <p className="text-[10px] font-black mb-2 opacity-60 font-accent">From</p>
                 <div className="text-5xl font-black tracking-tighter mb-10 font-heading">{plan.price}</div>
                 <ul className="space-y-6 mb-12 flex-1">
                   {plan.features.map(f => (
                     <li key={f} className="flex items-center justify-center space-x-2">
                       <CheckCircle2 className={cn("w-4 h-4", plan.popular ? "text-accent-gold" : "text-primary")} />
-                      <span className="text-[11px] font-black uppercase tracking-widest">{f}</span>
+                      <span className="text-[11px] font-black ">{f}</span>
                     </li>
                   ))}
                 </ul>
                 <Link to="/book" className="w-full">
                   <Button className={cn(
-                    "w-full font-black uppercase tracking-widest py-5 rounded-none text-xs transition-all",
+                    "w-full font-black py-5 rounded-none text-xs transition-all",
                     plan.popular ? "bg-accent-gold text-primary hover:bg-white" : "bg-primary text-white hover:bg-accent-gold"
                   )}>Book Now</Button>
                 </Link>
@@ -226,10 +226,10 @@ export function Home() {
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-32 -mb-32 blur-3xl"></div>
             
             <div className="relative z-10 text-center lg:text-left">
-              <div className="inline-flex items-center text-accent-gold font-black text-xs uppercase tracking-[0.3em] mb-6">
+              <div className="inline-flex items-center text-accent-gold font-black text-xs mb-6">
                 Ready for a Spotless Space?
               </div>
-              <h2 className="text-4xl md:text-6xl font-heading font-black text-white uppercase tracking-tighter leading-none mb-4">
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-white tracking-tighter leading-none mb-4">
                 WE CLEAN AM <br />
                 <span className="text-accent-gold italic">PROPER!</span>
               </h2>
@@ -237,12 +237,12 @@ export function Home() {
 
             <div className="relative z-10 flex flex-col items-center lg:items-end gap-6 w-full lg:w-auto">
               <Link to="/book" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto bg-accent-orange text-white font-black uppercase tracking-[0.2em] px-12 py-6 text-lg rounded-none shadow-2xl hover:bg-white hover:text-accent-orange transition-all transform hover:-translate-y-1">
+                <Button className="w-full sm:w-auto bg-accent-orange text-white font-black px-12 py-6 text-lg rounded-none shadow-2xl hover:bg-white hover:text-accent-orange transition-all transform hover:-translate-y-1">
                   Book Your Cleaning Now
                 </Button>
               </Link>
               <div className="flex flex-col items-center lg:items-end">
-                <span className="text-[10px] font-black uppercase tracking-widest text-white/50 mb-1">Or Call Nationwide</span>
+                <span className="text-[10px] font-black text-white/50 mb-1">Or Call Nationwide</span>
                 <a href="tel:0800-CLEAN-9JA" className="text-3xl font-black text-white hover:text-accent-gold transition-colors">0800-CLEAN-9JA</a>
               </div>
             </div>

@@ -44,7 +44,7 @@ export function Testimonials() {
                   {t.customer?.avatarUrl ? (
                     <img src={t.customer.avatarUrl} alt={name} className="w-12 h-12 rounded-full mr-4 border-2 border-primary object-cover" />
                   ) : (
-                    <div className="w-12 h-12 rounded-full mr-4 border-2 border-primary bg-primary/10 text-primary flex items-center justify-center font-black uppercase">
+                    <div className="w-12 h-12 rounded-full mr-4 border-2 border-primary bg-primary/10 text-primary flex items-center justify-center font-black ">
                       {name.charAt(0)}
                     </div>
                   )}

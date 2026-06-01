@@ -64,10 +64,10 @@ export function Onboarding() {
               </div>
             </div>
             
-            <h1 className="text-3xl font-heading font-black text-primary uppercase tracking-tighter mb-2">
+            <h1 className="text-3xl font-heading font-black text-primary tracking-tighter mb-2">
               {steps[step].title}
             </h1>
-            <p className="text-gray-500 font-bold uppercase tracking-widest text-[10px] mb-12">
+            <p className="text-gray-500 font-bold text-[10px] mb-12">
               {steps[step].subtitle}
             </p>
 
@@ -78,7 +78,7 @@ export function Onboarding() {
                     <button
                       key={s}
                       onClick={() => setFormData({ ...formData, state: s })}
-                      className={`p-4 border-2 font-black uppercase text-[11px] tracking-widest transition-all ${formData.state === s ? 'border-primary bg-primary text-white shadow-xl' : 'border-gray-100 bg-white text-gray-400 hover:border-accent-gold'}`}
+                      className={`p-4 border-2 font-black text-[11px] transition-all ${formData.state === s ? 'border-primary bg-primary text-white shadow-xl' : 'border-gray-100 bg-white text-gray-400 hover:border-accent-gold'}`}
                     >
                       {s}
                     </button>
@@ -118,7 +118,7 @@ export function Onboarding() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, town: e.target.value })}
                   />
                   <div className="bg-primary/5 p-6 border-l-4 border-accent-gold text-left">
-                    <p className="text-[11px] font-bold text-primary uppercase tracking-tight leading-relaxed">
+                    <p className="text-[11px] font-bold text-primary tracking-tight leading-relaxed">
                       "Clean9ja provides specialized equipment for {formData.city || 'your area'}. Your location is now mapped to our {formData.state} command center."
                     </p>
                   </div>
@@ -129,7 +129,7 @@ export function Onboarding() {
             <Button
               onClick={handleNext}
               disabled={(step === 1 && !formData.state) || (step === 2 && (!formData.city || !formData.lga)) || (step === 3 && !formData.town)}
-              className="w-full bg-accent-orange text-white font-black uppercase tracking-[0.2em] py-6 text-lg rounded-none shadow-2xl hover:bg-primary transition-all"
+              className="w-full bg-accent-orange text-white font-black py-6 text-lg rounded-none shadow-2xl hover:bg-primary transition-all"
             >
               {step === 0 ? "Get Started" : step === steps.length - 1 ? "Complete Setup" : "Continue"}
             </Button>
@@ -137,7 +137,7 @@ export function Onboarding() {
             {step > 0 && (
               <button 
                 onClick={() => setStep(step - 1)}
-                className="mt-6 text-[10px] font-black text-gray-300 uppercase tracking-widest hover:text-primary transition-colors"
+                className="mt-6 text-[10px] font-black text-gray-300 hover:text-primary transition-colors"
               >
                 Go Back
               </button>

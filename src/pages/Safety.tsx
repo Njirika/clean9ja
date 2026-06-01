@@ -29,15 +29,15 @@ export function Safety() {
       />
       <div className="bg-primary py-24 text-white text-center">
         <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-heading font-black uppercase tracking-tighter mb-4 text-accent-gold">Trust & Safety</h1>
-          <p className="text-white/70 font-bold uppercase tracking-[0.3em] text-[10px]">Zero Compromise • Real-Time Protection • Verified Personnel</p>
+          <h1 className="text-5xl font-heading font-black tracking-tighter mb-4 text-accent-gold">Trust & Safety</h1>
+          <p className="text-white/70 font-bold text-[10px]">Zero Compromise • Real-Time Protection • Verified Personnel</p>
         </div>
       </div>
 
       {/* Customer Features */}
       <section className="py-24 container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-black text-primary uppercase tracking-tighter mb-4">Customer Protection Protocol</h2>
+          <h2 className="text-3xl font-black text-primary tracking-tighter mb-4">Customer Protection Protocol</h2>
           <div className="w-20 h-1 bg-accent-gold mx-auto"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -46,8 +46,8 @@ export function Safety() {
               <div className="w-12 h-12 bg-secondary flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors mb-6 shadow-sm">
                 <f.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-sm font-black text-primary uppercase tracking-widest mb-3">{f.title}</h3>
-              <p className="text-xs text-gray-500 font-bold uppercase leading-relaxed">{f.desc}</p>
+              <h3 className="text-sm font-black text-primary mb-3">{f.title}</h3>
+              <p className="text-xs text-gray-500 font-bold leading-relaxed">{f.desc}</p>
             </Card>
           ))}
         </div>
@@ -57,26 +57,26 @@ export function Safety() {
       <section className="py-24 bg-secondary">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-black text-primary uppercase tracking-tighter mb-4">Operational Risk Management</h2>
-            <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Proactive Mitigation Strategies</p>
+            <h2 className="text-3xl font-black text-primary tracking-tighter mb-4">Operational Risk Management</h2>
+            <p className="text-[10px] font-black text-gray-400">Proactive Mitigation Strategies</p>
           </div>
           <div className="overflow-x-auto shadow-2xl">
             <table className="w-full text-left bg-white border-collapse">
               <thead className="bg-primary text-white">
                 <tr>
-                  <th className="p-6 text-[10px] font-black uppercase tracking-widest">Identified Risk</th>
-                  <th className="p-6 text-[10px] font-black uppercase tracking-widest">Impact</th>
-                  <th className="p-6 text-[10px] font-black uppercase tracking-widest">Clean9ja Mitigation Strategy</th>
+                  <th className="p-6 text-[10px] font-black ">Identified Risk</th>
+                  <th className="p-6 text-[10px] font-black ">Impact</th>
+                  <th className="p-6 text-[10px] font-black ">Clean9ja Mitigation Strategy</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {risks.map((r, i) => (
                   <tr key={i} className="hover:bg-gray-50 transition-colors">
-                    <td className="p-6 text-sm font-black text-primary uppercase tracking-tighter">{r.risk}</td>
+                    <td className="p-6 text-sm font-black text-primary tracking-tighter">{r.risk}</td>
                     <td className="p-6">
-                       <span className="bg-red-100 text-red-700 px-3 py-1 text-[8px] font-black uppercase tracking-widest">Critical</span>
+                       <span className="bg-red-100 text-red-700 px-3 py-1 text-[8px] font-black ">Critical</span>
                     </td>
-                    <td className="p-6 text-[11px] font-bold text-gray-500 uppercase leading-relaxed italic">
+                    <td className="p-6 text-[11px] font-bold text-gray-500 leading-relaxed italic">
                       {r.mitigation}
                     </td>
                   </tr>
@@ -92,9 +92,9 @@ export function Safety() {
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <div className="bg-primary/5 p-16 border-4 border-dashed border-primary relative">
             <CheckCircle2 className="w-20 h-20 text-accent-gold mx-auto mb-8 animate-pulse" />
-            <h2 className="text-4xl font-black text-primary uppercase tracking-tighter mb-6">100% Satisfaction or Re-Clean FREE</h2>
-            <p className="text-gray-500 font-bold uppercase tracking-widest text-xs leading-relaxed mb-10">We stand by our professional standards. If our deployment team misses even a spot, we will send a restoration unit within 24 hours at no extra charge.</p>
-            <Button className="bg-primary text-white px-12 py-5 rounded-none font-black uppercase tracking-widest shadow-xl">Our Quality Promise</Button>
+            <h2 className="text-4xl font-black text-primary tracking-tighter mb-6">100% Satisfaction or Re-Clean FREE</h2>
+            <p className="text-gray-500 font-bold text-xs leading-relaxed mb-10">We stand by our professional standards. If our deployment team misses even a spot, we will send a restoration unit within 24 hours at no extra charge.</p>
+            <Button className="bg-primary text-white px-12 py-5 rounded-none font-black shadow-xl">Our Quality Promise</Button>
           </div>
         </div>
       </section>
