@@ -129,6 +129,7 @@ model User {
   cleanerProfile     CleanerProfile?
   reviews            Review[]
   subscriptions      Subscription[]
+  notifications      Notification[]
 
   @@map("users")
 }
@@ -355,4 +356,17 @@ model BlogPost {
   publishedDate DateTime @default(now()) @map("published_date")
 
   @@map("blog_posts")
+}
+
+model Notification {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @map("user_id") @db.Uuid
+  title     String   @db.VarChar(255)
+  message   String
+  isRead    Boolean  @default(false) @map("is_read")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
 }
