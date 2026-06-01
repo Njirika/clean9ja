@@ -153,6 +153,11 @@ export function Booking() {
           `Site ${i + 1}: ${l.address}, ${l.city}, ${l.state} — Services: ${l.services.join(', ')}`
         ).join(' | '),
         numberOfRooms: parseInt(firstLoc?.rooms || '1'),
+        address: {
+          streetAddress: firstLoc?.address || 'Site Address',
+          city: firstLoc?.city || 'Lagos',
+          state: firstLoc?.state || 'Lagos',
+        }
       });
 
       setBookingRef(result?.bookingReference || null);
