@@ -40,7 +40,15 @@ app.use(cookieParser());
 // Enable CORS
 app.use(
   cors({
-    origin: env.frontendUrl,
+    origin: function (origin, callback) {
+      const allowedOrigins = env.frontendUrl.split(',').map(url => url.trim());
+      // Allow requests with no origin (like mobile apps, curl) or if it matches our list
+      if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );
