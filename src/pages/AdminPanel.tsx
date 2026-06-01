@@ -22,7 +22,7 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { BookingStatus } from '../types/database';
 
-type Tab = 'dispatch' | 'recruitment' | 'blog' | 'settings';
+type Tab = 'dispatch' | 'pricing' | 'recruitment' | 'blog' | 'settings';
 
 interface Applicant {
   id: string;
@@ -39,6 +39,15 @@ export function AdminPanel() {
   const [adminStats, setAdminStats] = useState<AdminStats | null>(null);
   const [bookings, setBookings] = useState<ApiBooking[] | null>(null);
 
+  // Pricing State
+  const [services, setServices] = useState<any[] | null>(null);
+  const [loadingServices, setLoadingServices] = useState(false);
+  const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
+  const [editPrice, setEditPrice] = useState<string>('');
+  const [editUnit, setEditUnit] = useState<string>('');
+  const [savingServiceId, setSavingServiceId] = useState<string | null>(null);
+  const [serviceError, setServiceError] = useState<string | null>(null);
+
   // Settings state
   const [settingsSaved, setSettingsSaved] = useState(false);
   const [vettingMode, setVettingMode] = useState('simulated');
@@ -50,10 +59,20 @@ export function AdminPanel() {
   // Recruitment applicants (fetched from backend in future; local mock for now)
   const [applicants, setApplicants] = useState<Applicant[]>([]);
 
+  const loadServices = () => {
+    setLoadingServices(true);
+    setServiceError(null);
+    api.services.list()
+      .then(setServices)
+      .catch((err: any) => setServiceError(err.message || 'Could not load service catalog.'))
+      .finally(() => setLoadingServices(false));
+  };
+
   useEffect(() => {
     if (!isAuthenticated) return;
     api.admin.stats().then(setAdminStats).catch(() => setAdminStats(null));
     api.bookings.mine().then(setBookings).catch(() => setBookings([]));
+    loadServices();
   }, [isAuthenticated]);
 
   const stats = [
@@ -73,6 +92,38 @@ export function AdminPanel() {
     }
   };
 
+  const handleStartEdit = (service: any) => {
+    setEditingServiceId(service.id);
+    setEditPrice(service.basePrice.toString());
+    setEditUnit(service.priceUnit);
+  };
+
+  const handleCancelEdit = () => {
+    setEditingServiceId(null);
+    setServiceError(null);
+  };
+
+  const handleSaveService = async (id: string) => {
+    setSavingServiceId(id);
+    setServiceError(null);
+    try {
+      const priceNum = parseFloat(editPrice);
+      if (isNaN(priceNum) || priceNum <= 0) {
+        throw new Error('Please enter a valid price greater than 0.');
+      }
+      await api.services.update(id, {
+        basePrice: priceNum,
+        priceUnit: editUnit as any
+      });
+      loadServices();
+      setEditingServiceId(null);
+    } catch (err: any) {
+      setServiceError(err.message || 'Failed to update service pricing.');
+    } finally {
+      setSavingServiceId(null);
+    }
+  };
+
   const handleSaveSettings = (e: React.FormEvent) => {
     e.preventDefault();
     setSettingsSaved(true);
@@ -89,6 +140,7 @@ export function AdminPanel() {
 
   const menuItems = [
     { id: 'dispatch', label: 'Overview & Dispatch', icon: LayoutDashboard },
+    { id: 'pricing', label: 'Services & Pricing', icon: DollarSign },
     { id: 'recruitment', label: 'Recruitment Hub', icon: Users },
     { id: 'blog', label: 'Blog Manager', icon: BookOpen },
     { id: 'settings', label: 'System Settings', icon: Settings }
@@ -292,6 +344,135 @@ export function AdminPanel() {
                     </Card>
                   </div>
                 </div>
+              </div>
+            )}
+
+            {/* Tab: Services & Pricing */}
+            {activeTab === 'pricing' && (
+              <div className="space-y-8 animate-in fade-in duration-300">
+                <Card className="p-6 lg:p-8 rounded-none border-t-8 border-accent-gold shadow-xl bg-white space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-100 pb-6 gap-4">
+                    <div>
+                      <h3 className="font-black text-primary uppercase tracking-tighter text-xl">Services & Pricing Manager</h3>
+                      <p className="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Configure service pricing tiers, base units, and visibility status</p>
+                    </div>
+                    <Button onClick={loadServices} disabled={loadingServices} className="bg-primary text-white font-black text-[9px] uppercase tracking-widest px-4 py-2.5 rounded-none flex items-center">
+                      {loadingServices ? 'Refreshing...' : 'Refresh Services'}
+                    </Button>
+                  </div>
+
+                  {serviceError && (
+                    <div className="bg-red-50 text-red-600 px-4 py-3 text-xs font-bold border-l-4 border-red-500 mb-6 uppercase tracking-wider">
+                      {serviceError}
+                    </div>
+                  )}
+
+                  {loadingServices && !services ? (
+                    <div className="text-center py-12">
+                      <p className="text-xs font-black uppercase text-gray-400 tracking-widest animate-pulse">Loading CleanNaija catalog...</p>
+                    </div>
+                  ) : services && services.length === 0 ? (
+                    <div className="text-center py-12 bg-secondary/10 border border-dashed border-gray-200">
+                      <p className="text-xs font-black uppercase text-gray-400 tracking-widest">No services found in database catalog.</p>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 gap-6">
+                      {services?.map((service) => {
+                        const isEditing = editingServiceId === service.id;
+                        return (
+                          <div 
+                            key={service.id}
+                            className={`p-6 border transition-all flex flex-col md:flex-row md:items-center justify-between gap-6 ${isEditing ? 'border-accent-gold bg-accent-gold/5 shadow-md' : 'border-gray-100 hover:border-gray-300 bg-white'}`}
+                          >
+                            <div className="flex items-start gap-4">
+                              <img 
+                                src={service.imageUrl || 'https://via.placeholder.com/150'} 
+                                alt={service.name} 
+                                className="w-16 h-16 object-cover border border-gray-100 shrink-0"
+                              />
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <h4 className="font-black text-primary uppercase text-sm">{service.name}</h4>
+                                  <span className={`text-[8px] font-black uppercase tracking-widest px-2 py-0.5 ${service.isActive ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-400'}`}>
+                                    {service.isActive ? 'Active' : 'Inactive'}
+                                  </span>
+                                </div>
+                                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest text-[9px] mt-1">Category: {service.category}</p>
+                                <p className="text-xs font-medium text-gray-500 max-w-lg mt-2 leading-relaxed">{service.description}</p>
+                              </div>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 shrink-0 w-full md:w-auto">
+                              {isEditing ? (
+                                <div className="flex items-center gap-3 w-full sm:w-auto">
+                                  <div className="w-full sm:w-32">
+                                    <label className="block text-[8px] font-black text-primary uppercase tracking-widest mb-1">Base Price (₦)</label>
+                                    <input 
+                                      type="number"
+                                      value={editPrice}
+                                      onChange={(e) => setEditPrice(e.target.value)}
+                                      className="w-full h-10 border border-accent-gold px-3 font-bold text-xs bg-white focus:outline-accent-gold"
+                                    />
+                                  </div>
+                                  <div className="w-full sm:w-32">
+                                    <label className="block text-[8px] font-black text-primary uppercase tracking-widest mb-1">Price Unit</label>
+                                    <select
+                                      value={editUnit}
+                                      onChange={(e) => setEditUnit(e.target.value)}
+                                      className="w-full h-10 border border-accent-gold px-2 font-bold text-xs bg-white focus:outline-accent-gold"
+                                    >
+                                      <option value="flat">Flat Rate</option>
+                                      <option value="per_hour">Per Hour</option>
+                                      <option value="per_room">Per Room</option>
+                                      <option value="per_sqm">Per Sqm</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="text-left md:text-right">
+                                  <p className="text-[8px] font-black text-gray-400 uppercase tracking-widest mb-1">Current Tier</p>
+                                  <p className="text-xl font-black text-primary">
+                                    ₦{Number(service.basePrice).toLocaleString()}
+                                  </p>
+                                  <span className="text-[9px] font-black uppercase text-accent-gold tracking-widest">
+                                    {service.priceUnit === 'flat' ? 'Flat Rate' : service.priceUnit === 'per_hour' ? 'Per Hour' : service.priceUnit === 'per_room' ? 'Per Room' : 'Per Sqm'}
+                                  </span>
+                                </div>
+                              )}
+
+                              <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                                {isEditing ? (
+                                  <>
+                                    <button 
+                                      onClick={() => handleSaveService(service.id)} 
+                                      disabled={savingServiceId === service.id}
+                                      className="flex-grow sm:flex-none bg-primary text-white text-[9.5px] font-black uppercase tracking-widest px-4 py-3 hover:bg-accent-orange transition-all disabled:opacity-50"
+                                    >
+                                      {savingServiceId === service.id ? 'Saving...' : 'Save'}
+                                    </button>
+                                    <button 
+                                      onClick={handleCancelEdit} 
+                                      className="flex-grow sm:flex-none bg-gray-100 hover:bg-gray-200 text-gray-600 text-[9.5px] font-black uppercase tracking-widest px-4 py-3 transition-all"
+                                    >
+                                      Cancel
+                                    </button>
+                                  </>
+                                ) : (
+                                  <button 
+                                    onClick={() => handleStartEdit(service)} 
+                                    className="w-full sm:w-auto bg-primary text-white text-[9.5px] font-black uppercase tracking-widest px-5 py-3 hover:bg-accent-orange transition-all shadow-md"
+                                  >
+                                    Edit Pricing
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </Card>
               </div>
             )}
 

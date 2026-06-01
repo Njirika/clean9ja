@@ -215,6 +215,8 @@ export const api = {
     list: () => request<ApiService[]>('GET', '/services', undefined, { auth: false }),
     bySlug: (slug: string) =>
       request<ApiService>('GET', `/services/${slug}`, undefined, { auth: false }),
+    update: (id: string, data: Partial<ApiService>) =>
+      request<ApiService>('PUT', `/services/${id}`, data),
   },
   bookings: {
     quote: (data: { serviceId: string; numberOfRooms?: number; propertySizeSqm?: number }) =>
