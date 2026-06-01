@@ -15,7 +15,7 @@ export const BUSINESS = {
   description:
     "Nigeria's premier platform for professional cleaning services — home, office, post-construction, hospital, roof/exterior and specialty cleaning across all 36 states and the FCT.",
   url: SITE_URL,
-  logo: `${SITE_URL}/images/logo.png`,
+  logo: `${SITE_URL}/logo.png`,
   image: `${SITE_URL}/images/hero-bg.jpg`,
   phoneDisplay: '0800-CLEAN-9JA',
   phoneDial: 'tel:0800-CLEAN-9JA',

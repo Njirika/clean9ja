@@ -60,11 +60,8 @@ export function Auth() {
       >
         <div className="p-10">
           <div className="text-center mb-10">
-            <Link to="/" className="inline-flex items-center space-x-2 mb-6">
-              <div className="bg-primary p-1.5 rounded-lg">
-                <div className="w-8 h-8 flex items-center justify-center text-white font-heading font-black text-xl italic border-2 border-white">CN</div>
-              </div>
-              <span className="text-2xl font-heading font-black text-primary uppercase tracking-tighter">CleanNaija</span>
+            <Link to="/" className="inline-flex items-center justify-center mb-6">
+              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-12 md:h-16 w-auto object-contain" />
             </Link>
             <h1 className="text-3xl font-black text-primary uppercase tracking-tighter mb-2">
               {mode === 'login' ? 'Mission Control' : 'Join the Squad'}

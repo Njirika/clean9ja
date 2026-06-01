@@ -90,14 +90,8 @@ export function Header() {
           
           {/* Left Side: Logo (Aligned Left) */}
           <div className="w-1/4 flex justify-start">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="bg-white p-1.5 rounded-lg shadow-inner animate-in fade-in zoom-in-95 duration-500">
-                <div className="w-9 h-9 flex items-center justify-center text-primary font-heading font-black text-2xl leading-none italic border-2 border-primary">CN</div>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-2xl font-heading font-black tracking-tighter uppercase">CleanNaija</span>
-                <span className="text-[9px] tracking-[0.2em] font-bold text-accent-gold uppercase">Spotless. Guaranteed.</span>
-              </div>
+            <Link to="/" className="flex items-center">
+              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 md:h-12 w-auto object-contain" />
             </Link>
           </div>
 

@@ -35,10 +35,8 @@ export class EmailService {
         <!-- Header -->
         <tr><td style="background:${BRAND.green};padding:28px 32px;">
           <table role="presentation" cellpadding="0" cellspacing="0"><tr>
-            <td style="background:#ffffff;border-radius:8px;width:44px;height:44px;text-align:center;vertical-align:middle;font-weight:800;font-style:italic;color:${BRAND.green};font-size:20px;">CN</td>
-            <td style="padding-left:12px;">
-              <div style="color:#ffffff;font-weight:800;font-size:20px;letter-spacing:-0.5px;">CleanNaija</div>
-              <div style="color:${BRAND.gold};font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;">Spotless. Guaranteed.</div>
+            <td>
+              <a href="${BRAND.site}"><img src="${BRAND.site}/logo.png" alt="CleanNaija - Spotless Every Surface" height="44" style="display:block; border:0; outline:none; text-decoration:none;" /></a>
             </td>
           </tr></table>
         </td></tr>

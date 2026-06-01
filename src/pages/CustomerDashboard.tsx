@@ -154,9 +154,8 @@ export function CustomerDashboard() {
     <div className="min-h-screen bg-secondary/30 pb-24 lg:pb-12 font-sans flex flex-col">
       {/* Mobile header */}
       <header className="sticky top-0 z-40 bg-primary text-white py-4 px-6 flex justify-between items-center shadow-lg lg:hidden">
-        <Link to="/" className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-primary font-heading font-black text-lg italic border border-white">CN</div>
-          <span className="font-heading font-black uppercase text-base tracking-tighter">My Hub</span>
+        <Link to="/" className="flex items-center bg-white p-1 rounded">
+          <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-6 w-auto object-contain" />
         </Link>
         <div className="flex items-center space-x-3 bg-[#144718] px-3 py-1.5 rounded-full border border-white/10">
           <div className="w-2 h-2 rounded-full bg-accent-gold animate-pulse"></div>
@@ -188,14 +187,8 @@ export function CustomerDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar */}
           <aside className="lg:col-span-1 space-y-3 hidden lg:block">
-            <Link to="/" className="flex items-center space-x-2 mb-6 group px-2">
-              <div className="bg-primary p-1.5 rounded-lg border border-primary-bright shadow-inner group-hover:scale-105 transition-transform">
-                <div className="w-7 h-7 flex items-center justify-center text-white bg-primary font-heading font-black text-lg italic border border-white">CN</div>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-lg font-heading font-black tracking-tighter text-white uppercase group-hover:text-accent-gold transition-colors">CleanNaija</span>
-                <span className="text-[7.5px] tracking-[0.2em] font-black text-accent-gold uppercase">My Dashboard</span>
-              </div>
+            <Link to="/" className="flex items-center mb-6 px-2">
+              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 w-auto object-contain" />
             </Link>
 
             {menuItems.map((item) => {

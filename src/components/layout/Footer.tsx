@@ -7,11 +7,8 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 mb-20">
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-8">
-              <div className="bg-white p-1.5 rounded-lg">
-                <div className="w-9 h-9 flex items-center justify-center text-primary font-heading font-black text-2xl leading-none italic border-2 border-primary">CN</div>
-              </div>
-              <span className="text-3xl font-heading font-black text-white uppercase tracking-tighter">CleanNaija</span>
+            <Link to="/" className="inline-block mb-8 bg-white p-3 rounded-xl shadow-lg">
+              <img src="/logo.png" alt="CleanNaija - Spotless Every Surface" className="h-10 md:h-12 w-auto object-contain" />
             </Link>
             <p className="text-white/70 mb-10 max-w-sm leading-relaxed font-medium">
               Nigeria's premier digital platform for professional cleaning services. 
