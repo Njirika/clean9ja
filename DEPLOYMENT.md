@@ -100,6 +100,27 @@ npx prisma db push     # sync schema to Supabase
 npm run db:seed        # seed default services + blog content
 ```
 
+### 🔒 Supabase 2026 Data API Security Notice
+
+Supabase rolled out a major security update (**May 30, 2026** for new projects; **October 30, 2026** for existing projects) that restricts the default exposure of tables in the `public` schema to client-side APIs (PostgREST, GraphQL, or `supabase-js` direct client calls).
+
+* **How this affects CleanNaija**: **Prisma ORM is 100% unaffected**! Because the Express backend communicates directly via direct PostgreSQL TCP connections (`DATABASE_URL` via port `5432`/`6543`) as the superuser/database administrator, your server-side APIs do not use the Supabase Data API and will function continuously without issues.
+* **Preparedness for Future integrations**: If you or your developers ever decide to query these tables directly from the frontend using `@supabase/supabase-js`, they will return empty responses unless explicit permissions are granted. 
+
+To ensure complete compatibility and make your database future-proof, execute this quick SQL snippet in your **Supabase SQL Editor**:
+
+```sql
+-- 1. Grant direct Data API access for existing tables to Supabase API roles
+GRANT ALL ON ALL TABLES IN SCHEMA public TO postgres, service_role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO authenticated;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO anon;
+
+-- 2. Automatically grant direct API access on any future tables created
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO postgres, service_role;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO authenticated;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO anon;
+```
+
 ---
 
 ## What changed for serverless (vs. the old VPS/Coolify setup)
